@@ -1,0 +1,75 @@
+# ── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+pip-wheel-metadata/
+
+# ── Ambientes virtuais e segredos ─────────────────────────────────────────
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# ── Caches de ferramentas ─────────────────────────────────────────────────
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.ipynb_checkpoints/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# ── Saídas de treino e experimentos (regeneráveis) ────────────────────────
+# tudo que `python -m pdm_cmaps ...` e os estudos geram; fica só na máquina
+/results/
+catboost_info/
+lightning_logs/
+mlruns/
+wandb/
+runs/
+*.log
+*.pt
+*.pth
+*.ckpt
+*.joblib
+*.pkl
+*.npz
+*.npy
+
+# ── Arquivos temporários ──────────────────────────────────────────────────
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig
+*.rej
+*~
+.nfs*
+
+# ── Editores e sistemas operacionais ──────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Assistentes de IA (configuração local da máquina) ─────────────────────
+.claude/
+.cursor/
+.gemini/
+.codex/
+.aider*

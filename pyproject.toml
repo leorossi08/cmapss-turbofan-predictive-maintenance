@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdm-cmaps"
+version = "0.1.0"
+description = "Manutenção preditiva em turbofans NASA C-MAPSS: detecção de anomalias, RUL e camada de monitoramento"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy", "pandas", "scipy", "scikit-learn", "matplotlib",
+    "catboost", "xgboost", "lightgbm", "plotly>=6.0",
+    "torch",  # importado incondicionalmente por modeling/ e analysis/, portanto obrigatório
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+pdm-cmaps = "pdm_cmaps.cli.main:main"
+pdm-update-all = "pdm_cmaps.cli.update_all:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = [
+    "requirement(id): Traceability marker for plan requirement IDs",
+    "slow: Slow end-to-end pipeline execution checks",
+]
+addopts = '-m "not slow"'

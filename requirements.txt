@@ -1,0 +1,2 @@
+# Instalação única: as dependências ficam em pyproject.toml (extra `dev` = pytest).
+-e .[dev]
