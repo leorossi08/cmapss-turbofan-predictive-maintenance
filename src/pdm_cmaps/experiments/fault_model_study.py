@@ -46,7 +46,8 @@ from pdm_cmaps.reporting import viz_style
 OUT_DEFAULT = DEFAULT_RESULTS_DIR / "injecao_modelos"
 MEWMA = "MEWMA (13 resíduos)"
 DIAGNOSTIC_ESTIMATORS = ["Mistura ET 25%", "Mistura ET 50%", "Extra Trees regularizado"]  # só para o diagnóstico do FD003 (ruído de estimação)
-ESTIMATORS = ["Extra Trees (padrão)", "Random Forest", "LightGBM", "XGBoost", "Ridge", "MLP", "Média do regime (sem ML)", *DIAGNOSTIC_ESTIMATORS]
+DEFAULT_ESTIMATORS = ["Extra Trees (padrão)", "Random Forest", "LightGBM", "XGBoost", "Ridge", "MLP", "Média do regime (sem ML)"]  # os do estudo principal
+ESTIMATORS = [*DEFAULT_ESTIMATORS, *DIAGNOSTIC_ESTIMATORS]  # os aceitos na linha de comando
 BASELINE = "Média do regime (sem ML)"
 
 
@@ -123,7 +124,7 @@ def run_one(subset: str, seed: int, H: int, out: Path, n_ctrl: int = 6, n_rep: i
     tr, te = world.regimes.transform(world.train), world.regimes.transform(blind)
     ctrl_ids = set(meta.loc[meta["role"] == "controle", "blind_id"].astype(int))
     rows, resid_rows = [], []
-    for est in estimators or ESTIMATORS:
+    for est in estimators or DEFAULT_ESTIMATORS:
         print(f"[{tag}] {est}", flush=True)
         mv = MultivariateResidualMonitor(healthy_cycle_limit=H, random_state=seed, estimator=make_estimator(est, seed), engine_offset=mewma_offset)
         with warnings.catch_warnings():
@@ -172,11 +173,11 @@ def fig_mewma_by_estimator(summ: pd.DataFrame, path: Path, H: int) -> None:
     fig, axes = plt.subplots(len(KEY_FAULTS), len(subsets), figsize=(3.6 * len(subsets), 2.7 * len(KEY_FAULTS)), squeeze=False, sharey=True)
     for i, (kind, mag) in enumerate(KEY_FAULTS):
         for j, sub in enumerate(subsets):
-            d = summ[(summ["Subset"] == sub) & (summ["Detector"] == MEWMA) & (summ["kind"] == kind) & np.isclose(summ["magnitude"], mag) & (summ["H"] == H)].set_index("Estimator").reindex(ESTIMATORS)
-            colors = [viz_style.INK_2 if e == BASELINE else viz_style.SERIES[1] for e in ESTIMATORS]
-            axes[i, j].barh(range(len(ESTIMATORS)), d["power_pct_mean"], xerr=d["power_pct_std"].fillna(0), color=colors, height=0.65, capsize=2)
-            axes[i, j].set_yticks(range(len(ESTIMATORS)))
-            axes[i, j].set_yticklabels(ESTIMATORS if j == 0 else [], fontsize=8)
+            d = summ[(summ["Subset"] == sub) & (summ["Detector"] == MEWMA) & (summ["kind"] == kind) & np.isclose(summ["magnitude"], mag) & (summ["H"] == H)].set_index("Estimator").reindex(DEFAULT_ESTIMATORS)
+            colors = [viz_style.INK_2 if e == BASELINE else viz_style.SERIES[1] for e in DEFAULT_ESTIMATORS]
+            axes[i, j].barh(range(len(DEFAULT_ESTIMATORS)), d["power_pct_mean"], xerr=d["power_pct_std"].fillna(0), color=colors, height=0.65, capsize=2)
+            axes[i, j].set_yticks(range(len(DEFAULT_ESTIMATORS)))
+            axes[i, j].set_yticklabels(DEFAULT_ESTIMATORS if j == 0 else [], fontsize=8)
             axes[i, j].invert_yaxis()
             axes[i, j].set_xlim(0, 105)
             viz_style.style_axes(axes[i, j], grid="x")
@@ -199,10 +200,10 @@ def fig_sensor_heatmap(summ: pd.DataFrame, path: Path, H: int, kind: str = "degr
     fig, axes = plt.subplots(1, len(subsets), figsize=(4.6 * len(subsets), 5.2), squeeze=False)
     for ax, sub in zip(axes[0], subsets):
         d = summ[(summ["Subset"] == sub) & (summ["kind"] == kind) & np.isclose(summ["magnitude"], mag) & (summ["H"] == H) & (summ["Detector"] != MEWMA)]
-        p = d.pivot(index="Detector", columns="Estimator", values="power_pct_mean").reindex(columns=ESTIMATORS)
+        p = d.pivot(index="Detector", columns="Estimator", values="power_pct_mean").reindex(columns=DEFAULT_ESTIMATORS)
         im = ax.imshow(p.values, vmin=0, vmax=100, cmap="Blues", aspect="auto")
-        ax.set_xticks(range(len(ESTIMATORS)))
-        ax.set_xticklabels([e.replace(" (padrão)", "").replace(" (sem ML)", "") for e in ESTIMATORS], rotation=40, ha="right", fontsize=8)
+        ax.set_xticks(range(len(DEFAULT_ESTIMATORS)))
+        ax.set_xticklabels([e.replace(" (padrão)", "").replace(" (sem ML)", "") for e in DEFAULT_ESTIMATORS], rotation=40, ha="right", fontsize=8)
         ax.set_yticks(range(len(p.index)))
         ax.set_yticklabels(p.index, fontsize=8)
         for (r, c), v in np.ndenumerate(p.values):
@@ -218,14 +219,14 @@ def fig_sensor_heatmap(summ: pd.DataFrame, path: Path, H: int, kind: str = "degr
 
 def fig_residual_ratio(rsum: pd.DataFrame, path: Path, H: int) -> None:
     viz_style.apply_style()
-    d = rsum[(rsum["H"] == H) & (rsum["Detector"] != MEWMA)].groupby(["Subset", "Estimator"])["resid_sd_ratio"].median().unstack("Estimator").reindex(columns=ESTIMATORS)
+    d = rsum[(rsum["H"] == H) & (rsum["Detector"] != MEWMA)].groupby(["Subset", "Estimator"])["resid_sd_ratio"].median().unstack("Estimator").reindex(columns=DEFAULT_ESTIMATORS)
     fig, ax = plt.subplots(figsize=(8.5, 4.2))
     w = 0.8 / len(d.index)
     for k, sub in enumerate(d.index):
-        ax.bar(np.arange(len(ESTIMATORS)) + k * w, d.loc[sub], w, label=sub, color=[*viz_style.SERIES, viz_style.INK_2][k % 4])
+        ax.bar(np.arange(len(DEFAULT_ESTIMATORS)) + k * w, d.loc[sub], w, label=sub, color=[*viz_style.SERIES, viz_style.INK_2][k % 4])
     ax.axhline(1.0, color=viz_style.INK, lw=1)
-    ax.set_xticks(np.arange(len(ESTIMATORS)) + 0.4 - w / 2)
-    ax.set_xticklabels([e.replace(" (padrão)", "").replace(" (sem ML)", "") for e in ESTIMATORS], rotation=25, ha="right", fontsize=8)
+    ax.set_xticks(np.arange(len(DEFAULT_ESTIMATORS)) + 0.4 - w / 2)
+    ax.set_xticklabels([e.replace(" (padrão)", "").replace(" (sem ML)", "") for e in DEFAULT_ESTIMATORS], rotation=25, ha="right", fontsize=8)
     ax.set_ylabel("desvio do resíduo saudável / o da média do regime\n(mediana dos sensores; < 1 = modelo melhor que a média)")
     viz_style.style_axes(ax)
     ax.legend(frameon=False, fontsize=8)
@@ -271,7 +272,7 @@ def main(argv: list[str] | None = None) -> int:
     s = res["resumo"]
     top = s[(s["H"] == a.H) & (s["Detector"] == MEWMA) & (s["kind"] == "degrau") & np.isclose(s["magnitude"], 0.25)]
     with pd.option_context("display.width", 200):
-        print(top.pivot(index="Estimator", columns="Subset", values="power_pct_mean").reindex(ESTIMATORS).round(1).to_string())
+        print(top.pivot(index="Estimator", columns="Subset", values="power_pct_mean").reindex(DEFAULT_ESTIMATORS).round(1).to_string())
     return 0
 
 
