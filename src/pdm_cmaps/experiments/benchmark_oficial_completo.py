@@ -44,7 +44,7 @@ from pdm_cmaps.pipeline.extra_models import fit_predict
 NETS = {"PyTorch CNN": PyTorchCNNModel, "PyTorch RNN (LSTM)": PyTorchRNNModel, "PyTorch Transformer": PyTorchTransformerModel}
 EXTRA_CONFIGS = (("ref_w15", False, 15), ("global_w30", False, 30), ("regime_w15", True, 15), ("regime_w30", True, 30))  # ref_w15 repete a referência na mesma máquina das demais
 BOOST_CONFIGS = (("regime_t10", (5, 10), True), ("regime_t30", (5, 10, 30), True), ("global_t30", (5, 10, 30), False))  # (nome, janelas dos atributos temporais, sensores padronizados por regime?); global_t30 separa o efeito da janela do efeito do regime
-BOOST_MODELS = ("XGBoost", "LightGBM")
+BOOST_MODELS = ("XGBoost", "LightGBM", "XGBoost (NASA Loss)")
 SEEDS_MAIN = (42, 7, 123, 1, 2)
 SEEDS_EXTRAS = (42, 7, 123)
 
