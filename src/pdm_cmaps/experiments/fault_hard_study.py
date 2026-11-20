@@ -31,7 +31,7 @@ reach the charts as raw columns; the answer key (family, shape, magnitude, t0, s
 fixes the physical direction of "processo" faults. False-alarm budget 0.2 per 100 monitored cycles, matched per chart
 on independent healthy controls; single-sensor charts have that budget EACH (a 13-chart panel would multiply it).
 
-Run:  .venv/bin/python -m pdm_cmaps.experiments.fault_hard_study [--subsets FD004 FD002 FD001] [--jobs 3]     /  --aggregate-only
+Run:  .venv/bin/python -m pdm_cmaps.experiments.fault_hard_study [--subsets FD004 FD002 FD003 FD001] [--jobs 3]     /  --aggregate-only
 Output: results/falhas_dificeis/{runs,tabelas,figuras}
 """
 
@@ -321,7 +321,7 @@ def fig_power(byb: pd.DataFrame, path: Path) -> None:
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument("--H", type=int, default=25)
-    p.add_argument("--subsets", nargs="+", default=["FD004", "FD002", "FD001"])
+    p.add_argument("--subsets", nargs="+", default=["FD004", "FD002", "FD003", "FD001"])
     p.add_argument("--seeds", nargs="+", type=int, default=[42, 7, 123])
     p.add_argument("--estimators", nargs="+", default=DEFAULT_ESTIMATORS, choices=ESTIMATORS)
     p.add_argument("--n-ctrl", type=int, default=4)

@@ -31,6 +31,7 @@ Sempre da raiz do repositório, com o ambiente virtual ativo.
 | Rodar **tudo** (pipeline + todos os estudos + tabelas + gráficos) | `python scripts/rodar.py rodar tudo` (retomável) ou `python -m pdm_cmaps --all` | `results/` e `tcc-writing/tables/` (várias horas) |
 | Só reexecutar os estudos e sincronizar as tabelas | `python -m pdm_cmaps.cli.update_all` (`--so-sincronizar` pula os estudos) | `results/`, `tcc-writing/tables/` |
 | Camada de monitoramento (conformal, criticidade, custo) | `python -m pdm_cmaps.monitoring.layer --jobs 3` | `results/monitoring_repeated/` |
+| Teste oficial de RUL com redes por regime e boosting | `python scripts/rodar.py rodar rul_oficial` | `results/benchmark_oficial/` (horas) |
 | Benchmark de modelos de RUL (várias sementes) | `python -m pdm_cmaps.experiments.benchmark_repeated` (retoma se interrompido; `--aggregate-only` só reagrega) | `results/benchmark_repeated/` (~1h40) |
 | Injeção cega de falhas e falso alarme igualado | `python -m pdm_cmaps.experiments.fault_detection_study` | `results/injecao_deteccao/` (rodada longa) |
 | Falhas sorteadas (ganho do ML sobre a média do regime) | `python -m pdm_cmaps.experiments.fault_hard_study` | `results/falhas_dificeis/` (rodada longa) |

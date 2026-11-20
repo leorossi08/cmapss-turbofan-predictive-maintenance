@@ -53,6 +53,7 @@ STUDIES: tuple[StudySpec, ...] = (
 TABLE_COPIES: dict[str, str] = {
     "benchmark_repeated_summary.csv": "benchmark_repeated/benchmark_repeated_summary.csv",
     "benchmark_repeated_tests.csv": "benchmark_repeated/benchmark_repeated_tests.csv",
+    "benchmark_repeated_tests_por_motor.csv": "benchmark_repeated/benchmark_repeated_tests_por_motor.csv",
     "diferenca_vs_media_regime.csv": "falhas_dificeis/tabelas/diferenca_vs_media_regime.csv",
     "poder_por_forma.csv": "falhas_dificeis/tabelas/poder_por_forma.csv",
     "poder_por_magnitude.csv": "falhas_dificeis/tabelas/poder_por_magnitude.csv",

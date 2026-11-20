@@ -10,6 +10,8 @@ import pandas as pd
 from sklearn.model_selection import GroupKFold
 import torch
 import torch.nn.functional as F
+
+from pdm_cmaps.modeling.determinism import deterministic
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.linear_model import RidgeCV
 
@@ -221,6 +223,7 @@ class MiniRocketRULModel:
         self.target_col: str = ""
         self.fit_time: float = 0.0
 
+    @deterministic
     def fit(self, frame: pd.DataFrame, feature_cols: list[str], target_col: str) -> "MiniRocketRULModel":
         """Form engine-local sequences, extract PPV features, and train a regularized Ridge regressor."""
         started = time.perf_counter()
@@ -258,6 +261,7 @@ class MiniRocketRULModel:
         self.fit_time = time.perf_counter() - started
         return self
 
+    @deterministic
     def predict(self, frame: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
         """Return aligned true targets and sequence-endpoint predictions."""
         if self.regressor is None or self.scaler is None or self.transformer is None or self.feature_scaler is None:

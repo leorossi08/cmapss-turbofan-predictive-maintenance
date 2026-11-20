@@ -33,6 +33,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from sklearn.base import BaseEstimator, RegressorMixin, clone
 from sklearn.dummy import DummyRegressor
 
 from pdm_cmaps.data.loader import CMapssLoader
@@ -44,8 +45,25 @@ from pdm_cmaps.reporting import viz_style
 
 OUT_DEFAULT = DEFAULT_RESULTS_DIR / "injecao_modelos"
 MEWMA = "MEWMA (13 resíduos)"
-ESTIMATORS = ["Extra Trees (padrão)", "Random Forest", "LightGBM", "XGBoost", "Ridge", "MLP", "Média do regime (sem ML)"]
+DIAGNOSTIC_ESTIMATORS = ["Mistura ET 25%", "Mistura ET 50%", "Extra Trees regularizado"]  # só para o diagnóstico do FD003 (ruído de estimação)
+ESTIMATORS = ["Extra Trees (padrão)", "Random Forest", "LightGBM", "XGBoost", "Ridge", "MLP", "Média do regime (sem ML)", *DIAGNOSTIC_ESTIMATORS]
 BASELINE = "Média do regime (sem ML)"
+
+
+class BlendWithMean(BaseEstimator, RegressorMixin):
+    """weight * base(x) + (1 - weight) * mean(y): encolhe um modelo aprendido na direção da média do regime (diagnóstico de ruído de estimação)."""
+
+    def __init__(self, base=None, weight: float = 0.5):
+        self.base = base
+        self.weight = weight
+
+    def fit(self, X, y):
+        self.base_ = clone(self.base).fit(X, y)
+        self.mean_ = float(np.mean(y))
+        return self
+
+    def predict(self, X):
+        return self.weight * np.asarray(self.base_.predict(X), dtype=float) + (1.0 - self.weight) * self.mean_
 KEY_FAULTS = (("degrau", 0.25), ("rampa", 0.25), ("variancia", 1.0), ("vies_sensor", 2.0))
 
 
@@ -53,6 +71,10 @@ def make_estimator(name: str, seed: int):
     """Fresh, untuned estimator with the repo defaults (same family/size as the benchmark pool)."""
     if name == "Extra Trees (padrão)":
         return get_model("extra_trees", seed, n_estimators=60, max_depth=12, n_jobs=1)
+    if name in ("Mistura ET 25%", "Mistura ET 50%"):
+        return BlendWithMean(get_model("extra_trees", seed, n_estimators=60, max_depth=12, n_jobs=1), 0.25 if "25" in name else 0.5)
+    if name == "Extra Trees regularizado":
+        return get_model("extra_trees", seed, n_estimators=60, max_depth=12, min_samples_leaf=100, n_jobs=1)
     if name == "Random Forest":
         return get_model("rf", seed, n_estimators=60, max_depth=12, n_jobs=1)
     if name == "LightGBM":

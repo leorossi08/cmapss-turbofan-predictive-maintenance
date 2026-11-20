@@ -12,6 +12,7 @@ from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.model_selection import GroupShuffleSplit
 
+from pdm_cmaps.modeling.determinism import deterministic
 from pdm_cmaps.modeling.networks import CNNRegressorNet, LSTMRegressorNet, RNNRegressorNet, TransformerRegressorNet
 from pdm_cmaps.modeling.sequences import build_causal_engine_sequences, build_engine_sequences
 
@@ -47,6 +48,7 @@ class PyTorchLSTMModel:
         self.target_col = ""
         self.fit_time = 0.0
 
+    @deterministic
     def fit(self, frame: pd.DataFrame, feature_cols: list[str], target_col: str) -> "PyTorchLSTMModel":
         """Train on engine-local windows; early stopping monitors training loss."""
         torch.manual_seed(self.random_state)
@@ -87,6 +89,7 @@ class PyTorchLSTMModel:
         self.fit_time = time.perf_counter() - started
         return self
 
+    @deterministic
     def predict(self, frame: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
         """Return aligned target and sequence-endpoint predictions."""
         if self.net is None or self.scaler is None or self.target_scaler is None:
@@ -147,6 +150,7 @@ class BasePyTorchSequenceModel:
     def _build_network(self, input_dim: int) -> nn.Module:
         raise NotImplementedError("Subclasses must implement _build_network")
 
+    @deterministic
     def fit(self, frame: pd.DataFrame, feature_cols: list[str], target_col: str = "RUL") -> "BasePyTorchSequenceModel":
         """Fit model with engine-preserving causal sequences, deterministic generator, and grouped early stopping."""
         torch.manual_seed(self.random_state)
@@ -241,6 +245,7 @@ class BasePyTorchSequenceModel:
         """Alias for predict returning raw array."""
         return self.predict(frame)
 
+    @deterministic
     def predict(self, frame: pd.DataFrame) -> np.ndarray:
         """Predict aligned target values for every row in the DataFrame."""
         if self.net is None or self.scaler is None or self.target_scaler is None:

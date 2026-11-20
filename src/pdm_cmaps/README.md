@@ -93,6 +93,8 @@ Entradas de linha de comando: `python -m pdm_cmaps` (pipeline), `python -m pdm_c
 | Arquivo | O que faz |
 |---|---|
 | `benchmark_repeated.py` | Repeated RUL benchmark (RQ-A) over subsets x seeds, in both evaluation protocols |
+| `benchmark_oficial_completo.py` | Official-test RUL with per-engine predictions (RMSE vs capped and uncapped RUL, NASA score), networks with per-regime normalization and a 30-cycle window, and boosting with the same treatment |
+| `mewma_calibracao_sintetica.py` | Synthetic calibration of the MEWMA T² limit (option; validation on real healthy cycles) |
 | `envelope_ignored_cases.py` | Small deviations that leave the envelope but do NOT become alerts: cases, numbers and figure for the TCC |
 | `fault_detection_study.py` | Early-detection study with injected faults: power, delay and false alarms at MATCHED false-alarm rate |
 | `fault_hard_study.py` | Hard, numerous, randomly drawn faults: does a learning model beat the regime mean as virtual sensor? |

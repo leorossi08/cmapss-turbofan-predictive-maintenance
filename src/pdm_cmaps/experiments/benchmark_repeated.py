@@ -150,16 +150,65 @@ def aggregate(out: Path) -> pd.DataFrame:
     return summary
 
 
+def merge_lanes(base: Path, subsets=("FD001", "FD002", "FD003", "FD004")) -> Path:
+    """Junta as pastas das raias (`<base>/<FDxxx>*/`, uma ou mais por subconjunto, p. ex. `FD002` e `FD002_s12`) em `<base>/` para agregar.
+
+    Lança erro se faltar a raia de algum subconjunto ou se a mesma (subconjunto, semente, protocolo, modelo) aparecer em duas pastas
+    (duplicata: a agregação contaria a mesma execução duas vezes)."""
+    for name in ("benchmark_rows.csv", "benchmark_engine_errors.csv"):
+        parts = []
+        for sub in subsets:
+            files = sorted(base.glob(f"{sub}*/{name}"))
+            if not files:
+                raise FileNotFoundError(f"{base}/{sub}*/{name} ausente: a raia {sub} não gravou nada")
+            parts += [pd.read_csv(f) for f in files]
+        merged = pd.concat(parts, ignore_index=True)
+        key = [c for c in ("Subset", "Seed", "Protocol", "Model", "unit_id") if c in merged.columns]
+        if len(key) >= 4 and merged.duplicated(subset=key).any():
+            raise ValueError(f"{name}: linhas duplicadas entre as pastas das raias ({int(merged.duplicated(subset=key).sum())})")
+        merged.to_csv(base / name, index=False)
+    return base
+
+
+def engine_level_tests(err: pd.DataFrame, ref: str = "XGBoost (+temporal)", others=None, min_engines: int = 5) -> pd.DataFrame:
+    """Testes pareados POR MOTOR: o erro de cada motor é a média sobre as sementes em que ele foi avaliado, e há um Wilcoxon por comparação.
+
+    Por que não combinar os p-valores das sementes (Fisher): as sementes reutilizam os mesmos motores (no protocolo oficial, o MESMO conjunto de
+    teste; no holdout, divisões que se sobrepõem), então não são réplicas independentes e o Fisher infla a evidência. Aqui cada motor conta uma
+    vez; `Seeds_per_engine` mostra quantas sementes entraram na média dele.
+    """
+    others = list(others) if others is not None else [*DEEP, "MiniRocket + RidgeCV", "XGBoost", "LightGBM (+temporal)"]
+    rows = []
+    for (protocol, subset), g in err.groupby(["Protocol", "Subset"]):
+        per_engine = g.groupby(["Model", "unit_id"])["abs_err"].agg(["mean", "size"]).reset_index()
+        a = per_engine[per_engine["Model"] == ref].set_index("unit_id")
+        for other in others:
+            b = per_engine[per_engine["Model"] == other].set_index("unit_id")
+            both = a.index.intersection(b.index)
+            if len(both) < min_engines:
+                continue
+            d = b.loc[both, "mean"] - a.loc[both, "mean"]
+            res = stats.wilcoxon(a.loc[both, "mean"], b.loc[both, "mean"])
+            rows.append({"Protocol": protocol, "Subset": subset, "Comparison": f"{ref} vs {other}", "n_engines": len(both),
+                         "Seeds_per_engine_mean": float(a.loc[both, "size"].mean()), "Median_err_diff_other_minus_ref": float(d.median()),
+                         "p_wilcoxon_engines": float(res.pvalue)})
+    return pd.DataFrame(rows)
+
+
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--subsets", nargs="+", default=["FD001", "FD002", "FD003", "FD004"])
-    parser.add_argument("--seeds", nargs="+", type=int, default=[42, 7, 123])
+    parser.add_argument("--seeds", nargs="+", type=int, default=[42, 7, 123, 1, 2], help="5 sementes (protocol.SEEDS_RUL)")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_RESULTS_DIR / "benchmark_repeated")
     parser.add_argument("--aggregate-only", action="store_true")
+    parser.add_argument("--merge-lanes", action="store_true", help="antes de agregar, junta <output-dir>/<FDxxx>/ (uma raia por subconjunto) em <output-dir>/")
     args = parser.parse_args(argv)
-    if not args.aggregate_only:
+    if not args.aggregate_only and not args.merge_lanes:
         run(args.subsets, args.seeds, args.output_dir)
+    if args.merge_lanes:
+        merge_lanes(args.output_dir, tuple(args.subsets))
     summary = aggregate(args.output_dir)
+    engine_level_tests(pd.read_csv(args.output_dir / "benchmark_engine_errors.csv")).to_csv(args.output_dir / "benchmark_repeated_tests_por_motor.csv", index=False)
     print(summary.round(3).to_string(index=False))
     return 0
 

@@ -2,7 +2,7 @@
 
 Um plano é só dados (`Plan` com `Step`s). Para criar um novo, escreva uma função que devolve um `Plan` e registre em PLANOS.
 
-Uso cotidiano:   tudo
+Uso cotidiano:   tudo, rul_oficial, diagnostico_fd003
 Registro histórico (como cada conjunto de números do TCC foi regenerado; não são necessários para usar o projeto):
     engine_offset, varredura_janelas, multirregime, offset_todos, protocolo_principal,
     ic_bootstrap, injecao_h25, injecao_h35_50, mewma_nativo, deteccao_fd004
@@ -97,6 +97,40 @@ def plano_tudo() -> Plan:
     return Plan("tudo", "pytest + pipeline dos 4 subconjuntos + todos os estudos + sincronização das tabelas e gráficos (horas)",
                 lanes={"A": [passo("pytest", "pytest", "-q", est=60), *pipeline, *estudos]},
                 final=[passo("sincronizacao", "pdm_cmaps.cli.update_all", "--so-sincronizar", est=400)])
+
+
+def plano_rul_oficial() -> Plan:
+    """Teste oficial de RUL: 13 modelos x 5 sementes, redes com normalização por regime e janela de 30 ciclos (3 sementes) e boosting com o mesmo tratamento."""
+    of = "pdm_cmaps.experiments.benchmark_oficial_completo"
+    saida = lambda nome: f"results/benchmark_oficial/{nome}"  # noqa: E731
+    pronto = lambda nome: existe(f"{saida(nome)}/previsoes_oficial.csv")  # noqa: E731
+    principais = [passo(f"main_{fd}_s{seed}", of, "--subsets", fd, "--part", "main", "--seeds", str(seed), "--output-dir", saida(f"main_{fd}_s{seed}"),
+                        est=1500, check=pronto(f"main_{fd}_s{seed}")) for fd in SUBSETS for seed in (42, 7, 123, 1, 2)]
+    redes = [passo(f"extras_{fd}_s{seed}", of, "--subsets", fd, "--part", "extras", "--seeds", str(seed), "--output-dir", saida(f"{fd}_s{seed}"),
+                   est=1800, check=pronto(f"{fd}_s{seed}")) for fd in SUBSETS for seed in (42, 7, 123)]
+    boosting = [passo(f"boosting_{fd}", of, "--subsets", fd, "--part", "boosting", "--output-dir", saida(f"boost_{fd}"),
+                      est=400, check=pronto(f"boost_{fd}")) for fd in SUBSETS]
+    return Plan("rul_oficial", "teste oficial de RUL + redes com regime e janela 30 + boosting com o mesmo tratamento, agregado (horas, 4 raias)",
+                lanes={"A": [], "B": [], "C": [], "D": []}, pool=[*redes, *principais, *boosting],
+                final=[passo("agregar", of, "--aggregate-only", "--output-dir", "results/benchmark_oficial", est=60,
+                             check=existe("results/benchmark_oficial/resumo_oficial.csv"))])
+
+
+def plano_diagnostico_fd003() -> Plan:
+    """Por que o Extra Trees fica abaixo da média do regime no FD003? Mistura com a média, ET regularizado e janela saudável de 50 (FD003 e FD001)."""
+    hard = "pdm_cmaps.experiments.fault_hard_study"
+    base = ("Média do regime (sem ML)",)
+    e25 = ("Extra Trees (padrão)", "Mistura ET 25%", "Mistura ET 50%", "Extra Trees regularizado", *base)
+    e50 = ("Extra Trees (padrão)", *base)
+    por_subconjunto = lambda h: Step(f"por_subconjunto_{h}", (PY, "tcc-writing/hard_by_subset.py", "--results", f"results/diagnostico_fd003/{h}",  # noqa: E731
+                                                              "--out", f"results/diagnostico_fd003/por_subconjunto_{h}.csv"), existe(f"results/diagnostico_fd003/por_subconjunto_{h}.csv"), 60)
+    return Plan("diagnostico_fd003", "diagnóstico do ganho negativo do Extra Trees no FD003 (~10 min)",
+                lanes={"A": [passo("h25", hard, "--subsets", "FD003", "FD001", "--H", "25", "--jobs", "6", "--estimators", *e25, "--output-dir", "results/diagnostico_fd003/H25",
+                                   est=300, check=n_arquivos("results/diagnostico_fd003/H25/runs/*_series.csv", 6)),
+                       passo("h50", hard, "--subsets", "FD003", "FD001", "--H", "50", "--jobs", "6", "--estimators", *e50, "--output-dir", "results/diagnostico_fd003/H50",
+                             est=300, check=n_arquivos("results/diagnostico_fd003/H50/runs/*_series.csv", 6)),
+                       por_subconjunto("H25"), por_subconjunto("H50")]})
+
 
 
 # ── registro histórico das reexecuções ────────────────────────────────────────
@@ -207,6 +241,8 @@ def plano_deteccao_fd004() -> Plan:
 
 PLANOS = {
     "tudo": plano_tudo,
+    "rul_oficial": plano_rul_oficial,
+    "diagnostico_fd003": plano_diagnostico_fd003,
     "engine_offset": plano_engine_offset,
     "varredura_janelas": plano_varredura_janelas,
     "multirregime": plano_multirregime,

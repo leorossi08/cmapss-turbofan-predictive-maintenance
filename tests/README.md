@@ -14,6 +14,10 @@ Um arquivo por camada do pacote, espelhando `src/pdm_cmaps/`. Rodar: `make test`
 | `test_monitoring.py` | `monitoring/` | cobertura conformal, criticidade, alertas causais, custo, mensagens só com números dos fatos |
 | `test_experiments.py` | `experiments/` | injeção cega e pareada de falhas, alarmes causais, bootstrap de poder, janela saudável |
 | `test_reporting.py` | `reporting/` | as figuras são geradas sem erro e seguem o estilo |
+| `test_benchmark_estatistica.py` | `experiments/benchmark_repeated.py` | junção das raias sem duplicata e teste pareado por motor (média sobre sementes) |
+| `test_determinismo_redes.py` | `modeling/determinism.py` | as redes PyTorch e o MiniRocket repetem bit a bit com a mesma semente, e o número de threads não muda o resultado |
+| `test_mewma_calibracao.py` | `experiments/mewma_calibracao_sintetica.py` | limite sintético da MEWMA: reproduz o erro de estimar o deslocamento |
+| `test_protocolo.py` | `protocol.py` | os padrões das classes e dos `argparse` do código coincidem com o protocolo congelado (sementes, janelas, divisão por motor) |
 | `test_scripts.py` | `scripts/rodar.py` | tentativas, retomada, dependências entre raias, pool, cancelamento em falha, `--dry-run` e os planos reais bem formados |
 | `test_pipeline_cli.py` | `pipeline/`, `cli/` | configuração padrão, argumentos da linha de comando, instanciação do pipeline, progresso com estimativa de tempo (`progress.py`) no `main()`, no `StudyRunner` e nas fases do pipeline |
 

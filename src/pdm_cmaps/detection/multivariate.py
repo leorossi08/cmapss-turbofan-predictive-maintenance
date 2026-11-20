@@ -29,7 +29,8 @@ class MultivariateResidualMonitor:
     def __init__(self, sensors=MULTIVARIATE_SENSORS, lam: float = 0.10, alpha: float = 0.0027, k: int = 2,
                  healthy_cycle_limit: int = DEFAULT_HEALTHY_CYCLE_LIMIT, random_state: int = DEFAULT_RANDOM_STATE,
                  estimator=None, mode: str = "exogenous", engine_offset: bool = True, offset_window: int | None = None,
-                 calibrate_out_of_window: bool = False):
+                 calibrate_out_of_window: bool = False, calibration: str = "empirical", synthetic_reps: int = 20,
+                 synthetic_horizon: int = 150, synthetic_block: int = 1):
         self.estimator = estimator  # None = the VirtualSensor default (Extra Trees); cloned per sensor
         # "exogenous" (default, thesis detector): expected value from settings + ambient channels only.
         # "cross_sensor": expected value also from the OTHER sensors (a consistency check; a fault that moves
@@ -51,6 +52,18 @@ class MultivariateResidualMonitor:
         # [DEFAULT OFF] com offset_window < H: μ, Σ e o limite do T² saem só dos ciclos FORA da janela do deslocamento (W, H] (a recursão do T²
         # roda desde o ciclo 1, como no monitoramento), e o falso alarme da janela saudável é medido nesses mesmos ciclos.
         self.calibrate_out_of_window = bool(calibrate_out_of_window)
+        # [CALIBRAÇÃO DO LIMITE] "empirical" (padrão, protocolo anterior): quantil de T² nos próprios ciclos da janela, já com o deslocamento tirado
+        # DELA, onde a média do z é zero por construção; o T² sai subestimado, o limite fica baixo e o falso alarme DEPOIS da janela sobe
+        # (0,20 a 2,64 por 100 ciclos contra 0,01 a 0,06 sem o deslocamento). "synthetic": reproduz o erro de estimar o deslocamento. Para cada
+        # motor de treino sorteia, com reposição (em blocos de `synthetic_block` ciclos), séries saudáveis de W + `synthetic_horizon` ciclos
+        # a partir dos z brutos da janela dele, estima o deslocamento nos primeiros W ciclos exatamente como no monitoramento, roda a recursão
+        # do T² e toma o quantil (1 − alpha) só dos ciclos DEPOIS da janela. Só usa motores de treino (sem vazamento).
+        if calibration not in {"empirical", "synthetic"}:
+            raise ValueError("calibration must be 'empirical' or 'synthetic'")
+        self.calibration = calibration
+        self.synthetic_reps = int(synthetic_reps)
+        self.synthetic_horizon = int(synthetic_horizon)
+        self.synthetic_block = int(synthetic_block)
 
     def _out_of_window(self) -> bool:
         return bool(self.engine_offset and self.calibrate_out_of_window and self._offset_w() < self.healthy_cycle_limit)
@@ -111,6 +124,8 @@ class MultivariateResidualMonitor:
         self.sensors_all_ = [s for s in SENSOR_COLUMNS if s in train_frame.columns and train_frame[s].std() > 1e-6]
         self.virtual_ = {}
         cal = None
+        cal_raw = None
+        cal_regime = None
         for sensor in self.sensors_:
             cross = None
             if self.mode == "cross_sensor":
@@ -125,9 +140,14 @@ class MultivariateResidualMonitor:
             self.virtual_[sensor] = vs
             rows = vs.calibration_predictions_.set_index(["unit_id", "cycle"])
             flat = rows.reset_index()
-            z = self._remove_offset(self._z(vs, flat).to_numpy(), flat)
+            raw = self._z(vs, flat).to_numpy()
+            z = self._remove_offset(raw, flat)
             col = pd.Series(z, index=rows.index, name=sensor)
             cal = col.to_frame() if cal is None else cal.join(col, how="inner")
+            rawcol = pd.Series(raw, index=rows.index, name=sensor)
+            cal_raw = rawcol.to_frame() if cal_raw is None else cal_raw.join(rawcol, how="inner")
+            if cal_regime is None:
+                cal_regime = pd.Series(flat["regime_id"].to_numpy(), index=rows.index, name="regime_id")
         cal = cal.sort_index()
         zc = cal.to_numpy()
         cyc_cal = cal.index.get_level_values("cycle").to_numpy()
@@ -137,9 +157,53 @@ class MultivariateResidualMonitor:
         self.sigma_inv_ = np.linalg.inv(sigma)
         t2 = self._t2(zc, cal.index.get_level_values("unit_id").to_numpy())
         self.ucl_ = float(np.quantile(t2[keep], 1 - self.alpha))
+        self.ucl_empirical_ = self.ucl_
+        self.synthetic_t2_ = None
+        self.synthetic_t2_cycles_ = None
+        if self.calibration == "synthetic":
+            self.synthetic_t2_cycles_ = self._synthetic_post_window_t2(cal_raw.sort_index(), cal_regime.reindex(cal_raw.sort_index().index), by_cycle=True)
+            self.synthetic_t2_ = self.synthetic_t2_cycles_.ravel()  # limite do HORIZONTE inteiro (usado no monitoramento)
+            self.ucl_ = float(np.quantile(self.synthetic_t2_, 1 - self.alpha))
         # kept for calibration-noise studies (engine-cluster bootstrap of the UCL, healthy_window_study.py)
         self.calibration_t2_ = pd.DataFrame({"unit_id": cal.index.get_level_values("unit_id").to_numpy(), "t2": t2})[keep].reset_index(drop=True)
         return self
+
+    def _synthetic_post_window_t2(self, raw: pd.DataFrame, regime: pd.Series, by_cycle: bool = False) -> np.ndarray:
+        """T² dos ciclos DEPOIS da janela em séries saudáveis sintéticas (ver `calibration="synthetic"`). Um T² por ciclo pós-janela, de todos os
+        motores de treino × réplicas; o limite para qualquer alpha é `np.quantile(resultado, 1 - alpha)`.
+
+        `by_cycle=True` devolve a matriz (séries, ciclos pós-janela) em vez do vetor achatado: logo depois da janela a EWMA ainda carrega a memória da
+        janela (onde o z é centrado por construção) e o T² cresce até o regime estacionário (~1 − 0,9^t com λ = 0,10); um limite medido só nos primeiros
+        ciclos pós-janela é menor que o do horizonte inteiro."""
+        rng = np.random.default_rng(self.random_state)
+        W, L, b, p = self._offset_w(), self.synthetic_horizon, max(1, self.synthetic_block), raw.shape[1]
+        N = W + L
+        seqs = []
+        for _, g in raw.groupby(level="unit_id", sort=False):
+            Z = g.to_numpy(dtype=float)
+            R = regime.reindex(g.index).to_numpy()
+            n = len(Z)
+            if n < max(10, b):
+                continue
+            for _rep in range(self.synthetic_reps):
+                starts = rng.integers(0, n - b + 1, size=-(-N // b))
+                idx = (starts[:, None] + np.arange(b)[None, :]).ravel()[:N]
+                z, r = Z[idx].copy(), R[idx]
+                for reg in np.unique(r[:W]):  # deslocamento por regime nos primeiros W ciclos, mínimo de 3 linhas (como em _remove_offset)
+                    in_win = r[:W] == reg
+                    if in_win.sum() >= 3:
+                        z[r == reg] -= z[:W][in_win].mean(axis=0)
+                seqs.append(z)
+        if not seqs:
+            raise ValueError("nenhum motor de treino com ciclos suficientes para a calibração sintética")
+        Zb = np.stack(seqs)  # (S, N, p)
+        w = np.zeros((Zb.shape[0], p))
+        out = np.empty((Zb.shape[0], N))
+        for t in range(N):
+            w = self.lam * (Zb[:, t, :] - self.mu_) + (1 - self.lam) * w
+            factor = self.lam / (2 - self.lam) * (1 - (1 - self.lam) ** (2 * (t + 1)))
+            out[:, t] = np.einsum("sp,pq,sq->s", w, self.sigma_inv_, w) / factor
+        return out[:, W:] if by_cycle else out[:, W:].ravel()
 
     def score(self, frame: pd.DataFrame) -> pd.DataFrame:
         """Per-cycle T2 statistic and breach flag for engines in ``frame`` (needs ``regime_id``)."""

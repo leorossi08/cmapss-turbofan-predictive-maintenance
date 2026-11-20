@@ -38,6 +38,10 @@ from pdm_cmaps.detection.virtual_sensor import VirtualSensor
 from pdm_cmaps.monitoring.reports import build_facts, render_report
 from pdm_cmaps.monitoring.uncertainty import ConformalRULInterval, NormalizedConformalRULInterval, causal_local_spread, interval_metrics
 
+# Limite do T² da MEWMA nos motores nativos (H = 50): "synthetic" desde 2026-11-18 (decisão do autor, post hoc; ver docs/protocolo-primario.md).
+# É um argumento explícito aqui porque o padrão da CLASSE continua "empirical": os estudos de injeção (Seção 5.5 e a parte de injeção da Seção 5.4) usam o limite empírico.
+MEWMA_CALIBRATION_MONITORING = "synthetic"
+
 # ============================================================================
 # orchestration
 # ============================================================================
@@ -71,6 +75,7 @@ def compute_monitoring(
     alpha: float = 0.10,
     policy: CriticalityPolicy | None = None,
     loader: CMapssLoader | None = None,
+    mewma_calibration: str = MEWMA_CALIBRATION_MONITORING,
 ) -> dict:
     """Pure computation of the whole layer for one (subset, seed); no files are written."""
     policy = policy or CriticalityPolicy()
@@ -136,7 +141,7 @@ def compute_monitoring(
 
     # SPC stage -> anomaly flags (RQ-E): univariate T50 chart and multivariate MEWMA over 13 sensors
     alarms, trace, spc = compute_fleet_alarms(train_df, test_df, subset, seed, healthy_cycle_limit)
-    mv = MultivariateResidualMonitor(healthy_cycle_limit=healthy_cycle_limit, random_state=seed).fit(regimes.transform(train_df))
+    mv = MultivariateResidualMonitor(healthy_cycle_limit=healthy_cycle_limit, random_state=seed, calibration=mewma_calibration).fit(regimes.transform(train_df))
     mv_alarms, _, mv_summary = mv.alarms(mv.score(regimes.transform(test_df)))
     extra = {"anomaly_mv": mv_alarms}
 
@@ -256,14 +261,14 @@ def _run_dir(out: Path, subset: str, seed: int) -> Path:
     return out / "runs" / f"{subset}_seed{seed}"
 
 
-def run_one(subset: str, seed: int, out: Path, alpha: float, healthy_cycle_limit: int) -> None:
+def run_one(subset: str, seed: int, out: Path, alpha: float, healthy_cycle_limit: int, mewma_calibration: str = MEWMA_CALIBRATION_MONITORING) -> None:
     """Compute one (subset, seed) and write its tables at once, so a crash never loses finished runs."""
     d = _run_dir(out, subset, seed)
     if all((d / f"{part}.csv").exists() for part in RUN_PARTS):
         print(f"[repeat] {subset} seed={seed} already done, skipping", flush=True)
         return
     print(f"[repeat] {subset} seed={seed}", flush=True)
-    res = compute_monitoring(subset, seed, healthy_cycle_limit, alpha)
+    res = compute_monitoring(subset, seed, healthy_cycle_limit, alpha, mewma_calibration=mewma_calibration)
     d.mkdir(parents=True, exist_ok=True)
     tag = {"Subset": subset, "Seed": seed}
     tables = {
@@ -326,16 +331,17 @@ def aggregate_repeated(out: Path) -> pd.DataFrame:
     return strat_summary
 
 
-def run_repeated_experiments(subsets, seeds, output_dir: Path, alpha: float = 0.10, healthy_cycle_limit: int = DEFAULT_HEALTHY_CYCLE_LIMIT, jobs: int = 1) -> pd.DataFrame:
+def run_repeated_experiments(subsets, seeds, output_dir: Path, alpha: float = 0.10, healthy_cycle_limit: int = DEFAULT_HEALTHY_CYCLE_LIMIT, jobs: int = 1,
+                            mewma_calibration: str = MEWMA_CALIBRATION_MONITORING) -> pd.DataFrame:
     """Repeat the layer over subsets x seeds (each run saved as it finishes) and report mean +- std."""
     out = Path(output_dir)
     jobs_list = [(subset, seed) for subset in subsets for seed in seeds]
     if jobs > 1:
         from joblib import Parallel, delayed
-        Parallel(n_jobs=jobs)(delayed(run_one)(subset, seed, out, alpha, healthy_cycle_limit) for subset, seed in jobs_list)
+        Parallel(n_jobs=jobs)(delayed(run_one)(subset, seed, out, alpha, healthy_cycle_limit, mewma_calibration) for subset, seed in jobs_list)
     else:
         for subset, seed in jobs_list:
-            run_one(subset, seed, out, alpha, healthy_cycle_limit)
+            run_one(subset, seed, out, alpha, healthy_cycle_limit, mewma_calibration)
     return aggregate_repeated(out)
 
 
@@ -348,6 +354,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--jobs", type=int, default=3, help="parallel (subset, seed) runs")
     parser.add_argument("--regime-variance-only", action="store_true", help="only the T50 regime-variance table and figure (fast)")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_RESULTS_DIR / "monitoring_repeated")
+    parser.add_argument("--mewma-calibration", choices=("empirical", "synthetic"), default=MEWMA_CALIBRATION_MONITORING,
+                        help="limite do T² da MEWMA (padrão do protocolo para o monitoramento: synthetic; empirical reproduz a rodada anterior)")
     parser.add_argument("--aggregate-only", action="store_true", help="rebuild the summary tables from finished runs")
     args = parser.parse_args(argv)
     if args.aggregate_only:
@@ -356,7 +364,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.regime_variance_only:
         print(run_regime_variance(args.subsets, args.seeds, args.output_dir).round(3).to_string(index=False))
         return 0
-    summary = run_repeated_experiments(args.subsets, args.seeds, args.output_dir, jobs=args.jobs)
+    summary = run_repeated_experiments(args.subsets, args.seeds, args.output_dir, jobs=args.jobs, mewma_calibration=args.mewma_calibration)
     print(summary.round(3).to_string(index=False))
     return 0
 
