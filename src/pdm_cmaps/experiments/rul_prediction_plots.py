@@ -128,26 +128,30 @@ def _grid_figure(eng: pd.DataFrame, models: list[str], subset: str, unit: int, e
     ncol = 5
     nrow = int(np.ceil(len(models) / ncol))
     fig, axes = plt.subplots(nrow, ncol, figsize=(3.4 * ncol, 2.5 * nrow), sharex=True, sharey=True, squeeze=False)
+    ymax = float(eng["RUL_actual"].max())
     for ax, model in zip(axes.flat, models):
         pred = eng[f"RUL_predicted_{model}"]
         rmse = float(np.sqrt(np.mean((pred - eng["RUL_actual"]) ** 2)))
         ax.plot(eng["cycle"], eng["RUL_actual"], color=REAL_COLOR, lw=1.5)
         ax.plot(eng["cycle"], pred, color=PRED_COLOR, lw=1.5)
         _draw_events(ax, events, label=False)
+        for cyc, kind in events:
+            if kind == "verified":  # o rótulo vai em todos os painéis: a figura é lida reduzida, e a legenda do título é pequena
+                ax.text(cyc + 8, ymax * 1.13, f"manutenção (ciclo {cyc})", ha="left", va="center", fontsize=9, color=EVENT_COLOR, fontweight="bold")
         viz_style.style_axes(ax)
-        ax.set_title(f"{model}\nRMSE {rmse:.1f}", fontsize=8)
+        ax.set_title(f"{model}\nRMSE {rmse:.1f}", fontsize=10)
     for ax in list(axes.flat)[len(models):]:
         ax.axis("off")
     note = ""
     if any(k == "verified" for _, k in events):
-        note = " · linha vermelha tracejada = manutenção/reset do núcleo verificado"
+        note = " · linha vermelha tracejada = manutenção realizada"
     elif events:
         note = " · linha cinza pontilhada = queda brusca de Nc (candidato, não verificado)"
-    fig.suptitle(f"{subset} · motor {unit}: RUL real (preto) × predito (azul), todos os modelos{note}", fontsize=10)
-    fig.supxlabel("Ciclo", fontsize=9)
-    fig.supylabel("RUL (ciclos)", fontsize=9)
+    fig.suptitle(f"{subset} · motor {unit}: RUL real (preto) × predito (azul), todos os modelos{note}", fontsize=13)
+    fig.supxlabel("Ciclo", fontsize=11)
+    fig.supylabel("RUL (ciclos)", fontsize=11)
     fig.tight_layout(rect=(0, 0, 1, 0.96))
-    fig.savefig(path, dpi=90)
+    fig.savefig(path, dpi=130)
     plt.close(fig)
 
 
