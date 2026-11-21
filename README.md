@@ -32,6 +32,7 @@ Sempre da raiz do repositório, com o ambiente virtual ativo.
 | Só reexecutar os estudos e sincronizar as tabelas | `python -m pdm_cmaps.cli.update_all` (`--so-sincronizar` pula os estudos) | `results/`, `tcc-writing/tables/` |
 | Camada de monitoramento (conformal, criticidade, custo) | `python -m pdm_cmaps.monitoring.layer --jobs 3` | `results/monitoring_repeated/` |
 | Teste oficial de RUL com redes por regime e boosting | `python scripts/rodar.py rodar rul_oficial` | `results/benchmark_oficial/` (horas) |
+| Escolher hiperparâmetros e janela (Optuna) e rodar o teste oficial com eles | `pip install -e ".[tuning]"`; `python scripts/rodar.py rodar hiperparametros` (ou `python -m pdm_cmaps.experiments.selecao_hiperparametros --subsets FD004 --models XGBoost`) | `results/hiperparametros/` (`melhores.json` por subconjunto e modelo), `results/benchmark_oficial_tuned/` (dezenas de horas; retomável) |
 | Benchmark de modelos de RUL (várias sementes) | `python -m pdm_cmaps.experiments.benchmark_repeated` (retoma se interrompido; `--aggregate-only` só reagrega) | `results/benchmark_repeated/` (~1h40) |
 | Injeção cega de falhas e falso alarme igualado | `python -m pdm_cmaps.experiments.fault_detection_study` | `results/injecao_deteccao/` (rodada longa) |
 | Falhas sorteadas (ganho do ML sobre a média do regime) | `python -m pdm_cmaps.experiments.fault_hard_study` | `results/falhas_dificeis/` (rodada longa) |
@@ -80,7 +81,7 @@ src/pdm_cmaps/            # pacote em camadas; cada pasta tem um docstring em __
 tests/                    # um arquivo por camada (test_data.py, test_detection_spc.py, ...)
 scripts/                  # rodar.py (motor) + planos.py (o que rodar): execuções longas, retomáveis, com progresso
 data/CMaps/               # arquivos brutos do C-MAPSS (FD001–FD004)
-tcc-writing/tables/       # CSVs-resumo usados no texto (sincronizados de results/)
+tcc-writing/tables/       # criada ao rodar: CSVs-resumo dos estudos (sincronizados de results/); o nome vem da monografia, que fica em outro repositório
 results/                  # gerado ao rodar; não versionado (a cópia dos resultados usados pelo site fica em dados/, no repositório do dashboard)
 ```
 

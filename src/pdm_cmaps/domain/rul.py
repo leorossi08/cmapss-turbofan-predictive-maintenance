@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import pandas as pd
 import numpy as np
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+from sklearn.metrics import average_precision_score, mean_absolute_error, mean_squared_error, r2_score
 
 from pdm_cmaps.domain.schema import DEFAULT_RUL_CAP
 
@@ -101,3 +101,38 @@ def evaluate_stratified_rul(
         "overall": overall,
         "critical_zone": critical_zone,
     }
+
+
+CRITICAL_THRESHOLDS = (10, 15, 20)
+
+
+def extended_rul_metrics(y_true, y_pred, thresholds=CRITICAL_THRESHOLDS, hits=(10, 20)) -> dict[str, float]:
+    """Metrics that complement RMSE, MAE, R2 and the NASA score, for a set of (true, predicted) RUL pairs.
+
+    Error d = predicted - true (positive = too LATE, the dangerous side).
+      Bias            mean d (a positive value means the model is optimistic on average).
+      Median_AE, P90_AE   median and 90th percentile of |d| (robust to a few very bad engines).
+      Hit_within_k    share of predictions with |d| <= k cycles (an operational reading of the error).
+    Critical-state classification, for each c in ``thresholds``: the positive class is "true RUL <= c" and the model
+    "predicts critical" when its predicted RUL <= c. Precision, recall and F1 are valid here because the positive class is
+    rare (accuracy would reward always saying "not critical"). PR_AUC_c uses the continuous score -prediction, so it does
+    not depend on the cut c of the prediction, only on the true class; it is NaN when the class has no member.
+    """
+    truth = np.asarray(y_true, dtype=float)
+    pred = np.asarray(y_pred, dtype=float)
+    d = pred - truth
+    out = {"Bias": float(np.mean(d)), "Median_AE": float(np.median(np.abs(d))), "P90_AE": float(np.percentile(np.abs(d), 90))}
+    for k in hits:
+        out[f"Hit_within_{k}"] = float(np.mean(np.abs(d) <= k))
+    for c in thresholds:
+        positive = truth <= c
+        called = pred <= c
+        tp = float(np.sum(positive & called))
+        fp = float(np.sum(~positive & called))
+        fn = float(np.sum(positive & ~called))
+        precision = tp / (tp + fp) if tp + fp > 0 else float("nan")
+        recall = tp / (tp + fn) if tp + fn > 0 else float("nan")
+        f1 = 2 * tp / (2 * tp + fp + fn) if 2 * tp + fp + fn > 0 else float("nan")
+        out[f"Precision_c{c}"], out[f"Recall_c{c}"], out[f"F1_c{c}"] = precision, recall, f1
+        out[f"PR_AUC_c{c}"] = float(average_precision_score(positive, -pred)) if positive.any() and not positive.all() else float("nan")
+    return out

@@ -94,6 +94,8 @@ Entradas de linha de comando: `python -m pdm_cmaps` (pipeline), `python -m pdm_c
 |---|---|
 | `benchmark_repeated.py` | Repeated RUL benchmark (RQ-A) over subsets x seeds, in both evaluation protocols |
 | `benchmark_oficial_completo.py` | Official-test RUL with per-engine predictions (RMSE vs capped and uncapped RUL, NASA score), networks with per-regime normalization and a 30-cycle window, and boosting with the same treatment |
+| `selecao_hiperparametros.py` | Hyperparameter search by Optuna (TPE, pruning) with `GroupKFold` by engine on the TRAINING engines only; the window and the representation (global or per-regime) are hyperparameters; picks the smallest window within one standard error of the best (1-SE rule). Writes `melhores.json` and `tentativas.csv` per (subset, model) in `results/hiperparametros/`; resumable (SQLite). `benchmark_oficial_completo --part tuned` then reads the official test once with the chosen parameters. |
+| `exploracao_r2.py`, `exploracao_r2_resumo.py` | R² of the virtual sensors inside each regime, with the noise ceiling (tracks A, B1, B2) and the per-sensor summary. |
 | `mewma_calibracao_sintetica.py` | Synthetic calibration of the MEWMA T² limit (option; validation on real healthy cycles) |
 | `envelope_ignored_cases.py` | Small deviations that leave the envelope but do NOT become alerts: cases, numbers and figure for the TCC |
 | `fault_detection_study.py` | Early-detection study with injected faults: power, delay and false alarms at MATCHED false-alarm rate |

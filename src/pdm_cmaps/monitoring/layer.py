@@ -309,7 +309,7 @@ def aggregate_repeated(out: Path) -> pd.DataFrame:
     spc.to_csv(out / "tables" / "monitoring_repeated_spc_raw.csv", index=False)
     unc_cols = ["coverage", "coverage_critical_zone", "mean_width", "Per_engine_coverage_p10", "RMSE", "MAE"]
     _mean_std(unc, ["Subset"], unc_cols).to_csv(out / "tables" / "monitoring_repeated_uncertainty_summary.csv", index=False)
-    strat_cols = ["Missed_critical_rate", "False_alarm_rate_normal", "Within_one_level", "Median_warning_lead_time", "Engines_never_alerted", "Engines_premature_alert"]
+    strat_cols = ["Alert_precision", "Alert_recall", "Alert_F1", "Missed_critical_rate", "False_alarm_rate_normal", "Within_one_level", "Median_warning_lead_time", "Engines_never_alerted", "Engines_premature_alert"]
     strat_summary = _mean_std(strat, ["Subset", "Policy", "Strategy"], strat_cols)
     strat_summary.to_csv(out / "tables" / "monitoring_repeated_summary.csv", index=False)
     spc_cols = ["detection_rate_pct", "mean_lead_time_cycles", "mean_healthy_false_alarm_pct", "premature_alarm_pct"]

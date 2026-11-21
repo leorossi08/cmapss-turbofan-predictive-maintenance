@@ -2,6 +2,7 @@
 
 import numpy as np
 import pandas as pd
+import pytest
 from pdm_cmaps.detection.virtual_sensor import VirtualSensor
 
 from factories import make_synthetic_cmapss
@@ -210,3 +211,33 @@ def test_virtual_sensor_out_of_window_calibration_uses_only_cycles_after_the_off
     base.evaluate(train, test)
     assert not np.isclose(base.engine_z_scale_, vs.engine_z_scale_)
     assert (VirtualSensor(target_sensor="T50", engine_offset=True).calibrate_out_of_window is False)
+
+
+def test_virtual_sensor_r2_within_regime_equals_raw_in_single_regime():
+    from pdm_cmaps.detection.virtual_sensor_metrics import virtual_sensor_r2
+
+    tr = _offset_trace()                                # sem regime_id: regime único
+    out = virtual_sensor_r2(tr, healthy_limit=50).iloc[0]
+    assert out["r2_late_within_regime"] == pytest.approx(out["r2_late_model"])
+    assert out["r2_holdout_within_regime"] == pytest.approx(out["r2_holdout"])
+
+
+def test_virtual_sensor_r2_within_regime_removes_regime_and_ceiling_ignores_regime_jumps():
+    """Multirregime: o regime domina a variância (R² bruto ~1), mas dentro do regime sobra só ruído e deslocamento do motor;
+    o teto de ruído NÃO pode contar o salto de regime como ruído (senão sairia muito negativo)."""
+    from pdm_cmaps.detection.virtual_sensor_metrics import virtual_sensor_r2
+
+    rng = np.random.default_rng(0)
+    rows = []
+    for u in range(1, 21):
+        off = rng.normal(0, 3.0)                        # deslocamento do motor (a previsão não o conhece)
+        for c in range(1, 51):
+            reg = int(rng.integers(0, 3))
+            level = 100.0 * reg
+            rows.append({"sensor": "S", "model": "M", "unit_id": u, "cycle": c, "regime_id": reg,
+                         "actual": level + off + rng.normal(0, 1.0), "prediction": level})
+    out = virtual_sensor_r2(pd.DataFrame(rows), healthy_limit=50).iloc[0]
+    assert out["r2_late_model"] > 0.99                  # bruto: quase perfeito só pelo regime
+    assert out["r2_late_within_regime"] < 0.2           # dentro do regime: nada explicado
+    assert 0.7 < out["noise_ceiling_late"] < 1.0        # ruído ~1 contra variância ~10 dentro do regime
+    assert out["frac_ceiling"] < 0.3

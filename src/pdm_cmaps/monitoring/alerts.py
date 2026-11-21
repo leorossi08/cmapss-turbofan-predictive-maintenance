@@ -133,8 +133,14 @@ def evaluate_strategies(timeline: pd.DataFrame, policy: CriticalityPolicy, prema
             if first["RUL_true"] > premature_rul:
                 early += 1
             lead_times.append(eol - int(first["cycle"]))
+        # classificação linha a linha: positivo = nível verdadeiro >= ALERTA; alerta = nível previsto >= ALERTA
+        pos, called = true >= WARNING, pred >= WARNING
+        tp, fp, fn = float(np.sum(pos & called)), float(np.sum(~pos & called)), float(np.sum(pos & ~called))
         rows.append({
             "Strategy": name,
+            "Alert_precision": tp / (tp + fp) if tp + fp > 0 else float("nan"),
+            "Alert_recall": tp / (tp + fn) if tp + fn > 0 else float("nan"),
+            "Alert_F1": 2 * tp / (2 * tp + fp + fn) if 2 * tp + fp + fn > 0 else float("nan"),
             "Exact_level_accuracy": float((pred == true).mean()),
             "Within_one_level": float((np.abs(pred - true) <= 1).mean()),
             "Missed_critical_rate": float((pred[crit] < WARNING).mean()) if crit.any() else float("nan"),

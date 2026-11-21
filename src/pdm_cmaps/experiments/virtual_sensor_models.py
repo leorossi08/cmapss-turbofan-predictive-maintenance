@@ -120,7 +120,8 @@ def run_subset(subset: str, out_dir: Path, models: list[str], seed: int = 42, H:
     print(f"[{subset}] done in {time.time() - t0:.0f}s -> {target}", flush=True)
 
 
-R2_COLUMNS = ["r2_holdout", "r2_healthy", "r2_late_model", "r2_late_motor_base", "r2_late_model_offset", "pct_between_engine"]
+R2_COLUMNS = ["mae_holdout", "nrmse_within_regime_holdout", "r2_holdout", "r2_healthy", "r2_late_model", "r2_late_motor_base", "r2_late_model_offset", "pct_between_engine",
+              "r2_late_within_regime", "r2_holdout_within_regime", "noise_ceiling_late", "frac_ceiling"]
 
 
 def add_r2_columns(target: Path, H: int = DEFAULT_HEALTHY_CYCLE_LIMIT) -> pd.DataFrame:

@@ -2,7 +2,7 @@
 
 Um plano é só dados (`Plan` com `Step`s). Para criar um novo, escreva uma função que devolve um `Plan` e registre em PLANOS.
 
-Uso cotidiano:   tudo, rul_oficial, diagnostico_fd003
+Uso cotidiano:   tudo, rul_oficial, hiperparametros, diagnostico_fd003
 Registro histórico (como cada conjunto de números do TCC foi regenerado; não são necessários para usar o projeto):
     engine_offset, varredura_janelas, multirregime, offset_todos, protocolo_principal,
     ic_bootstrap, injecao_h25, injecao_h35_50, mewma_nativo, deteccao_fd004
@@ -122,7 +122,7 @@ def plano_diagnostico_fd003() -> Plan:
     base = ("Média do regime (sem ML)",)
     e25 = ("Extra Trees (padrão)", "Mistura ET 25%", "Mistura ET 50%", "Extra Trees regularizado", *base)
     e50 = ("Extra Trees (padrão)", *base)
-    por_subconjunto = lambda h: Step(f"por_subconjunto_{h}", (PY, "tcc-writing/hard_by_subset.py", "--results", f"results/diagnostico_fd003/{h}",  # noqa: E731
+    por_subconjunto = lambda h: Step(f"por_subconjunto_{h}", (PY, "scripts/hard_by_subset.py", "--results", f"results/diagnostico_fd003/{h}",  # noqa: E731
                                                               "--out", f"results/diagnostico_fd003/por_subconjunto_{h}.csv"), existe(f"results/diagnostico_fd003/por_subconjunto_{h}.csv"), 60)
     return Plan("diagnostico_fd003", "diagnóstico do ganho negativo do Extra Trees no FD003 (~10 min)",
                 lanes={"A": [passo("h25", hard, "--subsets", "FD003", "FD001", "--H", "25", "--jobs", "6", "--estimators", *e25, "--output-dir", "results/diagnostico_fd003/H25",
@@ -239,9 +239,31 @@ def plano_deteccao_fd004() -> Plan:
                                    check=n_arquivos("results/injecao_deteccao/runs/*", 9))]})
 
 
+def plano_hiperparametros() -> Plan:
+    """Escolha de hiperparâmetros e da janela por validação cruzada (Optuna, só nos motores de treino) e teste oficial com o conjunto escolhido.
+
+    11 modelos x 4 subconjuntos, um estudo por passo (retomável: o banco SQLite guarda as tentativas). Depois, `--part tuned` refaz o ajuste final
+    de cada modelo na CPU com os melhores parâmetros e lê o teste oficial uma única vez (3 sementes)."""
+    from pdm_cmaps.experiments.selecao_hiperparametros import BUDGET, MODELS, slug
+    sel, of, saida = "pdm_cmaps.experiments.selecao_hiperparametros", "pdm_cmaps.experiments.benchmark_oficial_completo", "results/hiperparametros"
+    # segundos por tentativa medidos no Colab (8 núcleos); só orientam a previsão de tempo
+    por_tentativa = {"Random Forest": 400, "XGBoost": 280, "XGBoost (NASA Loss)": 300, "CatBoost": 330, "LightGBM": 40, "MLP": 160, "Ridge": 30}
+    estudos = [passo(f"busca_{fd}_{slug(m)}", sel, "--subsets", fd, "--models", m, "--output-dir", saida,
+                     est=int(por_tentativa.get(m, 50) * BUDGET[m]), check=existe(f"{saida}/{fd}/{slug(m)}/melhores.json"))
+               for m in sorted(MODELS, key=lambda m: -por_tentativa.get(m, 50) * BUDGET[m]) for fd in SUBSETS]
+    tuned = [passo(f"tuned_{fd}_s{seed}", of, "--subsets", fd, "--part", "tuned", "--seeds", str(seed), "--params-dir", saida,
+                   "--output-dir", f"results/benchmark_oficial_tuned/{fd}_s{seed}", est=1500,
+                   check=existe(f"results/benchmark_oficial_tuned/{fd}_s{seed}/previsoes_oficial.csv")) for fd in SUBSETS for seed in (42, 7, 123)]
+    return Plan("hiperparametros", "busca de hiperparâmetros e janela (Optuna, validação cruzada por motor) + teste oficial ajustado (muitas horas; 4 raias)",
+                lanes={"A": [], "B": [], "C": [], "D": []}, pool=[*estudos, *tuned],
+                final=[passo("agregar", of, "--aggregate-only", "--output-dir", "results/benchmark_oficial_tuned", est=60,
+                             check=existe("results/benchmark_oficial_tuned/resumo_oficial.csv"))])
+
+
 PLANOS = {
     "tudo": plano_tudo,
     "rul_oficial": plano_rul_oficial,
+    "hiperparametros": plano_hiperparametros,
     "diagnostico_fd003": plano_diagnostico_fd003,
     "engine_offset": plano_engine_offset,
     "varredura_janelas": plano_varredura_janelas,

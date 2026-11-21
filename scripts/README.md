@@ -32,6 +32,7 @@ Opções de `rodar`: `--tentativas N` (padrão 3), `--refazer` (ignora o que já
 |---|---|---|
 | `tudo` | pytest, pipeline dos 4 subconjuntos, todos os estudos (mesma lista do `update_all`) e sincronização das tabelas | horas |
 | `rul_oficial` | teste oficial de RUL (13 modelos x 5 sementes), redes com regime e janela de 30 ciclos e boosting com o mesmo tratamento, agregado em `results/benchmark_oficial/` (4 raias) | horas |
+| `hiperparametros` | busca de hiperparâmetros e janela (Optuna, validação cruzada por motor, só no treino; 11 modelos x 4 subconjuntos) e teste oficial ajustado (`--part tuned`, 3 sementes), em `results/hiperparametros/` e `results/benchmark_oficial_tuned/` | dezenas de horas |
 | `diagnostico_fd003` | por que o Extra Trees fica abaixo da média do regime no FD003: mistura com a média, ET regularizado e janela de 50 | ~10 min |
 
 **Registro histórico:** como cada conjunto de números do TCC foi regenerado. Não são necessários para usar o projeto; ficam como documentação executável.

@@ -1,5 +1,5 @@
 """Ganho do ML sobre a média do regime por subconjunto (falhas sorteadas; MEWMA e sensor afetado; IC por bootstrap de motores).
-Uso (da raiz): python tcc-writing/hard_by_subset.py --results results/falhas_dificeis --out tcc-writing/tables/falhas_dificeis_por_subconjunto.csv"""
+Uso (da raiz): python scripts/hard_by_subset.py --results results/falhas_dificeis --out tcc-writing/tables/falhas_dificeis_por_subconjunto.csv"""
 import argparse
 from pathlib import Path
 import numpy as np, pandas as pd

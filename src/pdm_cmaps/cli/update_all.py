@@ -130,7 +130,7 @@ class TableSynchronizer:
             missing.append("injecao_modelos_diag*/tabelas/modelos_pareado_resumo.csv")
         if (res / "falhas_dificeis" / "runs").exists():
             subprocess.run(
-                [self.runner.python, "tcc-writing/hard_by_subset.py", "--results", "results/falhas_dificeis",
+                [self.runner.python, "scripts/hard_by_subset.py", "--results", "results/falhas_dificeis",
                  "--out", str(tab / "falhas_dificeis_por_subconjunto.csv")],
                 cwd=self.paths.root, env=self.runner._env, check=False, stdout=subprocess.DEVNULL)
         self.runner.run_module("sync_plotly_hub", "pdm_cmaps.reporting.plotly_hub",
