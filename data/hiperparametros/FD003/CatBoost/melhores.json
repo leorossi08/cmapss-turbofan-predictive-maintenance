@@ -1,0 +1,25 @@
+{
+  "subset": "FD003",
+  "model": "CatBoost",
+  "params": {
+    "representation": "regime",
+    "temporal": true,
+    "window": 50,
+    "hyper": {
+      "iterations": 800,
+      "depth": 7,
+      "learning_rate": 0.027649274676728182,
+      "l2_leaf_reg": 8.471354625326555
+    }
+  },
+  "cv_rmse": 10.349834115948497,
+  "cv_se": 0.7055385390387926,
+  "melhor_rmse_medio": 10.055861139441955,
+  "melhor_trial": 25,
+  "trial_escolhida": 7,
+  "n_tentativas_completas": 32,
+  "n_tentativas_total": 40,
+  "n_splits": 5,
+  "seed": 42,
+  "segundos": 10937.6
+}

@@ -1,0 +1,22 @@
+{
+  "subset": "FD004",
+  "model": "Ridge",
+  "params": {
+    "representation": "regime",
+    "temporal": true,
+    "window": 60,
+    "hyper": {
+      "alpha": 10.85063770122587
+    }
+  },
+  "cv_rmse": 16.70789458527721,
+  "cv_se": 0.23370656630647144,
+  "melhor_rmse_medio": 16.70789458527721,
+  "melhor_trial": 19,
+  "trial_escolhida": 19,
+  "n_tentativas_completas": 22,
+  "n_tentativas_total": 30,
+  "n_splits": 5,
+  "seed": 42,
+  "segundos": 0.0
+}

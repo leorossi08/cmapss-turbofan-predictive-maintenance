@@ -1,0 +1,26 @@
+{
+  "subset": "FD004",
+  "model": "PyTorch RNN (LSTM)",
+  "params": {
+    "representation": "regime",
+    "window": 60,
+    "temporal": false,
+    "hyper": {
+      "learning_rate": 0.002100236158351101,
+      "batch_size": 128,
+      "dropout": 0.13007332881069883,
+      "hidden_dim": 128,
+      "num_layers": 2
+    }
+  },
+  "cv_rmse": 12.373466281033977,
+  "cv_se": 0.6892682971139921,
+  "melhor_rmse_medio": 12.373466281033977,
+  "melhor_trial": 4,
+  "trial_escolhida": 4,
+  "n_tentativas_completas": 14,
+  "n_tentativas_total": 20,
+  "n_splits": 3,
+  "seed": 42,
+  "segundos": 0.0
+}

@@ -1,0 +1,28 @@
+{
+  "subset": "FD002",
+  "model": "PyTorch Transformer",
+  "params": {
+    "representation": "regime",
+    "window": 60,
+    "temporal": false,
+    "hyper": {
+      "learning_rate": 0.0021481839210591726,
+      "batch_size": 512,
+      "dropout": 0.35884410398103084,
+      "d_model": 32,
+      "nhead": 4,
+      "num_layers": 3,
+      "dim_feedforward": 64
+    }
+  },
+  "cv_rmse": 12.119102810533754,
+  "cv_se": 0.3647377003099629,
+  "melhor_rmse_medio": 12.119102810533754,
+  "melhor_trial": 8,
+  "trial_escolhida": 8,
+  "n_tentativas_completas": 15,
+  "n_tentativas_total": 20,
+  "n_splits": 3,
+  "seed": 42,
+  "segundos": 1061.5
+}

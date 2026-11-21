@@ -1,0 +1,22 @@
+{
+  "subset": "FD002",
+  "model": "MiniRocket + RidgeCV",
+  "params": {
+    "representation": "regime",
+    "window": 15,
+    "temporal": false,
+    "hyper": {
+      "num_kernels": 2000
+    }
+  },
+  "cv_rmse": 17.79132531257174,
+  "cv_se": 0.5119100781428282,
+  "melhor_rmse_medio": 17.79132531257174,
+  "melhor_trial": 13,
+  "trial_escolhida": 13,
+  "n_tentativas_completas": 15,
+  "n_tentativas_total": 20,
+  "n_splits": 3,
+  "seed": 42,
+  "segundos": 3394.3
+}

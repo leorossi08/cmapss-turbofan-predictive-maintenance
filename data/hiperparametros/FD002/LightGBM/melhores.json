@@ -1,0 +1,30 @@
+{
+  "subset": "FD002",
+  "model": "LightGBM",
+  "params": {
+    "representation": "global",
+    "temporal": true,
+    "window": 40,
+    "hyper": {
+      "n_estimators": 600,
+      "max_depth": 9,
+      "learning_rate": 0.03697775381245331,
+      "num_leaves": 99,
+      "subsample": 0.8372562950297838,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.538829448665663,
+      "min_child_samples": 38,
+      "reg_lambda": 0.015764753603386868
+    }
+  },
+  "cv_rmse": 16.305490879696855,
+  "cv_se": 0.28104292046577267,
+  "melhor_rmse_medio": 16.01003985123885,
+  "melhor_trial": 30,
+  "trial_escolhida": 33,
+  "n_tentativas_completas": 49,
+  "n_tentativas_total": 60,
+  "n_splits": 5,
+  "seed": 42,
+  "segundos": 12702.6
+}

@@ -9,7 +9,7 @@ NC=$(nproc --all); i=0
 for FD in FD004 FD002 FD003 FD001; do
   c=$(( (i * 2) % NC )); i=$((i+1))
   ( taskset -c $c,$(( (c+1) % NC )) python -m pdm_cmaps.experiments.benchmark_oficial_completo --subsets $FD --part tuned --seeds $SEED \
-      --params-dir results/hiperparametros --output-dir /content/out_tuned/${FD}_s$SEED >> /content/logs/tuned_${FD}_s$SEED.log 2>&1
+      --params-dir data/hiperparametros --output-dir /content/out_tuned/${FD}_s$SEED >> /content/logs/tuned_${FD}_s$SEED.log 2>&1
     echo "FIM $FD seed=$SEED rc=$?" >> /content/logs/fim_tuned.log ) &
 done
 wait

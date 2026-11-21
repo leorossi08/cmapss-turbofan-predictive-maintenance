@@ -1,0 +1,28 @@
+{
+  "subset": "FD001",
+  "model": "XGBoost (NASA Loss)",
+  "params": {
+    "representation": "regime",
+    "temporal": true,
+    "window": 60,
+    "hyper": {
+      "n_estimators": 600,
+      "max_depth": 10,
+      "learning_rate": 0.024751435372469367,
+      "subsample": 0.6144549547485179,
+      "colsample_bytree": 0.5773599687412635,
+      "min_child_weight": 6,
+      "reg_lambda": 1.884080422775671
+    }
+  },
+  "cv_rmse": 11.344605138905449,
+  "cv_se": 0.3284998674280768,
+  "melhor_rmse_medio": 11.344605138905449,
+  "melhor_trial": 56,
+  "trial_escolhida": 56,
+  "n_tentativas_completas": 43,
+  "n_tentativas_total": 60,
+  "n_splits": 5,
+  "seed": 42,
+  "segundos": 4606.1
+}

@@ -1,0 +1,26 @@
+{
+  "subset": "FD004",
+  "model": "PyTorch CNN",
+  "params": {
+    "representation": "regime",
+    "window": 10,
+    "temporal": false,
+    "hyper": {
+      "learning_rate": 0.0011262698856876726,
+      "batch_size": 256,
+      "dropout": 0.29174697772868086,
+      "num_filters": 32,
+      "kernel_size": 5
+    }
+  },
+  "cv_rmse": 16.067694775786208,
+  "cv_se": 0.49081911579929166,
+  "melhor_rmse_medio": 16.067694775786208,
+  "melhor_trial": 12,
+  "trial_escolhida": 12,
+  "n_tentativas_completas": 18,
+  "n_tentativas_total": 20,
+  "n_splits": 3,
+  "seed": 42,
+  "segundos": 643.9
+}

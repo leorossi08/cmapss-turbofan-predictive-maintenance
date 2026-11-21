@@ -1,0 +1,25 @@
+{
+  "subset": "FD001",
+  "model": "Random Forest",
+  "params": {
+    "representation": "regime",
+    "temporal": true,
+    "window": 60,
+    "hyper": {
+      "n_estimators": 50,
+      "max_depth": 22,
+      "min_samples_leaf": 6,
+      "max_features": 0.5502433808472529
+    }
+  },
+  "cv_rmse": 12.54326683900263,
+  "cv_se": 0.3768556934644988,
+  "melhor_rmse_medio": 12.54326683900263,
+  "melhor_trial": 34,
+  "trial_escolhida": 34,
+  "n_tentativas_completas": 30,
+  "n_tentativas_total": 40,
+  "n_splits": 5,
+  "seed": 42,
+  "segundos": 16061.9
+}

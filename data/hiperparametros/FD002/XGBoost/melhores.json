@@ -1,0 +1,28 @@
+{
+  "subset": "FD002",
+  "model": "XGBoost",
+  "params": {
+    "representation": "regime",
+    "temporal": true,
+    "window": 60,
+    "hyper": {
+      "n_estimators": 550,
+      "max_depth": 5,
+      "learning_rate": 0.047749049282444445,
+      "subsample": 0.6573873408139774,
+      "colsample_bytree": 0.556030675310799,
+      "min_child_weight": 3,
+      "reg_lambda": 9.65558114284457
+    }
+  },
+  "cv_rmse": 13.039928084243394,
+  "cv_se": 0.1907529171128372,
+  "melhor_rmse_medio": 13.039928084243394,
+  "melhor_trial": 52,
+  "trial_escolhida": 52,
+  "n_tentativas_completas": 45,
+  "n_tentativas_total": 60,
+  "n_splits": 5,
+  "seed": 42,
+  "segundos": 22976.9
+}

@@ -1,0 +1,27 @@
+{
+  "subset": "FD001",
+  "model": "MLP",
+  "params": {
+    "representation": "regime",
+    "temporal": true,
+    "window": 50,
+    "hyper": {
+      "hidden_layer_sizes": [
+        256,
+        128
+      ],
+      "alpha": 0.0033674896293976685,
+      "learning_rate_init": 0.000967342370900682
+    }
+  },
+  "cv_rmse": 10.912039614875557,
+  "cv_se": 0.2373611597104747,
+  "melhor_rmse_medio": 10.912039614875557,
+  "melhor_trial": 26,
+  "trial_escolhida": 26,
+  "n_tentativas_completas": 24,
+  "n_tentativas_total": 30,
+  "n_splits": 5,
+  "seed": 42,
+  "segundos": 2699.0
+}
