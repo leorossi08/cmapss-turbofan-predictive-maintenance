@@ -70,6 +70,11 @@ DET_T50_NOGATE = "T50 EWMA (com regime, sem portão)"
 DET_RAW_MV = "MEWMA bruto (sem regime)"
 DET_MV = "MEWMA (13 resíduos, com regime)"
 DETECTORS = (DET_RAW_T50, DET_T50, DET_T50_NOGATE, DET_RAW_MV, DET_MV)
+# detectores de comparação (--extras): EWMA clássica de Roberts (resíduo com sinal) e Isolation Forest sobre os 13 resíduos; ficam fora de DETECTORS
+# para não mudar as saídas e figuras do protocolo principal; a mesma série cega (mesma semente) alimenta os dois estudos
+DET_T50_SIGNED = "T50 EWMA clássica (com sinal, com regime)"
+DET_IFOREST = "Isolation Forest (13 resíduos, com regime)"
+EXTRA_DETECTORS = (DET_T50_SIGNED, DET_IFOREST)
 BUDGETS = (0.2,)                # best/adopted budget: false alarms per 100 monitored cycles (--budgets 0.2 1.0 for more)
 S_GRID = np.unique(np.append(np.geomspace(0.3, 4.0, 40), 1.0))
 K_CONSEC = 2
@@ -200,6 +205,55 @@ def regime_scores(world: World, blind: pd.DataFrame, seed: int, engine_offset: b
     return t50, nogate, mvs, list(mv.sensors_)
 
 
+def signed_ewma_ratio(z: np.ndarray, lam: float = 0.10, L: float = 3.0) -> np.ndarray:
+    """EWMA clássica de Roberts (1959) sobre o resíduo padronizado COM SINAL, dividida pelo seu limite de controle de L sigmas em cada ciclo:
+    w_t = lam z_t + (1 - lam) w_{t-1}, w_0 = 0, limite = L sqrt(lam / (2 - lam) (1 - (1 - lam)^(2t))). Razão >= 1 = fora de controle nos dois sentidos."""
+    z = np.asarray(z, dtype=float)
+    w = np.empty(len(z))
+    prev = 0.0
+    for t, x in enumerate(z):
+        prev = lam * x + (1 - lam) * prev
+        w[t] = prev
+    limit = L * np.sqrt(lam / (2 - lam) * (1 - (1 - lam) ** (2 * np.arange(1, len(z) + 1))))
+    return np.abs(w) / limit
+
+
+def iforest_ratio(model, calibration: np.ndarray, rows: np.ndarray, alpha: float = 0.0027) -> np.ndarray:
+    """Pontuação de anomalia do Isolation Forest ajustado na calibração, reescalada para que a mediana da calibração valha 0 e o quantil
+    1 - alpha valha 1 (a mesma convenção de limite da MEWMA); valores abaixo da mediana ficam em 0."""
+    base = -model.score_samples(calibration)
+    m, q = float(np.median(base)), float(np.quantile(base, 1 - alpha))
+    return np.clip((-model.score_samples(rows) - m) / max(q - m, 1e-9), 0.0, None)
+
+
+def extra_scores(world: World, blind: pd.DataFrame, seed: int, engine_offset: bool = True, mewma_offset: bool = True) -> dict[str, pd.DataFrame]:
+    """Os dois detectores de comparação, sobre os MESMOS resíduos do sensor virtual por regime (e com o mesmo deslocamento do motor) da MEWMA."""
+    from sklearn.ensemble import IsolationForest
+
+    tr, te = world.regimes.transform(world.train), world.regimes.transform(blind)
+    vs = VirtualSensor(target_sensor="T50", mode="exogenous", ewma_alpha=0.10, min_consecutive_breaches=K_CONSEC,
+                       healthy_cycle_limit=world.H, random_state=seed, engine_offset=engine_offset)
+    mv = MultivariateResidualMonitor(healthy_cycle_limit=world.H, random_state=seed, engine_offset=mewma_offset)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        trace, _, _ = vs.evaluate(tr, te)
+        mv.fit(tr)
+        cols, index = {}, None
+        for sensor, v in mv.virtual_.items():
+            pred = v.predict(te).sort_values(["unit_id", "cycle"]).reset_index(drop=True)
+            cols[sensor] = mv.residual_z(v, pred)
+            index = pred[["unit_id", "cycle"]]
+    trace = trace.sort_values(["unit_id", "cycle"])
+    parts = [_stack(np.full(len(g), uid), g["cycle"].to_numpy(), signed_ewma_ratio(g["z_score"].to_numpy()), np.ones(len(g), bool))
+             for uid, g in trace.groupby("unit_id", sort=False)]
+    signed = pd.concat(parts, ignore_index=True)
+    zcal = mv.calibration_z_.to_numpy()
+    forest = IsolationForest(n_estimators=200, random_state=seed, n_jobs=1).fit(zcal)
+    ratio = iforest_ratio(forest, zcal, np.column_stack([cols[s] for s in mv.virtual_]))
+    iso = _stack(index["unit_id"].to_numpy(), index["cycle"].to_numpy(), ratio, np.ones(len(index), bool))
+    return {DET_T50_SIGNED: signed, DET_IFOREST: iso}
+
+
 def score_all(world: World, blind: pd.DataFrame, seed: int, engine_offset: bool = True, mewma_offset: bool = True) -> dict[str, pd.DataFrame]:
     """Receives ONLY the blind frame (raw schema). ``mewma_offset`` dá o deslocamento do motor também à MEWMA e aos dois detectores brutos
     (para que a ablação do regime continue limpa: todos os detectores recebem o mesmo tratamento)."""
@@ -283,7 +337,7 @@ def analyse_detector(name: str, scores: pd.DataFrame, meta: pd.DataFrame, H: int
 
 
 def run_one(subset: str, seed: int, H: int, out: Path, n_ctrl: int = 6, n_rep: int = 2, max_engines: int | None = None,
-            budgets: tuple = BUDGETS, late_t0: bool = False, engine_offset: bool = True, mewma_offset: bool = True) -> None:
+            budgets: tuple = BUDGETS, late_t0: bool = False, engine_offset: bool = True, mewma_offset: bool = True, extras: bool = False) -> None:
     run_dir = out / "runs"
     tag = f"{subset}_seed{seed}_H{H}"
     if all((run_dir / f"{tag}_{k}.csv").exists() for k in ("curvas", "pareado", "atrasos")):
@@ -291,7 +345,7 @@ def run_one(subset: str, seed: int, H: int, out: Path, n_ctrl: int = 6, n_rep: i
     world = load_world(subset, seed, H, loader=CMapssLoader())
     blind, meta = build_series(world, seed, n_ctrl, n_rep, max_engines, late_t0)
     print(f"[{tag}] {meta['blind_id'].nunique()} series ({(meta['role'] == 'controle').sum()} controls)", flush=True)
-    scores = score_all(world, blind, seed, engine_offset, mewma_offset)
+    scores = extra_scores(world, blind, seed, engine_offset, mewma_offset) if extras else score_all(world, blind, seed, engine_offset, mewma_offset)
     parts = {"curvas": [], "pareado": [], "atrasos": []}
     for name, sc in scores.items():
         res = analyse_detector(name, sc, meta, H, budgets)
@@ -481,22 +535,25 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--output-dir", type=Path, default=None, help=f"padrão: {OUT_DEFAULT} (protocolo principal: deslocamento do motor em todos os detectores); --no-mewma-offset grava em {OUT_DEFAULT}_offset_so_t50 e --no-engine-offset em {OUT_DEFAULT}_sem_offset")
     p.add_argument("--engine-offset", action=argparse.BooleanOptionalAction, default=True, help="T50 EWMA com o deslocamento de cada motor (média do z nos primeiros H ciclos) removido; padrão ligado; --no-engine-offset desliga também a MEWMA e os brutos (rodada sem nenhuma correção)")
     p.add_argument("--mewma-offset", action=argparse.BooleanOptionalAction, default=True, help="deslocamento do motor também na MEWMA com regime e nos dois detectores brutos (todos os detectores com o mesmo tratamento); padrão ligado (protocolo principal desde 2026-11-18); --no-mewma-offset reproduz o protocolo anterior (só o T50)")
+    p.add_argument("--extras", action="store_true", help="roda só os detectores de comparação (EWMA clássica com sinal e Isolation Forest) nas MESMAS séries cegas; grava em injecao_deteccao_extras")
     p.add_argument("--aggregate-only", action="store_true")
     a = p.parse_args(argv)
     if not a.engine_offset:
         a.mewma_offset = False  # sem a correção no T50, a rodada de referência não tem correção em nenhum detector
     if a.output_dir is None:
         suffix = "" if (a.engine_offset and a.mewma_offset) else ("_offset_so_t50" if a.engine_offset else "_sem_offset")
-        a.output_dir = OUT_DEFAULT.with_name(OUT_DEFAULT.name + suffix)
+        a.output_dir = OUT_DEFAULT.with_name(OUT_DEFAULT.name + suffix + ("_extras" if a.extras else ""))
     if not a.aggregate_only:
         jobs = [(s, seed, h) for s in a.subsets for seed in a.seeds for h in a.windows]
         if a.jobs > 1:
             from joblib import Parallel, delayed
-            Parallel(n_jobs=a.jobs)(delayed(run_one)(s, seed, h, a.output_dir, a.n_ctrl, a.n_rep, a.max_engines, tuple(a.budgets), a.late_t0, a.engine_offset, a.mewma_offset) for s, seed, h in jobs)
+            Parallel(n_jobs=a.jobs)(delayed(run_one)(s, seed, h, a.output_dir, a.n_ctrl, a.n_rep, a.max_engines, tuple(a.budgets), a.late_t0, a.engine_offset, a.mewma_offset, a.extras) for s, seed, h in jobs)
         else:
             for s, seed, h in jobs:
-                run_one(s, seed, h, a.output_dir, a.n_ctrl, a.n_rep, a.max_engines, tuple(a.budgets), a.late_t0, a.engine_offset, a.mewma_offset)
+                run_one(s, seed, h, a.output_dir, a.n_ctrl, a.n_rep, a.max_engines, tuple(a.budgets), a.late_t0, a.engine_offset, a.mewma_offset, a.extras)
     res = aggregate(a.output_dir)
+    if a.extras:
+        return 0  # sem figuras: a comparação com a MEWMA e o T50 sai de montar_tabelas.py
     make_figures(res, a.output_dir)
     with pd.option_context("display.width", 220, "display.max_columns", 30):
         print(res["mdm"][(res["mdm"]["H"] == 50) & (res["mdm"]["budget"] == 0.2) & (res["mdm"]["t0"] == 60)].round(2).to_string(index=False))

@@ -149,6 +149,7 @@ class MultivariateResidualMonitor:
             if cal_regime is None:
                 cal_regime = pd.Series(flat["regime_id"].to_numpy(), index=rows.index, name="regime_id")
         cal = cal.sort_index()
+        self.calibration_z_ = cal  # resíduos corrigidos da calibração (fora da amostra), um por sensor; usados também pelo detector de Isolation Forest
         zc = cal.to_numpy()
         cyc_cal = cal.index.get_level_values("cycle").to_numpy()
         keep = cyc_cal > self._offset_w() if self._out_of_window() else np.ones(len(zc), dtype=bool)
