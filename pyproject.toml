@@ -15,7 +15,8 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest"]
-tuning = ["optuna"]  # busca de hiperparâmetros (pdm_cmaps.experiments.selecao_hiperparametros)
+tuning = ["optuna"]      # busca de hiperparâmetros (pdm_cmaps.experiments.selecao_hiperparametros)
+workflow = ["snakemake"]  # fluxo reprodutível: ver o Snakefile
 
 [project.scripts]
 pdm-cmaps = "pdm_cmaps.cli.main:main"
