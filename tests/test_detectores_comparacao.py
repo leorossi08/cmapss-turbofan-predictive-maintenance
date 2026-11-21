@@ -42,3 +42,39 @@ def test_extra_detectors_stay_out_of_the_main_protocol():
     from pdm_cmaps.experiments.fault_detection_study import DETECTORS
 
     assert set(EXTRA_DETECTORS).isdisjoint(DETECTORS) and len(EXTRA_DETECTORS) == 2
+
+
+def test_bootstrap_handles_the_extra_detectors_and_their_contrasts(tmp_path):
+    """Corrida sintética com os 7 detectores: os contrastes da configuração `extras` saem com diferença 0 e p = 1 (todos iguais)."""
+    import pandas as pd
+
+    from pdm_cmaps.experiments.fault_detection_study import DETECTORS, S_GRID
+    from pdm_cmaps.experiments.poder_bootstrap import CONTRASTS_EXTRAS, FAMILIES_EXTRAS, Run, _slug, bootstrap, summarize
+
+    H, rows, bid = 25, [], 0
+    for rec in range(1, 9):
+        for _ in range(4):
+            bid += 1
+            rows.append({"blind_id": bid, "recipient": rec, "role": "controle", "kind": "", "magnitude": np.nan, "t0": 0})
+        for kind, mag in (("degrau", 0.10), ("variancia", 0.5)):
+            bid += 1
+            rows.append({"blind_id": bid, "recipient": rec, "role": "falha", "kind": kind, "magnitude": mag, "t0": H + 10})
+    meta = pd.DataFrame(rows)
+    arrays, ctrl = {}, (meta["role"] == "controle").to_numpy()
+    for d in (*DETECTORS, *EXTRA_DETECTORS):
+        mat = np.full((len(meta), len(S_GRID)), np.nan)
+        mat[np.ix_(ctrl, S_GRID < 0.5)] = H + 50.0
+        mat[np.ix_(~ctrl, S_GRID < 3.0)] = H + 15.0
+        slug = _slug(d)
+        arrays[f"{slug}__ids"], arrays[f"{slug}__mat"], arrays[f"{slug}__last"] = meta["blind_id"].to_numpy(), mat, np.full(len(meta), H + 100.0)
+    runs = []
+    for seed in (1, 2):
+        path = tmp_path / f"FD004_seed{seed}_H{H}.npz"
+        meta.assign(Subset="FD004", Seed=seed, H=H).to_csv(tmp_path / f"FD004_seed{seed}_H{H}_manifesto.csv", index=False)
+        np.savez_compressed(path, **arrays)
+        runs.append(Run(path))
+    assert len(runs[0].names) == len(DETECTORS) + len(EXTRA_DETECTORS)
+    power, contr = summarize(runs, bootstrap(runs, n_boot=40, seed=5), CONTRASTS_EXTRAS, FAMILIES_EXTRAS)
+    assert set(contr["Contraste"]) == set(CONTRASTS_EXTRAS) and set(power["Detector"]) >= set(EXTRA_DETECTORS)
+    assert (contr["diferenca_pp"] == 0.0).all() and (contr["p_boot"] == 1.0).all()
+    assert contr.loc[contr["familia"], "p_holm"].eq(1.0).all()

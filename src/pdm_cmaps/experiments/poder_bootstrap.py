@@ -26,8 +26,8 @@ import pandas as pd
 
 from pdm_cmaps.config import DEFAULT_RESULTS_DIR
 from pdm_cmaps.data.loader import CMapssLoader
-from pdm_cmaps.experiments.fault_detection_study import (ADOPTED_H, BUDGETS, DET_MV, DET_RAW_MV, DET_RAW_T50, DET_T50_NOGATE, DETECTORS,
-                                                         alarm_matrix, build_series, score_all)
+from pdm_cmaps.experiments.fault_detection_study import (ADOPTED_H, BUDGETS, DET_IFOREST, DET_MV, DET_RAW_MV, DET_RAW_T50, DET_T50_NOGATE, DET_T50_SIGNED,
+                                                         DETECTORS, EXTRA_DETECTORS, alarm_matrix, build_series, extra_scores, score_all)
 from pdm_cmaps.experiments.fault_injection import load_world
 
 OUT_DEFAULT = DEFAULT_RESULTS_DIR / "injecao_deteccao_ic"
@@ -42,6 +42,18 @@ CONTRASTS = {
     "regime na MEWMA (com - sem)": (DET_MV, DET_RAW_MV),
     "T50 sem portão - MEWMA com regime": (DET_T50_NOGATE, DET_MV),
     "T50 sem portão - T50 bruto": (DET_T50_NOGATE, DET_RAW_T50),
+}
+# config "extras": a MEWMA contra a EWMA clássica com sinal e o Isolation Forest (degraus e rampas pequenos) e a EWMA clássica contra a do módulo, onde a
+# do módulo deve ganhar (variância) e onde deve perder (degrau, rampa, viés de um sensor)
+CONTRASTS_EXTRAS = {
+    "MEWMA com regime - EWMA clássica com sinal": (DET_MV, DET_T50_SIGNED),
+    "MEWMA com regime - Isolation Forest": (DET_MV, DET_IFOREST),
+    "EWMA clássica com sinal - EWMA do módulo (T50 sem portão)": (DET_T50_SIGNED, DET_T50_NOGATE),
+}
+FAMILIES_EXTRAS = {
+    "MEWMA com regime - EWMA clássica com sinal": (("degrau", 0.10), ("degrau", 0.05), ("rampa", 0.10)),
+    "MEWMA com regime - Isolation Forest": (("degrau", 0.10), ("degrau", 0.05), ("rampa", 0.10)),
+    "EWMA clássica com sinal - EWMA do módulo (T50 sem portão)": (("degrau", 0.10), ("rampa", 0.10), ("variancia", 0.5), ("vies_sensor", 1.0)),
 }
 FAMILIES = {  # contraste -> células (forma, magnitude) da família
     "regime na MEWMA (com - sem)": (("degrau", 0.10), ("degrau", 0.05), ("rampa", 0.10)),
@@ -66,6 +78,8 @@ def collect_one(subset: str, seed: int, H: int, out: Path, config: str, n_ctrl: 
     world = load_world(subset, seed, H, loader=CMapssLoader())
     blind, meta = build_series(world, seed, n_ctrl, n_rep, None, False)
     scores = score_all(world, blind, seed, cfg["engine_offset"], cfg["mewma_offset"])
+    if cfg.get("extras"):
+        scores.update(extra_scores(world, blind, seed, cfg["engine_offset"], cfg["mewma_offset"]))
     midx = meta.set_index("blind_id")
     arrays: dict[str, np.ndarray] = {}
     for name, sc in scores.items():
@@ -91,7 +105,8 @@ class Run:
         meta = pd.read_csv(npz.with_name(npz.stem + "_manifesto.csv")).set_index("blind_id")
         data = np.load(npz)
         self.det: dict[str, dict] = {}
-        for name in DETECTORS:
+        self.names = [n for n in (*DETECTORS, *EXTRA_DETECTORS) if f"{_slug(n)}__mat" in data.files]
+        for name in self.names:
             slug = _slug(name)
             ids, mat, last = data[f"{slug}__ids"], data[f"{slug}__mat"].astype(float), data[f"{slug}__last"]
             m = meta.loc[ids]
@@ -141,7 +156,9 @@ def point_power(runs: list[Run], name: str) -> pd.DataFrame:
 def check_against_versioned(runs: list[Run], versioned_dir: Path) -> float:
     """Maior diferença absoluta de poder (pontos) entre as matrizes guardadas e os ``*_pareado.csv`` versionados (esperado: 0)."""
     worst = 0.0
-    for name in DETECTORS:
+    for name in runs[0].names:
+        if name in EXTRA_DETECTORS:
+            continue  # não existem no estudo versionado
         mine = point_power(runs, name)
         for (subset, seed), g in mine.groupby(["Subset", "Seed"]):
             old = pd.read_csv(versioned_dir / "runs" / f"{subset}_seed{seed}_H{ADOPTED_H}_pareado.csv")
@@ -162,12 +179,13 @@ def bootstrap(runs: list[Run], n_boot: int = N_BOOT, seed: int = SEED_BOOT) -> d
     for subset, rs in by_subset.items():
         ref_keys = list(rs[0].group_keys)
         assert all(list(r.group_keys) == ref_keys for r in rs), "os grupos de falha diferem entre as sementes"
-        boot = np.full((n_boot, len(DETECTORS), len(ref_keys)), np.nan)
+        names = rs[0].names
+        boot = np.full((n_boot, len(names), len(ref_keys)), np.nan)
         for b in range(n_boot):
             per_seed = []
             for r in rs:
                 counts = np.bincount(rng.integers(0, len(r.recipients), len(r.recipients)), minlength=len(r.recipients))
-                per_seed.append(np.vstack([r.power(name, counts) for name in DETECTORS]))
+                per_seed.append(np.vstack([r.power(name, counts) for name in names]))
             with np.errstate(all="ignore"):
                 boot[b] = np.nanmean(np.stack(per_seed), axis=0)
         out[subset] = boot
@@ -184,20 +202,23 @@ def holm(p: np.ndarray) -> np.ndarray:
     return adj
 
 
-def summarize(runs: list[Run], boot: dict[str, np.ndarray]) -> tuple[pd.DataFrame, pd.DataFrame]:
+def summarize(runs: list[Run], boot: dict[str, np.ndarray], contrasts: dict | None = None, families: dict | None = None) -> tuple[pd.DataFrame, pd.DataFrame]:
     """(poder com IC por detector e célula, contrastes pareados com IC, p do bootstrap e p de Holm por família)."""
     power_rows, contrast_rows = [], []
-    didx = {n: i for i, n in enumerate(DETECTORS)}
+    contrasts = CONTRASTS if contrasts is None else contrasts
+    families = FAMILIES if families is None else families
+    names = runs[0].names
+    didx = {n: i for i, n in enumerate(names)}
     for subset, b in boot.items():
         rs = [r for r in runs if r.subset == subset]
         table = rs[0].group_table
-        pts = {n: np.nanmean(np.vstack([r.power(n, np.ones(len(r.recipients))) for r in rs]), axis=0) for n in DETECTORS}
+        pts = {n: np.nanmean(np.vstack([r.power(n, np.ones(len(r.recipients))) for r in rs]), axis=0) for n in names}
         for g, cell in table.iterrows():
-            for n in DETECTORS:
+            for n in names:
                 lo, hi = np.nanpercentile(b[:, didx[n], g], [2.5, 97.5])
                 power_rows.append({"Subset": subset, "Detector": n, "kind": cell["kind"], "magnitude": cell["magnitude"], "t0": cell["t0"],
                                    "poder_pct": pts[n][g], "ic_lo": lo, "ic_hi": hi, "n_seeds": len(rs)})
-            for label, (a, c) in CONTRASTS.items():
+            for label, (a, c) in contrasts.items():
                 d = b[:, didx[a], g] - b[:, didx[c], g]
                 d = d[np.isfinite(d)]
                 if not d.size:
@@ -210,7 +231,7 @@ def summarize(runs: list[Run], boot: dict[str, np.ndarray]) -> tuple[pd.DataFram
     # Holm dentro da família (contraste x células listadas x subconjuntos)
     contr["familia"] = False
     contr["p_holm"] = np.nan
-    for label, cells in FAMILIES.items():
+    for label, cells in families.items():
         sel = contr["Contraste"].eq(label) & contr[["kind", "magnitude"]].apply(tuple, axis=1).isin([(k, m) for k, m in cells]) & (contr["t0"] == ADOPTED_H + 10)
         contr.loc[sel, "familia"] = True
         if sel.any():
@@ -245,7 +266,8 @@ def main(argv: list[str] | None = None) -> int:
     versioned = DEFAULT_RESULTS_DIR / CONFIGS[a.config]["versioned"]
     if (versioned / "runs").exists():
         print(f"conferência com {versioned.name}: maior diferença de poder = {check_against_versioned(runs, versioned):.6f} ponto")
-    power, contr = summarize(runs, bootstrap(runs, a.boot))
+    ex = a.config == "extras"
+    power, contr = summarize(runs, bootstrap(runs, a.boot), CONTRASTS_EXTRAS if ex else None, FAMILIES_EXTRAS if ex else None)
     power.round(3).to_csv(a.output_dir / a.config / "poder_ic.csv", index=False)
     contr.round(4).to_csv(a.output_dir / a.config / "contrastes_ic.csv", index=False)
     with pd.option_context("display.width", 250, "display.max_columns", 30):
