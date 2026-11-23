@@ -20,6 +20,14 @@ A primeira execução não é rápida: medimos **~28 min** para FD001 sem MiniRo
 
 > **Atenção:** sem `--no-clean`, a pasta de saída é apagada no início da execução.
 
+### Tudo em um notebook
+
+[`notebooks/projeto_completo.ipynb`](notebooks/projeto_completo.ipynb) é **autocontido**: traz o código do pacote, os testes, os planos de execução, os dados públicos do C-MAPSS (embutidos) e os hiperparâmetros já escolhidos, com células para reproduzir resultados, tabelas e gráficos. Abra no Google Colab (CPU High-RAM, 8 núcleos) e rode da seção 1 à 4; as execuções longas ficam desligadas por padrão (chaves `EXECUTAR` na seção 5), e `SESSAO` divide o trabalho em várias máquinas. O padrão (testes, o pipeline do FD001 e a taxa de recuo) leva cerca de 10 a 15 minutos. O notebook é um instantâneo do código; ele é gerado no repositório da monografia e não deve ser editado à mão.
+
+### MiniRocket
+
+O MiniRocket (`modeling/minirocket.py`) continua no código, mas **fica desligado por padrão**: não entra no benchmark de RUL, na busca de hiperparâmetros nem no pipeline. `python -m pdm_cmaps --include-minirocket` o liga no pipeline.
+
 ## O que quero fazer → comando
 
 Sempre da raiz do repositório, com o ambiente virtual ativo.
