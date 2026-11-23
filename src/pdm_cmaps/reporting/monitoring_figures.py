@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch, Rectangle
+from matplotlib.ticker import FuncFormatter
 
 from pdm_cmaps.reporting.plots import save_figure
 from pdm_cmaps.reporting.viz_style import INK, INK_2, LEVEL_NAMES_PT, LINE_W, MARKER_PT, MUTED, SERIES, STATUS, SURFACE, apply_style, ring_marker_kwargs, style_axes
@@ -91,10 +92,10 @@ def plot_residual_control_chart(trace: pd.DataFrame, unit_id: int, first_alarm_c
     top.set_ylabel("z do resíduo")
     top.set_title("Resíduo do sensor virtual (real − esperado em condição saudável), padronizado")
 
-    bottom.plot(cycles, eng["ewma_abs_z"], color=SERIES[0], lw=LINE_W, label="EWMA de |z| (α = 0,10)")
+    bottom.plot(cycles, eng["ewma_abs_z"], color=SERIES[0], lw=LINE_W, label="EWMA de |z| (λ = 0,10)")
     bottom.plot(cycles, eng["ewma_ucl"], color=INK_2, lw=1.2, ls=(0, (4, 3)), label="Limite de controle (3σ)")
     handles = [Line2D([], [], color=SERIES[0], lw=LINE_W), Line2D([], [], color=INK_2, lw=1.2, ls=(0, (4, 3)))]
-    bottom.legend(handles, ["EWMA de |z| (α = 0,10)", "Limite de controle (3σ)"], loc="upper left", ncol=2, bbox_to_anchor=(0.0, 1.02))
+    bottom.legend(handles, ["EWMA de |z| (λ = 0,10)", "Limite de controle (3σ)"], loc="upper left", ncol=2, bbox_to_anchor=(0.0, 1.02))
     if first_alarm_cycle is not None and not pd.isna(first_alarm_cycle):
         a = int(first_alarm_cycle)
         y_alarm = float(eng.loc[eng["cycle"] == a, "ewma_abs_z"].iloc[0])
@@ -105,7 +106,7 @@ def plot_residual_control_chart(trace: pd.DataFrame, unit_id: int, first_alarm_c
     bottom.set_ylabel("EWMA de |z|")
     bottom.set_xlabel("Ciclo operacional (o último ciclo é o fim de vida)")
     bottom.set_title("Carta de controle")
-    fig.suptitle(f"Ativo {unit_id} (motor de teste)", x=0.01, ha="left", fontsize=12, fontweight="semibold")
+    fig.suptitle(f"Ativo {unit_id} (motor do holdout)", x=0.01, ha="left", fontsize=12, fontweight="semibold")
     fig.subplots_adjust(top=0.88)
     return save_figure(fig, path)
 
@@ -151,7 +152,7 @@ def plot_rul_trajectories(timeline: pd.DataFrame, unit_ids: list[int], path: Pat
     ]
     labels = ["RUL real", "RUL prevista", f"Intervalo de {int(round((1 - alpha) * 100))}%", *[f"Nível {name}" for name in LEVEL_NAMES_PT]]
     fig.legend(handles, labels, loc="lower center", ncol=4, bbox_to_anchor=(0.5, -0.01))
-    fig.suptitle("RUL com incerteza e nível de criticidade ao longo da vida (motores de teste)", x=0.01, ha="left", fontsize=12, fontweight="semibold")
+    fig.suptitle("RUL com incerteza e nível de criticidade ao longo da vida (motores do holdout)", x=0.01, ha="left", fontsize=12, fontweight="semibold")
     fig.tight_layout(rect=(0, 0.09, 1, 0.95))
     return save_figure(fig, path)
 
@@ -248,7 +249,8 @@ def plot_model_ci(boot: pd.DataFrame, path: Path, metric: str = "R2"):
     ax.set_yticks(y, d["Model"], color=INK_2)
     best = len(d) - 1
     ax.annotate(f"{obs[best]:.3f}".replace(".", ","), (hi[best], best), xytext=(8, 0), textcoords="offset points", va="center", color=INK, fontsize=9)
-    ax.set_xlabel(f"{metric.replace('R2', 'R²')} nos motores de teste do holdout 75/25 (IC 95%, bootstrap por motor)")
-    ax.set_title("Modelos de RUL: intervalos que se sobrepõem não indicam diferença")
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda x, _: f"{x:.2f}".replace(".", ",")))
+    ax.set_xlabel(f"{metric.replace('R2', 'R²')} nos motores do holdout 75/25 (IC 95%, bootstrap por motor)")
+    ax.set_title("Modelos de RUL: intervalos marginais sobrepostos exigem teste pareado")
     fig.tight_layout()
     return save_figure(fig, path)

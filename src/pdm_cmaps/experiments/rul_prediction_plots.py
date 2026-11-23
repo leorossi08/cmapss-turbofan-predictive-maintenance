@@ -124,6 +124,16 @@ def _engine_figure(eng: pd.DataFrame, model: str, subset: str, unit: int, events
     plt.close(fig)
 
 
+NOMES_PT = {
+    "XGBoost (NASA Loss)": "XGBoost (perda NASA)",
+    "Support Vector Machine (SVM)": "SVM linear",
+    "MiniRocket + RidgeCV": "MiniRocket + Ridge",
+    "PyTorch RNN (LSTM)": "LSTM (PyTorch)",
+    "PyTorch CNN": "CNN (PyTorch)",
+    "PyTorch Transformer": "Transformer (PyTorch)",
+}
+
+
 def _grid_figure(eng: pd.DataFrame, models: list[str], subset: str, unit: int, events, path: Path) -> None:
     ncol = 5
     nrow = int(np.ceil(len(models) / ncol))
@@ -137,17 +147,18 @@ def _grid_figure(eng: pd.DataFrame, models: list[str], subset: str, unit: int, e
         _draw_events(ax, events, label=False)
         for cyc, kind in events:
             if kind == "verified":  # o rótulo vai em todos os painéis: a figura é lida reduzida, e a legenda do título é pequena
-                ax.text(cyc + 8, ymax * 1.13, f"manutenção (ciclo {cyc})", ha="left", va="center", fontsize=9, color=EVENT_COLOR, fontweight="bold")
+                ax.text(cyc + 8, ymax * 1.13, f"descontinuidade (ciclo {cyc})", ha="left", va="center", fontsize=8.5, color=EVENT_COLOR, fontweight="bold")
         viz_style.style_axes(ax)
-        ax.set_title(f"{model}\nRMSE {rmse:.1f}", fontsize=10)
+        label = NOMES_PT.get(model, model)
+        ax.set_title(f"{label}\n" + f"RMSE {rmse:.1f}".replace(".", ","), fontsize=9.5)
     for ax in list(axes.flat)[len(models):]:
         ax.axis("off")
     note = ""
     if any(k == "verified" for _, k in events):
-        note = " · linha vermelha tracejada = manutenção realizada"
+        note = " · linha vermelha tracejada = descontinuidade no ciclo 242"
     elif events:
         note = " · linha cinza pontilhada = queda brusca de Nc (candidato, não verificado)"
-    fig.suptitle(f"{subset} · motor {unit}: RUL real (preto) × predito (azul), todos os modelos{note}", fontsize=13)
+    fig.suptitle(f"{subset} · motor {unit}: RUL real (preto) × prevista (azul), todos os modelos{note}", fontsize=13)
     fig.supxlabel("Ciclo", fontsize=11)
     fig.supylabel("RUL (ciclos)", fontsize=11)
     fig.tight_layout(rect=(0, 0, 1, 0.96))

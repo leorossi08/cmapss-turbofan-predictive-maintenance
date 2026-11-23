@@ -428,6 +428,16 @@ def plot_detection_power(summary: pd.DataFrame, path: Path) -> None:
     summary.to_csv(path.with_suffix(".csv"), index=False)
 
 
+NOMES_RUL_PT = {
+    "XGBoost (NASA Loss)": "XGBoost (perda NASA)",
+    "Support Vector Machine (SVM)": "SVM linear",
+    "MiniRocket + RidgeCV": "MiniRocket + Ridge",
+    "PyTorch RNN (LSTM)": "LSTM (PyTorch)",
+    "PyTorch CNN": "CNN (PyTorch)",
+    "PyTorch Transformer": "Transformer (PyTorch)",
+}
+
+
 def plot_rul_transplant(manifest: pd.DataFrame, preds: pd.DataFrame, path: Path, recipient: int | None = None) -> None:
     viz_style.apply_style()
     models = [c for c in preds.columns if c not in ("blind_id", "cycle")]
@@ -444,14 +454,14 @@ def plot_rul_transplant(manifest: pd.DataFrame, preds: pd.DataFrame, path: Path,
     for ax, model in zip(axes.flat, models):
         ax.plot(cyc, truth, color=viz_style.INK, lw=1.6, label="RUL verdadeira (por construção)")
         ax.plot(ctrl["cycle"], ctrl[model], color=viz_style.MUTED, lw=1.4, ls="--", label="controle (sem falha)")
-        ax.plot(cyc, fault[model], color=viz_style.SERIES[0], lw=1.6, label="predito com falha")
+        ax.plot(cyc, fault[model], color=viz_style.SERIES[0], lw=1.6, label="previsto com falha")
         ax.axvline(t0, color=viz_style.STATUS[3], lw=1.4, ls=":")
-        ax.set_title(model, fontsize=8.5)
+        ax.set_title(NOMES_RUL_PT.get(model, model), fontsize=8.5)
         viz_style.style_axes(ax)
     for ax in list(axes.flat)[len(models):]:
         ax.axis("off")
     axes[0, 0].legend(frameon=False, fontsize=6.5, loc="lower left")
-    fig.suptitle(f"Transplante de degradação: motor receptor {recipient}; linha vermelha = início da falha (t0 = {t0}, só nós sabíamos)", fontsize=10)
+    fig.suptitle(f"Transplante de degradação: motor receptor {recipient}; linha vermelha = início da falha (t0 = {t0}, oculto dos modelos)", fontsize=10)
     fig.supxlabel("Ciclo", fontsize=9)
     fig.supylabel("RUL (ciclos)", fontsize=9)
     fig.tight_layout(rect=(0, 0, 1, 0.95))
