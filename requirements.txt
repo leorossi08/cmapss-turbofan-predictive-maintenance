@@ -1,2 +1,21 @@
-# Instalação única: as dependências ficam em pyproject.toml (extra `dev` = pytest).
--e .[dev]
+# Dependências de execução (espelham `dependencies` do pyproject.toml). Requer Python 3.10+.
+# Instalação: pip install -r requirements.txt   (o pacote em si: pip install -e .)
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+catboost
+xgboost
+lightgbm
+plotly>=6.0
+torch
+
+# Testes
+pytest
+
+# Busca de hiperparâmetros (extra "tuning")
+optuna
+
+# Fluxo reprodutível (extra "workflow", ver o Snakefile)
+snakemake
