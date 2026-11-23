@@ -74,7 +74,7 @@ SCENARIOS = {
     "vies_sensor": (1.0, 2.0, 4.0),
 }
 DEFAULT_MODELS = ["Ridge", "LightGBM", "XGBoost", "LightGBM (+temporal)", "XGBoost (+temporal)"]
-DEEP_MODELS = ["PyTorch CNN", "PyTorch RNN (LSTM)", "PyTorch Transformer", "MiniRocket + RidgeCV"]
+DEEP_MODELS = ["PyTorch CNN", "PyTorch RNN (LSTM)", "PyTorch Transformer"]
 DETECTORS = ("T50 EWMA", "MEWMA (13 resíduos)")
 
 

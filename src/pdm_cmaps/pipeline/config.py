@@ -17,7 +17,7 @@ class PipelineConfig:
     seed: int = DEFAULT_RANDOM_STATE
     healthy_cycle_limit: int = DEFAULT_HEALTHY_CYCLE_LIMIT
     unit_id: int = 179
-    include_minirocket: bool = True
+    include_minirocket: bool = False
     include_lstm: bool = False
     clean_output: bool = True
     run_all: bool = False

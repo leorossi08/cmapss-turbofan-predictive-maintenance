@@ -100,7 +100,7 @@ def plano_tudo() -> Plan:
 
 
 def plano_rul_oficial() -> Plan:
-    """Teste oficial de RUL: 13 modelos x 5 sementes, redes com normalização por regime e janela de 30 ciclos (3 sementes) e boosting com o mesmo tratamento."""
+    """Teste oficial de RUL: 12 modelos x 5 sementes, redes com normalização por regime e janela de 30 ciclos (3 sementes) e boosting com o mesmo tratamento."""
     of = "pdm_cmaps.experiments.benchmark_oficial_completo"
     saida = lambda nome: f"results/benchmark_oficial/{nome}"  # noqa: E731
     pronto = lambda nome: existe(f"{saida(nome)}/previsoes_oficial.csv")  # noqa: E731
@@ -242,7 +242,7 @@ def plano_deteccao_fd004() -> Plan:
 def plano_hiperparametros() -> Plan:
     """Escolha de hiperparâmetros e da janela por validação cruzada (Optuna, só nos motores de treino) e teste oficial com o conjunto escolhido.
 
-    11 modelos x 4 subconjuntos, um estudo por passo (retomável: o banco SQLite guarda as tentativas). Depois, `--part tuned` refaz o ajuste final
+    10 modelos x 4 subconjuntos, um estudo por passo (retomável: o banco SQLite guarda as tentativas). Depois, `--part tuned` refaz o ajuste final
     de cada modelo na CPU com os melhores parâmetros e lê o teste oficial uma única vez (3 sementes)."""
     from pdm_cmaps.experiments.selecao_hiperparametros import BUDGET, MODELS, slug
     sel, of, saida = "pdm_cmaps.experiments.selecao_hiperparametros", "pdm_cmaps.experiments.benchmark_oficial_completo", "results/hiperparametros"

@@ -13,7 +13,7 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"          # `make install` faz o mesmo
 
 make test                             # roda a suíte de testes
-python -m pdm_cmaps --subset FD001 --no-minirocket    # primeira execução (um subconjunto, sem MiniRocket)
+python -m pdm_cmaps --subset FD001    # primeira execução (um subconjunto)
 ```
 
 A primeira execução não é rápida: medimos **~28 min** para FD001 sem MiniRocket (com a máquina também ocupada com outras tarefas), e o progresso aparece fase a fase (ver "Acompanhar uma rodada longa"). Os resultados vão para `results/maintenance_guide_fd001/` (`figures/` em PNG e `tables/` em CSV). O diretório `results/` é gerado e regenerável; não é versionado.
@@ -75,7 +75,7 @@ src/pdm_cmaps/            # pacote em camadas; cada pasta tem um docstring em __
   domain/                 #  1. regras puras, sem E/S: esquema dos dados, alvo de RUL, métricas
   data/                   #  2. leitura, divisão por motor (sem vazamento), atributos causais
   detection/              #  3. regimes, sensor virtual, cartas SPC (EWMA, envelope), MEWMA
-  modeling/               #  4. modelos de RUL: árvores, redes, MiniRocket, benchmark
+  modeling/               #  4. modelos de RUL: árvores, redes, benchmark (o MiniRocket continua no código, desligado por padrão)
   monitoring/             #  5. intervalos conformais, criticidade, alertas, custo, relatórios
   analysis/               #  6. testes de hipótese e bootstrap
   pipeline/               #  7. orquestra tudo para um subconjunto (PipelineConfig → PdMPipeline)
@@ -99,7 +99,7 @@ results/                  # gerado ao rodar; não versionado (a cópia dos resul
 1. **Regimes:** K-Means nas condições de voo (6 regimes em FD002/FD004, 1 em FD001/FD003), com escala ajustada só nos motores de treino.
 2. **Sensor virtual:** linha de base condicionada ao regime para o T50 (`sensor_4`), calibrada na janela saudável; o resíduo é `real − esperado`.
 3. **Detecção (SPC):** EWMA sobre o resíduo do T50 e MEWMA sobre 13 sensores, com persistência (`k = 2`) e limites calibrados em resíduos saudáveis *out-of-fold*.
-4. **RUL:** compara XGBoost, LightGBM, CatBoost, florestas, SVM, MLP, CNN, LSTM, Transformer e MiniRocket.
+4. **RUL:** compara XGBoost, LightGBM, CatBoost, florestas, SVM, MLP, CNN, LSTM e Transformer (o MiniRocket continua em `modeling/minirocket.py`, desligado por padrão: `--include-minirocket`).
 5. **Estatística:** testes pareados, IC por *cluster bootstrap* BCa e correção de Benjamini-Hochberg.
 6. **Monitoramento:** intervalos conformais para a RUL, níveis de criticidade, custo da decisão e mensagens de alerta geradas por *template* só a partir de fatos estruturados.
 

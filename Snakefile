@@ -2,7 +2,7 @@
 
     pip install -e ".[workflow,tuning]"           # snakemake + optuna
     snakemake --cores 8 -n                        # só mostra o que seria executado (dry-run)
-    snakemake --cores 8                           # tudo: busca (44 estudos) -> teste oficial ajustado (12 tarefas) -> agregado
+    snakemake --cores 8                           # tudo: busca (40 estudos) -> teste oficial ajustado (12 tarefas) -> agregado
     snakemake --cores 8 --config usar_hiperparametros_prontos=1
                                                   # pula a busca e usa data/hiperparametros/ (os parâmetros escolhidos no TCC)
     snakemake --cores 2 --config subsets=FD001 trials=3   # teste rápido: um subconjunto, 3 tentativas por modelo
@@ -11,8 +11,8 @@ Cada regra declara o arquivo que produz; o Snakemake só refaz o que falta ou fi
 continua de onde parou (os estudos do Optuna também são retomáveis, pois ficam em SQLite). Cada tarefa usa 2 núcleos
 (`threads: 2`), por isso `--cores 8` roda 4 tarefas em paralelo. A busca nunca lê o teste oficial; ele é lido só na regra `tuned`.
 
-Conferido (Colab, FD001, semente 42, com `usar_hiperparametros_prontos=1`): as previsões reproduzem as do TCC; 10 dos 11 modelos saem idênticos
-bit a bit e o MiniRocket difere em no máximo 3e-4 ciclo (ruído de ponto flutuante).
+Conferido (Colab, FD001, semente 42, com `usar_hiperparametros_prontos=1`): as previsões reproduzem as do TCC; 10 dos 11 modelos (então incluído o MiniRocket, depois retirado do projeto)
+saem idênticos bit a bit; o MiniRocket diferia em no máximo 3e-4 ciclo (ruído de ponto flutuante).
 """
 import re
 
@@ -23,7 +23,7 @@ PRONTOS = bool(int(config.get("usar_hiperparametros_prontos", 0)))
 PARAMS = "data/hiperparametros" if PRONTOS else "results/hiperparametros"
 
 # Mesma lista (e mesmo apelido de pasta) de pdm_cmaps.experiments.selecao_hiperparametros
-MODELS = ["Ridge", "Random Forest", "XGBoost", "XGBoost (NASA Loss)", "LightGBM", "CatBoost", "MLP", "MiniRocket + RidgeCV",
+MODELS = ["Ridge", "Random Forest", "XGBoost", "XGBoost (NASA Loss)", "LightGBM", "CatBoost", "MLP",
           "PyTorch RNN (LSTM)", "PyTorch CNN", "PyTorch Transformer"]
 slug = lambda name: re.sub(r"[^A-Za-z0-9]+", "_", name).strip("_")
 NOME = {slug(m): m for m in MODELS}

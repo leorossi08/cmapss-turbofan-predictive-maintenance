@@ -52,7 +52,6 @@ def _models(seed: int) -> list[tuple[str, str, object, bool]]:
     out = [(name, "sklearn", pool[name], False) for name in TABULAR]
     out += [(f"{name} (+temporal)", "sklearn", get_model_pool(seed)[name], True) for name in TEMPORAL]
     out += [(name, *extra[name], False) for name in DEEP]
-    out.append(("MiniRocket + RidgeCV", "deep", MiniRocketRULModel(seq_length=15, num_kernels=1000, random_state=seed), False))
     return out
 
 
@@ -130,7 +129,7 @@ def aggregate(out: Path) -> pd.DataFrame:
     tests = []
     ref = "XGBoost (+temporal)"
     for (protocol, subset), g in err.groupby(["Protocol", "Subset"]):
-        for other in [*DEEP, "MiniRocket + RidgeCV", "XGBoost", "LightGBM (+temporal)"]:
+        for other in [*DEEP, "XGBoost", "LightGBM (+temporal)"]:
             ps, diffs = [], []
             for seed, gs in g.groupby("Seed"):
                 a = gs.loc[gs["Model"] == ref].set_index("unit_id")["abs_err"]
@@ -177,7 +176,7 @@ def engine_level_tests(err: pd.DataFrame, ref: str = "XGBoost (+temporal)", othe
     teste; no holdout, divisões que se sobrepõem), então não são réplicas independentes e o Fisher infla a evidência. Aqui cada motor conta uma
     vez; `Seeds_per_engine` mostra quantas sementes entraram na média dele.
     """
-    others = list(others) if others is not None else [*DEEP, "MiniRocket + RidgeCV", "XGBoost", "LightGBM (+temporal)"]
+    others = list(others) if others is not None else [*DEEP, "XGBoost", "LightGBM (+temporal)"]
     rows = []
     for (protocol, subset), g in err.groupby(["Protocol", "Subset"]):
         per_engine = g.groupby(["Model", "unit_id"])["abs_err"].agg(["mean", "size"]).reset_index()

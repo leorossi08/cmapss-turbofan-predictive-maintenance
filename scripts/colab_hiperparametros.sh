@@ -1,5 +1,5 @@
 #!/bin/bash
-# Colab: busca de hiperparâmetros de UM subconjunto (arg 1) e GRUPO de modelos (arg 2: tab = tabulares, rede = redes e MiniRocket).
+# Colab: busca de hiperparâmetros de UM subconjunto (arg 1) e GRUPO de modelos (arg 2: tab = tabulares, rede = redes).
 # Uso (de /content/pdm):  bash scripts/colab_hiperparametros.sh FD004 tab [dispositivo]
 # Uma máquina por subconjunto para os tabulares (CPU, processos presos a núcleos); as redes numa máquina com GPU (dispositivo cuda; só na busca).
 # Retomável: cada estudo é um SQLite em /content/out_hp/<subconjunto>/<modelo>/estudo.db; cada modelo roda como um processo.
@@ -8,7 +8,7 @@ cd /content/pdm || exit 1
 mkdir -p .venv/bin /content/logs && ln -sf "$(command -v python3)" .venv/bin/python
 export PYTHONPATH=src OMP_NUM_THREADS=1 PDM_TORCH_THREADS=1
 TAB=("Ridge" "MLP" "Random Forest" "XGBoost" "XGBoost (NASA Loss)" "LightGBM" "CatBoost")
-REDE=("PyTorch RNN (LSTM)" "PyTorch CNN" "PyTorch Transformer" "MiniRocket + RidgeCV")
+REDE=("PyTorch RNN (LSTM)" "PyTorch CNN" "PyTorch Transformer")
 if [ "$GRUPO" = tab ]; then MODELOS=("${TAB[@]}"); else MODELOS=("${REDE[@]}"); fi
 NC=$(nproc --all); i=0  # nproc sozinho respeita OMP_NUM_THREADS (=1 aqui) e dava NC=1
 for M in "${MODELOS[@]}"; do

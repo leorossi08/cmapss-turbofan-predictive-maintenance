@@ -18,7 +18,7 @@ def test_pipeline_config_defaults():
     assert config.seed == 42
     assert config.healthy_cycle_limit == 50
     assert config.unit_id == 179
-    assert config.include_minirocket is True
+    assert config.include_minirocket is False
     assert config.include_lstm is False
     assert config.clean_output is True
     assert "maintenance_guide_fd004" in str(config.resolved_output_dir)

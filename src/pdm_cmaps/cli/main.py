@@ -58,12 +58,18 @@ def parse_arguments(args: list[str] | None = None) -> PipelineConfig:
         help="Sample engine unit identifier for detailed trace visualizations",
     )
     parser.add_argument(
+        "--include-minirocket",
+        dest="include_minirocket",
+        action="store_true",
+        help="Also run the MiniRocket convolutional model (off by default; it is not part of the monograph)",
+    )
+    parser.add_argument(
         "--no-minirocket",
         dest="include_minirocket",
         action="store_false",
-        help="Disable MiniRocket convolutional feature extractor",
+        help="Disable MiniRocket (the default)",
     )
-    parser.set_defaults(include_minirocket=True)
+    parser.set_defaults(include_minirocket=False)
     parser.add_argument(
         "--include-lstm",
         action="store_true",

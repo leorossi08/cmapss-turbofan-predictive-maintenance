@@ -35,10 +35,10 @@ from pdm_cmaps.pipeline.extra_models import fit_predict
 
 WINDOWS = (10, 15, 20, 30, 40, 50, 60)
 NETS = ("PyTorch RNN (LSTM)", "PyTorch CNN", "PyTorch Transformer")
-MODELS = ("Ridge", "Random Forest", "XGBoost", "XGBoost (NASA Loss)", "LightGBM", "CatBoost", "MLP", "MiniRocket + RidgeCV", *NETS)
-# tentativas por modelo (escalonadas por --trials-scale); redes e MiniRocket são caras, ficam com menos
+MODELS = ("Ridge", "Random Forest", "XGBoost", "XGBoost (NASA Loss)", "LightGBM", "CatBoost", "MLP", *NETS)
+# tentativas por modelo (escalonadas por --trials-scale); redes são caras, ficam com menos
 BUDGET = {"Ridge": 30, "MLP": 30, "Random Forest": 40, "XGBoost": 60, "XGBoost (NASA Loss)": 60, "LightGBM": 60, "CatBoost": 40,
-          "MiniRocket + RidgeCV": 20, "PyTorch RNN (LSTM)": 20, "PyTorch CNN": 20, "PyTorch Transformer": 20}
+          "PyTorch RNN (LSTM)": 20, "PyTorch CNN": 20, "PyTorch Transformer": 20}
 N_SPLITS = {m: (3 if m in NETS or m.startswith("MiniRocket") else 5) for m in MODELS}
 
 
