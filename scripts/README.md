@@ -62,3 +62,7 @@ def plano_meu() -> Plan:
 ```
 
 `python scripts/rodar.py rodar meu --dry-run` confere o resultado.
+
+## Tabelas da monografia
+
+`montar_tabelas.py` monta `tcc-writing/tables/` a partir de `results/`: copia as tabelas dos estudos e calcula as derivadas (testes por motor do RUL oficial, boosting por regime, largura do conformal na zona crítica, diagnóstico do FD003, hiperparâmetros escolhidos, ajustado × padrão, métricas estendidas, F1 dos alertas e métricas dos sensores virtuais). No fim tira as linhas do MiniRocket. Exige os `results/` da rodada completa (Colab); sem eles para com erro, sem mexer nas tabelas já versionadas. Depois rode `python -m pytest tests/test_invariantes_tabelas.py`.

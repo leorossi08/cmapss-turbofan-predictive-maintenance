@@ -20,6 +20,7 @@ Um arquivo por camada do pacote, espelhando `src/pdm_cmaps/`. Rodar: `make test`
 | `test_protocolo.py` | `protocol.py` | os padrões das classes e dos `argparse` do código coincidem com o protocolo congelado (sementes, janelas, divisão por motor) |
 | `test_scripts.py` | `scripts/rodar.py` | tentativas, retomada, dependências entre raias, pool, cancelamento em falha, `--dry-run` e os planos reais bem formados |
 | `test_pipeline_cli.py` | `pipeline/`, `cli/` | configuração padrão, argumentos da linha de comando, instanciação do pipeline, progresso com estimativa de tempo (`progress.py`) no `main()`, no `StudyRunner` e nas fases do pipeline |
+| `test_invariantes_tabelas.py` | `tcc-writing/tables/` | os CSVs versionados da monografia não têm valores impossíveis (porcentagem fora de 0 a 100, p-valor fora de 0 a 1, R² > 1), têm todos os subconjuntos e sementes, o número de linhas esperado e um rótulo em `docs/protocolo-primario.md`. Se falhar, investigue o dado, não afrouxe o limite |
 
 `factories.py` guarda os construtores de dados sintéticos usados por mais de um arquivo (`sample_frame`, `make_synthetic_cmapss`, `_toy_timeline`); os usados por um arquivo só ficam no próprio arquivo. `conftest.py` registra os marcadores do pytest.
 
