@@ -137,3 +137,7 @@ results/                  # gerado ao rodar; não versionado (a cópia dos resul
 - [`scripts/README.md`](scripts/README.md): scripts de rodada longa e histórico de reexecuções.
 - [`data/README.md`](data/README.md): proveniência e colunas do C-MAPSS.
 - [`docs/protocolo-primario.md`](docs/protocolo-primario.md): protocolo congelado (parâmetros, perguntas P1 a P3) e o rótulo de cada tabela de `tcc-writing/tables/`.
+
+## Licença
+
+MIT (ver [`LICENSE`](LICENSE)). Os dados do NASA C-MAPSS e as imagens de terceiros têm as suas próprias condições de uso.
