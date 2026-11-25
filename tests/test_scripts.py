@@ -131,3 +131,17 @@ def test_the_everything_plan_uses_the_same_study_list_as_update_all():
 def test_list_and_status_commands_run(cmd, capsys):
     assert main(cmd) == 0
     assert capsys.readouterr().out
+
+
+def test_figuras_mapeiam_scripts_existentes():
+    """Cada figura do PDF aponta para um script que existe, e nenhum script de figuras.py fica órfão."""
+    import importlib.util
+    from pathlib import Path
+
+    pasta = Path(__file__).resolve().parents[1] / "figuras"
+    spec = importlib.util.spec_from_file_location("gerar_figuras", pasta / "gerar.py")
+    gerar = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(gerar)
+    usados = {sc for _, sc, _ in gerar.FIGURAS.values()}
+    assert all((pasta / sc).exists() for sc in usados)
+    assert usados == {p.name for p in pasta.glob("*.py")} - {"gerar.py"}

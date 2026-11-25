@@ -1,0 +1,91 @@
+Subset,H,Detector,kind,t0,budget,mdm_mediana,seeds_que_atingem,n_seeds
+FD001,25,"MEWMA (13 resíduos, com regime)",degrau,35,0.2,0.25,3,3
+FD001,25,"MEWMA (13 resíduos, com regime)",rampa,35,0.2,0.25,3,3
+FD001,25,"MEWMA (13 resíduos, com regime)",variancia,35,0.2,1.0,3,3
+FD001,25,"MEWMA (13 resíduos, com regime)",vies_sensor,35,0.2,1.0,3,3
+FD001,25,MEWMA bruto (sem regime),degrau,35,0.2,0.25,3,3
+FD001,25,MEWMA bruto (sem regime),rampa,35,0.2,0.25,3,3
+FD001,25,MEWMA bruto (sem regime),variancia,35,0.2,1.0,3,3
+FD001,25,MEWMA bruto (sem regime),vies_sensor,35,0.2,1.0,3,3
+FD001,25,T50 EWMA (com regime),degrau,35,0.2,0.5,3,3
+FD001,25,T50 EWMA (com regime),rampa,35,0.2,0.5,3,3
+FD001,25,T50 EWMA (com regime),variancia,35,0.2,2.0,3,3
+FD001,25,T50 EWMA (com regime),vies_sensor,35,0.2,2.0,3,3
+FD001,25,"T50 EWMA (com regime, sem portão)",degrau,35,0.2,0.25,3,3
+FD001,25,"T50 EWMA (com regime, sem portão)",rampa,35,0.2,0.25,3,3
+FD001,25,"T50 EWMA (com regime, sem portão)",variancia,35,0.2,1.0,3,3
+FD001,25,"T50 EWMA (com regime, sem portão)",vies_sensor,35,0.2,1.0,3,3
+FD001,25,T50 bruto (sem regime),degrau,35,0.2,0.5,3,3
+FD001,25,T50 bruto (sem regime),rampa,35,0.2,0.5,3,3
+FD001,25,T50 bruto (sem regime),variancia,35,0.2,2.0,3,3
+FD001,25,T50 bruto (sem regime),vies_sensor,35,0.2,2.0,3,3
+FD002,25,"MEWMA (13 resíduos, com regime)",degrau,35,0.2,0.25,3,3
+FD002,25,"MEWMA (13 resíduos, com regime)",rampa,35,0.2,0.25,3,3
+FD002,25,"MEWMA (13 resíduos, com regime)",um_regime,35,0.2,1.0,3,3
+FD002,25,"MEWMA (13 resíduos, com regime)",variancia,35,0.2,2.0,3,3
+FD002,25,"MEWMA (13 resíduos, com regime)",vies_sensor,35,0.2,2.0,3,3
+FD002,25,MEWMA bruto (sem regime),degrau,35,0.2,0.25,3,3
+FD002,25,MEWMA bruto (sem regime),rampa,35,0.2,0.5,3,3
+FD002,25,MEWMA bruto (sem regime),um_regime,35,0.2,1.0,3,3
+FD002,25,MEWMA bruto (sem regime),variancia,35,0.2,2.0,3,3
+FD002,25,MEWMA bruto (sem regime),vies_sensor,35,0.2,2.0,3,3
+FD002,25,T50 EWMA (com regime),degrau,35,0.2,0.5,3,3
+FD002,25,T50 EWMA (com regime),rampa,35,0.2,0.5,3,3
+FD002,25,T50 EWMA (com regime),um_regime,35,0.2,1.0,3,3
+FD002,25,T50 EWMA (com regime),variancia,35,0.2,2.0,3,3
+FD002,25,T50 EWMA (com regime),vies_sensor,35,0.2,2.0,3,3
+FD002,25,"T50 EWMA (com regime, sem portão)",degrau,35,0.2,0.25,3,3
+FD002,25,"T50 EWMA (com regime, sem portão)",rampa,35,0.2,0.5,3,3
+FD002,25,"T50 EWMA (com regime, sem portão)",um_regime,35,0.2,1.0,3,3
+FD002,25,"T50 EWMA (com regime, sem portão)",variancia,35,0.2,1.0,3,3
+FD002,25,"T50 EWMA (com regime, sem portão)",vies_sensor,35,0.2,1.0,3,3
+FD002,25,T50 bruto (sem regime),degrau,35,0.2,,0,3
+FD002,25,T50 bruto (sem regime),rampa,35,0.2,,0,3
+FD002,25,T50 bruto (sem regime),um_regime,35,0.2,,0,3
+FD002,25,T50 bruto (sem regime),variancia,35,0.2,,0,3
+FD002,25,T50 bruto (sem regime),vies_sensor,35,0.2,,0,3
+FD003,25,"MEWMA (13 resíduos, com regime)",degrau,35,0.2,0.25,3,3
+FD003,25,"MEWMA (13 resíduos, com regime)",rampa,35,0.2,0.25,3,3
+FD003,25,"MEWMA (13 resíduos, com regime)",variancia,35,0.2,1.0,3,3
+FD003,25,"MEWMA (13 resíduos, com regime)",vies_sensor,35,0.2,2.0,3,3
+FD003,25,MEWMA bruto (sem regime),degrau,35,0.2,0.5,3,3
+FD003,25,MEWMA bruto (sem regime),rampa,35,0.2,0.5,3,3
+FD003,25,MEWMA bruto (sem regime),variancia,35,0.2,1.0,3,3
+FD003,25,MEWMA bruto (sem regime),vies_sensor,35,0.2,2.0,3,3
+FD003,25,T50 EWMA (com regime),degrau,35,0.2,0.5,3,3
+FD003,25,T50 EWMA (com regime),rampa,35,0.2,0.5,3,3
+FD003,25,T50 EWMA (com regime),variancia,35,0.2,2.0,3,3
+FD003,25,T50 EWMA (com regime),vies_sensor,35,0.2,2.0,3,3
+FD003,25,"T50 EWMA (com regime, sem portão)",degrau,35,0.2,0.25,3,3
+FD003,25,"T50 EWMA (com regime, sem portão)",rampa,35,0.2,0.25,3,3
+FD003,25,"T50 EWMA (com regime, sem portão)",variancia,35,0.2,1.0,3,3
+FD003,25,"T50 EWMA (com regime, sem portão)",vies_sensor,35,0.2,1.0,3,3
+FD003,25,T50 bruto (sem regime),degrau,35,0.2,0.5,3,3
+FD003,25,T50 bruto (sem regime),rampa,35,0.2,0.5,3,3
+FD003,25,T50 bruto (sem regime),variancia,35,0.2,1.0,3,3
+FD003,25,T50 bruto (sem regime),vies_sensor,35,0.2,2.0,3,3
+FD004,25,"MEWMA (13 resíduos, com regime)",degrau,35,0.2,0.25,3,3
+FD004,25,"MEWMA (13 resíduos, com regime)",rampa,35,0.2,0.25,3,3
+FD004,25,"MEWMA (13 resíduos, com regime)",um_regime,35,0.2,1.0,3,3
+FD004,25,"MEWMA (13 resíduos, com regime)",variancia,35,0.2,2.0,3,3
+FD004,25,"MEWMA (13 resíduos, com regime)",vies_sensor,35,0.2,2.0,3,3
+FD004,25,MEWMA bruto (sem regime),degrau,35,0.2,0.5,3,3
+FD004,25,MEWMA bruto (sem regime),rampa,35,0.2,0.5,3,3
+FD004,25,MEWMA bruto (sem regime),um_regime,35,0.2,,0,3
+FD004,25,MEWMA bruto (sem regime),variancia,35,0.2,1.0,3,3
+FD004,25,MEWMA bruto (sem regime),vies_sensor,35,0.2,2.0,3,3
+FD004,25,T50 EWMA (com regime),degrau,35,0.2,0.5,3,3
+FD004,25,T50 EWMA (com regime),rampa,35,0.2,0.5,3,3
+FD004,25,T50 EWMA (com regime),um_regime,35,0.2,1.0,3,3
+FD004,25,T50 EWMA (com regime),variancia,35,0.2,2.0,3,3
+FD004,25,T50 EWMA (com regime),vies_sensor,35,0.2,2.0,3,3
+FD004,25,"T50 EWMA (com regime, sem portão)",degrau,35,0.2,0.25,3,3
+FD004,25,"T50 EWMA (com regime, sem portão)",rampa,35,0.2,0.25,3,3
+FD004,25,"T50 EWMA (com regime, sem portão)",um_regime,35,0.2,0.5,3,3
+FD004,25,"T50 EWMA (com regime, sem portão)",variancia,35,0.2,1.0,3,3
+FD004,25,"T50 EWMA (com regime, sem portão)",vies_sensor,35,0.2,1.0,3,3
+FD004,25,T50 bruto (sem regime),degrau,35,0.2,,0,3
+FD004,25,T50 bruto (sem regime),rampa,35,0.2,,0,3
+FD004,25,T50 bruto (sem regime),um_regime,35,0.2,,0,3
+FD004,25,T50 bruto (sem regime),variancia,35,0.2,,0,3
+FD004,25,T50 bruto (sem regime),vies_sensor,35,0.2,,0,3

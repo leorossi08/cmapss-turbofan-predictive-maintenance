@@ -1,0 +1,193 @@
+Subset,Contraste,kind,magnitude,t0,diferenca_pp,ic_lo,ic_hi,p_boot,familia,p_holm
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.05,35,-9.3042,-17.687,-0.1647,0.0415,True,0.249
+FD001,MEWMA com regime - Isolation Forest (EWMA),degrau,0.05,35,34.0752,25.7653,50.3813,0.0002,True,0.003
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.05,35,13.5501,0.6321,22.0678,0.0395,True,0.1185
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.1,35,0.0,0.0,0.0,1.0,True,1.0
+FD001,MEWMA com regime - Isolation Forest (EWMA),degrau,0.1,35,9.1364,2.2759,15.5494,0.0005,True,0.003
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.1,35,25.6541,18.3803,38.7588,0.0002,True,0.003
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.05,35,-16.342,-23.6582,-4.5446,0.0055,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),rampa,0.05,35,24.1452,18.1372,41.8569,0.0002,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.05,35,11.9267,-0.3159,19.2695,0.0635,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.1,35,0.0,-1.4493,0.0,1.0,True,1.0
+FD001,MEWMA com regime - Isolation Forest (EWMA),rampa,0.1,35,16.8596,9.8642,24.4385,0.0002,True,0.003
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.1,35,28.5887,18.8587,41.1435,0.0002,True,0.003
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,0.5,35,-6.8307,-15.7181,6.9233,0.4725,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),variancia,0.5,35,-47.2693,-55.0984,-35.0365,0.0002,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,0.5,35,5.4865,0.7246,15.5294,0.026,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,1.0,35,-0.7576,-2.2727,1.6595,1.0,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),variancia,1.0,35,-1.5152,-3.7879,0.0,0.424,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,1.0,35,15.2331,8.3757,24.4356,0.0002,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,1.0,35,49.5844,41.16,59.2714,0.0002,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,1.0,35,16.2447,6.6205,29.1462,0.001,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,2.0,35,3.1385,0.0,7.7922,0.134,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,2.0,35,37.4475,26.8975,51.0284,0.0002,False,
+FD001,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,4.0,35,0.0,0.0,0.7576,1.0,False,
+FD001,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,4.0,35,23.7531,15.8918,36.2419,0.0002,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.05,35,3.7356,-1.7241,7.1839,0.2705,True,1.0
+FD002,MEWMA com regime - Isolation Forest (EWMA),degrau,0.05,35,9.7701,4.3032,17.5287,0.0002,True,0.003
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.05,35,7.4713,-0.0,12.069,0.0605,True,0.121
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.1,35,10.0575,3.7356,14.9425,0.002,True,0.016
+FD002,MEWMA com regime - Isolation Forest (EWMA),degrau,0.1,35,35.6322,29.3103,43.6782,0.0002,True,0.003
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.1,35,19.2529,9.1954,25.2874,0.0002,True,0.003
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.25,35,8.046,3.4483,11.4943,0.0002,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.05,35,3.7356,-2.0115,7.4713,0.2855,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),rampa,0.05,35,6.6092,2.0115,14.9425,0.011,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.05,35,7.1839,-1.4368,10.9195,0.1415,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.1,35,14.0805,5.1724,17.5287,0.001,True,0.009
+FD002,MEWMA com regime - Isolation Forest (EWMA),rampa,0.1,35,34.7701,27.8736,42.5287,0.0002,True,0.003
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.1,35,15.2299,5.7471,20.4023,0.0002,True,0.003
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.25,35,13.7931,8.046,19.2529,0.0002,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),um_regime,0.1,35,2.2989,-3.1609,6.3218,0.533,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),um_regime,0.1,35,-2.5862,-8.046,5.4598,0.7165,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),um_regime,0.1,35,9.7701,-0.2874,13.2184,0.0685,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),um_regime,0.25,35,10.0575,3.4483,15.5172,0.0015,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),um_regime,0.25,35,-1.4368,-8.046,6.8966,0.934,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),um_regime,0.25,35,22.9885,10.3448,27.2989,0.0002,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),um_regime,0.5,35,3.7356,1.1494,6.6092,0.0045,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),um_regime,0.5,35,-2.8736,-5.7471,0.5747,0.138,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),um_regime,0.5,35,6.8966,2.8736,10.3448,0.0005,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),um_regime,1.0,35,0.2874,0.0,0.8621,1.0,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),um_regime,1.0,35,0.2874,0.0,1.1494,0.547,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),um_regime,1.0,35,3.1609,0.8621,5.4598,0.0025,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,0.5,35,-2.0115,-9.4828,3.4555,0.3835,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),variancia,0.5,35,-50.2874,-56.3218,-41.6667,0.0002,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,0.5,35,40.5172,29.3103,45.6897,0.0002,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,1.0,35,-2.2989,-7.1839,0.8621,0.1295,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),variancia,1.0,35,-9.7701,-14.3678,-6.6092,0.0002,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,1.0,35,15.2299,8.3333,20.1149,0.0002,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,1.0,35,43.6782,37.6437,52.5934,0.0002,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,1.0,35,14.3678,5.4526,18.3908,0.0005,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,2.0,35,29.8851,25.5747,37.6437,0.0002,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,2.0,35,37.3563,26.4368,41.954,0.0002,False,
+FD002,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,4.0,35,9.1954,6.0345,13.7931,0.0002,False,
+FD002,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,4.0,35,45.977,35.6322,51.1566,0.0002,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.05,35,16.9444,6.6944,24.2222,0.0002,True,0.003
+FD003,MEWMA com regime - Isolation Forest (EWMA),degrau,0.05,35,35.9167,21.8049,43.8611,0.0002,True,0.003
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.05,35,2.6111,-1.9167,16.0833,0.1245,True,0.1245
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.1,35,0.0,0.0,2.0,1.0,True,1.0
+FD003,MEWMA com regime - Isolation Forest (EWMA),degrau,0.1,35,16.1944,5.3333,36.3889,0.0002,True,0.003
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.1,35,31.5833,12.8326,43.0,0.0002,True,0.003
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.05,35,19.5556,6.75,25.5,0.002,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),rampa,0.05,35,29.8333,16.1375,38.5833,0.0002,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.05,35,4.6111,-2.1111,14.7507,0.1385,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.1,35,1.3611,0.0,4.0556,0.4515,True,1.0
+FD003,MEWMA com regime - Isolation Forest (EWMA),rampa,0.1,35,24.25,12.0,43.2222,0.0002,True,0.003
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.1,35,32.4444,14.134,43.8889,0.0002,True,0.003
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,0.5,35,-8.0,-17.5007,4.6111,0.2655,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),variancia,0.5,35,-32.9167,-43.6951,-17.6382,0.0002,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,0.5,35,19.4444,4.1382,33.834,0.0005,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,1.0,35,7.3889,2.6667,15.3889,0.0005,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,1.0,35,61.4722,48.0556,64.2799,0.0002,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,1.0,35,4.0278,0.5556,20.8333,0.044,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,2.0,35,18.8333,2.0,38.6944,0.0045,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,2.0,35,39.8056,19.1382,57.25,0.0002,False,
+FD003,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,4.0,35,4.0,0.0,29.3618,0.2545,False,
+FD003,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,4.0,35,50.5833,25.1111,57.2785,0.0002,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.05,35,5.6497,0.8475,11.2994,0.024,True,0.168
+FD004,MEWMA com regime - Isolation Forest (EWMA),degrau,0.05,35,13.2768,5.6497,18.0791,0.0002,True,0.003
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.05,35,7.9096,1.9774,11.5819,0.0045,True,0.018
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.1,35,10.1695,5.9322,14.6893,0.0002,True,0.003
+FD004,MEWMA com regime - Isolation Forest (EWMA),degrau,0.1,35,37.8531,27.9661,42.6554,0.0002,True,0.003
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.1,35,17.7966,9.0395,25.1412,0.0002,True,0.003
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.25,35,1.1299,0.0,3.6723,0.1305,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.05,35,6.2147,1.4054,10.452,0.0155,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),rampa,0.05,35,11.5819,3.9548,16.1017,0.001,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.05,35,7.9096,1.6949,11.589,0.011,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.1,35,10.1695,5.6497,15.5367,0.0002,True,0.003
+FD004,MEWMA com regime - Isolation Forest (EWMA),rampa,0.1,35,37.0056,28.2486,41.5325,0.0002,True,0.003
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.1,35,16.9492,7.9096,22.5989,0.0002,True,0.003
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.25,35,3.6723,0.8475,7.0621,0.0005,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),um_regime,0.1,35,1.6949,-1.4124,7.3446,0.2615,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),um_regime,0.1,35,0.0,-8.1921,4.5198,0.647,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),um_regime,0.1,35,5.9322,-0.565,10.1695,0.083,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),um_regime,0.25,35,8.4746,3.6723,15.5367,0.0015,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),um_regime,0.25,35,-5.3672,-15.5367,1.1299,0.0945,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),um_regime,0.25,35,19.209,8.4746,25.7062,0.0002,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),um_regime,0.5,35,2.8249,1.1299,5.6568,0.0015,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),um_regime,0.5,35,-0.565,-2.5424,1.1299,0.5465,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),um_regime,0.5,35,2.2599,0.2825,4.8023,0.0335,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),um_regime,1.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),um_regime,1.0,35,0.565,0.0,1.4124,0.374,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),um_regime,1.0,35,1.6949,0.2825,3.3898,0.037,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,0.5,35,-7.3446,-12.4294,-0.565,0.0285,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),variancia,0.5,35,-55.0847,-62.154,-48.8701,0.0002,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,0.5,35,48.0226,33.3333,51.4124,0.0002,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,1.0,35,-0.2825,-1.4124,1.4124,0.9085,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),variancia,1.0,35,-0.2825,-1.6949,0.0,0.445,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,1.0,35,8.4746,5.3672,16.1017,0.0002,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,1.0,35,56.4972,48.3051,62.1469,0.0002,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,1.0,35,16.3842,7.9096,22.0339,0.0002,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,2.0,35,19.4915,12.1469,26.5537,0.0002,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,2.0,35,48.5876,36.1582,53.9548,0.0002,False,
+FD004,MEWMA com regime - PCA-T²/SPE (EWMA),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest (EWMA),vies_sensor,4.0,35,5.9322,2.5424,9.3291,0.0002,False,
+FD004,Isolation Forest (EWMA) - Isolation Forest (pontual),vies_sensor,4.0,35,53.3898,42.0904,57.0621,0.0002,False,

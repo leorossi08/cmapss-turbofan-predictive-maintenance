@@ -7,7 +7,7 @@ Um arquivo por camada do pacote, espelhando `src/pdm_cmaps/`. Rodar: `make test`
 | `test_domain.py` | `domain/` | alvo de RUL limitado, métricas e o NASA score (penaliza mais o erro tardio), esquema dos dados |
 | `test_data.py` | `data/` | leitura do C-MAPSS, divisão por motor **sem vazamento**, atributos temporais causais |
 | `test_detection_regime.py` | `detection/regime.py` | regimes: ordenação dos centroides, margens, decomposição de variância |
-| `test_detection_spc.py` | `detection/spc.py`, `multivariate.py`, `health_index.py` | persistência de alarmes (k ciclos), envelope por regime, MEWMA, índice de saúde |
+| `test_detection_spc.py` | `detection/spc.py`, `multivariate.py` | persistência de alarmes (k ciclos), envelope por regime, MEWMA |
 | `test_virtual_sensor.py` | `detection/virtual_sensor*.py` | sensor virtual estritamente exógeno, R², deslocamento por motor (*engine offset*) |
 | `test_modeling.py` | `modeling/` | pool de modelos, validação cruzada agrupada por motor, MiniRocket causal, redes PyTorch |
 | `test_analysis.py` | `analysis/` | testes de hipótese, diagnósticos, importância de atributos |

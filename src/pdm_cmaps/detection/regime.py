@@ -1,13 +1,12 @@
 """Health monitoring: operating-regime decoupling, virtual sensors and SPC envelope anomaly detection.
 
-WHAT   Detects that an engine is degrading WITHOUT using the failure label, in 4 steps:
+WHAT   Detects that an engine is degrading WITHOUT using the failure label, in 3 steps:
          1. RegimeDecoupler       - cluster flight conditions (unsupervised, KMeans).
          2. VirtualSensor         - predict what a sensor SHOULD read given the flight
                                     condition; residual = actual - expected.
          3. StatisticalAnomalyDetector / EnvelopeAnomalyDetector - statistical process
                                     control (SPC): raise an alarm when residuals leave the
                                     band seen while the engine was healthy.
-         4. HealthIndexFuser      - fuse many sensors into one 1.0 -> 0.0 health curve (PCA).
 WHY    Thesis claim: in multi-regime data the flight regime, not wear, dominates sensor
        variance. If we remove the regime effect, what remains (the residual) is a clean
        degradation signal that gives an early warning (lead time before end of life).

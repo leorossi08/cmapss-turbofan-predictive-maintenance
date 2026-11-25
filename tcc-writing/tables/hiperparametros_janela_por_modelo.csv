@@ -1,0 +1,11 @@
+Model,FD001,FD002,FD003,FD004,No_limite_60
+CatBoost,60,60,50,50,2
+LightGBM,60,40,50,0,1
+MLP,50,0,50,40,0
+PyTorch CNN,10,10,10,10,0
+PyTorch RNN (LSTM),50,50,60,60,2
+PyTorch Transformer,40,60,40,60,2
+Random Forest,60,50,50,50,1
+Ridge,50,60,60,60,3
+XGBoost,60,60,50,50,2
+XGBoost (NASA Loss),60,60,40,50,2

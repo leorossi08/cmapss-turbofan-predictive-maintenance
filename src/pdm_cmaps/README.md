@@ -37,7 +37,6 @@ Entradas de linha de comando: `python -m pdm_cmaps` (pipeline), `python -m pdm_c
 
 | Arquivo | O que faz |
 |---|---|
-| `health_index.py` | Fusion of sensor residuals into a single health index |
 | `multivariate.py` | Multivariate residual monitor (MEWMA) over 13 sensors |
 | `regime.py` | Health monitoring: operating-regime decoupling, virtual sensors and SPC envelope anomaly detection |
 | `spc.py` | Univariate statistical process control: EWMA/3-sigma and envelope detectors |
@@ -107,7 +106,6 @@ Entradas de linha de comando: `python -m pdm_cmaps` (pipeline), `python -m pdm_c
 | `virtual_sensor_models.py` | Virtual sensor for EVERY informative sensor, EVERY model and EVERY held-out engine (feeds the dashboards); `--engine-offset/--no-engine-offset`, `--recompute-r2` |
 | `native_offset_fora_janela.py` | Native detection with the engine offset estimated INSIDE vs OUTSIDE the calibration window, with independent controls at the nominal limit |
 | `poder_bootstrap.py` | Engine-cluster bootstrap CIs of the injection power, paired detector differences and Holm (`collect` / `analyse`) |
-| `compare_engine_offset.py` | Paired power/delay and R² tables with and without the engine offset (`results/sensor_virtual_offset/`) |
 
 ## cli: Linha de comando e atualização de tudo
 

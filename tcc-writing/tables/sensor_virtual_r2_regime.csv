@@ -1,0 +1,5 @@
+Subset,n_sensores,r2_bruto,r2_dentro_do_regime,teto_de_ruido,fracao_do_teto
+FD001,15,0.352,0.352,0.444,0.792
+FD002,15,1.0,-0.024,0.247,-0.096
+FD003,15,0.424,0.424,0.564,0.78
+FD004,15,1.0,0.442,0.635,0.566

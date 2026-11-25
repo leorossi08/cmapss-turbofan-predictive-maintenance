@@ -20,9 +20,17 @@ A primeira execução não é rápida: medimos **~28 min** para FD001 sem MiniRo
 
 > **Atenção:** sem `--no-clean`, a pasta de saída é apagada no início da execução.
 
-### Tudo em um notebook
+### Figuras da monografia
 
-[`notebooks/projeto_completo.ipynb`](notebooks/projeto_completo.ipynb) é **autocontido**: traz o código do pacote, os testes, os planos de execução, os dados públicos do C-MAPSS (embutidos) e os hiperparâmetros já escolhidos, com células para reproduzir resultados, tabelas e gráficos. Abra no Google Colab (CPU High-RAM, 8 núcleos) e rode da seção 1 à 4; as execuções longas ficam desligadas por padrão (chaves `EXECUTAR` na seção 5), e `SESSAO` divide o trabalho em várias máquinas. O padrão (testes, o pipeline do FD001 e a taxa de recuo) leva cerca de 10 a 15 minutos. O notebook é um instantâneo do código; ele é gerado no repositório da monografia e não deve ser editado à mão.
+[`figuras/`](figuras/) tem um script por conjunto de figuras do PDF e o [`MANIFESTO.md`](figuras/MANIFESTO.md) que diz, para cada figura (numeração do PDF), qual arquivo, qual script e quais entradas. As entradas mínimas ficam versionadas (`tcc-writing/tables/` e uma fatia de `results/`), então não é preciso reexecutar os estudos:
+
+```bash
+python figuras/gerar.py --lista     # Figura -> arquivo -> script
+python figuras/gerar.py 5.17        # uma figura
+python figuras/gerar.py --todas     # todas que têm script (saída em figuras/saida/)
+```
+
+Para rodar em máquina remota (Google Colab, CPU High-RAM): `bash scripts/colab_figuras.sh` (testes + figuras; o roteiro grava `FIM` ou `ERRO` no log). O texto da monografia fica em [`cmapss-turbofan-monografia`](https://github.com/leorossi08/cmapss-turbofan-monografia), que recebe os PNGs daqui.
 
 ### MiniRocket
 

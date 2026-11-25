@@ -217,21 +217,6 @@ def test_hard_fault_family_is_causal_documented_and_paired_delta_is_signed():
         MultivariateResidualMonitor(mode="nonsense")
 
 
-def test_compare_engine_offset_power_table_pairs_cells(tmp_path):
-    from pdm_cmaps.experiments.compare_engine_offset import DETECTORS, power_table
-
-    def write(root, power):
-        (root / "runs").mkdir(parents=True)
-        pd.DataFrame({"Detector": [DETECTORS[0]] * 2, "kind": ["degrau"] * 2, "magnitude": [0.1, 0.25], "Subset": "FD003", "Seed": 42,
-                      "power_pct": power, "far_ctrl_per100": 0.1, "delay_med": 10.0}).to_csv(root / "runs" / "FD003_seed42_H25_pareado.csv", index=False)
-
-    write(tmp_path / "base", [10.0, 40.0])
-    write(tmp_path / "offset", [30.0, 35.0])
-    out = power_table([tmp_path / "base"], [tmp_path / "offset"]).iloc[0]
-    assert out["celulas"] == 2 and out["celulas_melhores"] == 1 and out["celulas_piores"] == 1
-    assert out["ganho_medio"] == 7.5 and out["poder_base"] == 25.0 and out["poder_offset"] == 32.5
-
-
 def test_poder_bootstrap_matches_point_power_and_pairs_detectors(tmp_path):
     import numpy as np
     from pdm_cmaps.experiments.fault_detection_study import DETECTORS

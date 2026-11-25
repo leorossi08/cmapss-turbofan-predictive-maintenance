@@ -1,0 +1,2 @@
+unit_id,eol_cycle,first_alarm_cycle,lead_time_cycles,detected,total_cycles,out_of_envelope_count,in_envelope_pct,healthy_far_pct,healthy_breaches,envelope_margin
+4,272,240,32,True,272,20,92.64705882352942,0.0,0,16.942500080996773

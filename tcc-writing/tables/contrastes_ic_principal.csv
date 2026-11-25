@@ -1,0 +1,193 @@
+Subset,Contraste,kind,magnitude,t0,diferenca_pp,ic_lo,ic_hi,p_boot,familia,p_holm
+FD001,regime na MEWMA (com - sem),degrau,0.05,35,-14.4426,-23.244,-6.6894,0.0002,True,0.003
+FD001,T50 sem portão - MEWMA com regime,degrau,0.05,35,-55.4175,-67.5915,-44.8939,0.0002,False,
+FD001,T50 sem portão - T50 bruto,degrau,0.05,35,-2.2429,-13.5807,6.113,0.4735,False,
+FD001,regime na MEWMA (com - sem),degrau,0.1,35,0.0,0.0,0.0,1.0,True,1.0
+FD001,T50 sem portão - MEWMA com regime,degrau,0.1,35,-63.2725,-71.6184,-54.6077,0.0002,False,
+FD001,T50 sem portão - T50 bruto,degrau,0.1,35,-11.4483,-21.9234,2.076,0.099,False,
+FD001,regime na MEWMA (com - sem),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - MEWMA com regime,degrau,0.25,35,0.0,-1.4493,0.0,1.0,True,1.0
+FD001,T50 sem portão - T50 bruto,degrau,0.25,35,0.0,-1.4493,0.0,1.0,True,1.0
+FD001,regime na MEWMA (com - sem),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - MEWMA com regime,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - T50 bruto,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,regime na MEWMA (com - sem),rampa,0.05,35,-17.5482,-26.0352,-8.0053,0.001,False,
+FD001,T50 sem portão - MEWMA com regime,rampa,0.05,35,-42.3788,-56.4088,-33.1005,0.0002,False,
+FD001,T50 sem portão - T50 bruto,rampa,0.05,35,-5.2764,-15.938,6.0403,0.398,False,
+FD001,regime na MEWMA (com - sem),rampa,0.1,35,0.0,-1.4493,0.0,1.0,True,1.0
+FD001,T50 sem portão - MEWMA com regime,rampa,0.1,35,-68.5128,-76.5734,-61.1308,0.0002,False,
+FD001,T50 sem portão - T50 bruto,rampa,0.1,35,-12.173,-22.2317,0.5226,0.0595,False,
+FD001,regime na MEWMA (com - sem),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - MEWMA com regime,rampa,0.25,35,-2.2429,-5.2795,0.0,0.0785,True,0.628
+FD001,T50 sem portão - T50 bruto,rampa,0.25,35,-1.5183,-3.1858,1.5873,0.697,False,
+FD001,regime na MEWMA (com - sem),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - MEWMA com regime,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - T50 bruto,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,regime na MEWMA (com - sem),variancia,0.5,35,-3.9651,-13.8661,5.9619,0.401,False,
+FD001,T50 sem portão - MEWMA com regime,variancia,0.5,35,4.627,-10.7448,16.3194,0.6915,False,
+FD001,T50 sem portão - T50 bruto,variancia,0.5,35,-16.6526,-24.1005,-0.6782,0.043,False,
+FD001,regime na MEWMA (com - sem),variancia,1.0,35,-1.5152,-3.7879,0.0,0.4495,False,
+FD001,T50 sem portão - MEWMA com regime,variancia,1.0,35,1.5152,0.0,3.7879,0.454,True,1.0
+FD001,T50 sem portão - T50 bruto,variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD001,regime na MEWMA (com - sem),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - MEWMA com regime,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - T50 bruto,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,regime na MEWMA (com - sem),vies_sensor,1.0,35,-1.5873,-3.9683,0.0,0.406,False,
+FD001,T50 sem portão - MEWMA com regime,vies_sensor,1.0,35,3.1385,0.0,6.241,0.0595,True,0.5355
+FD001,T50 sem portão - T50 bruto,vies_sensor,1.0,35,0.0,-1.4493,0.0,1.0,True,1.0
+FD001,regime na MEWMA (com - sem),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - MEWMA com regime,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - T50 bruto,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,regime na MEWMA (com - sem),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - MEWMA com regime,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD001,T50 sem portão - T50 bruto,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD002,regime na MEWMA (com - sem),degrau,0.05,35,6.6092,-0.8621,14.3678,0.081,True,0.405
+FD002,T50 sem portão - MEWMA com regime,degrau,0.05,35,-17.8161,-24.7126,-10.625,0.0002,False,
+FD002,T50 sem portão - T50 bruto,degrau,0.05,35,8.6207,2.8736,14.6552,0.0035,False,
+FD002,regime na MEWMA (com - sem),degrau,0.1,35,6.6092,0.2874,13.5057,0.0425,True,0.255
+FD002,T50 sem portão - MEWMA com regime,degrau,0.1,35,-48.5632,-56.0345,-41.3793,0.0002,False,
+FD002,T50 sem portão - T50 bruto,degrau,0.1,35,20.1149,13.2184,26.7241,0.0002,False,
+FD002,regime na MEWMA (com - sem),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - MEWMA com regime,degrau,0.25,35,-11.7816,-14.9425,-6.8966,0.0002,True,0.004
+FD002,T50 sem portão - T50 bruto,degrau,0.25,35,76.4368,72.1264,82.1839,0.0002,True,0.002
+FD002,regime na MEWMA (com - sem),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - MEWMA com regime,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - T50 bruto,degrau,0.5,35,87.3563,83.6207,90.8046,0.0002,False,
+FD002,regime na MEWMA (com - sem),rampa,0.05,35,6.0345,-1.1494,14.3678,0.099,False,
+FD002,T50 sem portão - MEWMA com regime,rampa,0.05,35,-15.5172,-22.4138,-8.046,0.0002,False,
+FD002,T50 sem portão - T50 bruto,rampa,0.05,35,7.7586,2.2989,14.0805,0.0075,False,
+FD002,regime na MEWMA (com - sem),rampa,0.1,35,9.7701,1.7241,16.6667,0.017,True,0.119
+FD002,T50 sem portão - MEWMA com regime,rampa,0.1,35,-47.1264,-53.7356,-38.7931,0.0002,False,
+FD002,T50 sem portão - T50 bruto,rampa,0.1,35,16.6667,10.6322,23.2759,0.0002,False,
+FD002,regime na MEWMA (com - sem),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - MEWMA com regime,rampa,0.25,35,-18.1034,-22.1264,-11.4943,0.0002,True,0.004
+FD002,T50 sem portão - T50 bruto,rampa,0.25,35,70.1149,65.5172,77.0115,0.0002,False,
+FD002,regime na MEWMA (com - sem),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - MEWMA com regime,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - T50 bruto,rampa,0.5,35,87.3563,83.6207,90.8046,0.0002,False,
+FD002,regime na MEWMA (com - sem),um_regime,0.1,35,6.0345,-0.8621,12.069,0.1005,False,
+FD002,T50 sem portão - MEWMA com regime,um_regime,0.1,35,-8.908,-13.7931,-0.2874,0.045,False,
+FD002,T50 sem portão - T50 bruto,um_regime,0.1,35,6.6092,1.4368,13.5057,0.0155,False,
+FD002,regime na MEWMA (com - sem),um_regime,0.25,35,7.7586,-0.0,15.8046,0.0615,False,
+FD002,T50 sem portão - MEWMA com regime,um_regime,0.25,35,-25.2874,-32.1839,-15.8046,0.0002,False,
+FD002,T50 sem portão - T50 bruto,um_regime,0.25,35,21.8391,14.6552,28.7356,0.0002,False,
+FD002,regime na MEWMA (com - sem),um_regime,0.5,35,5.7471,2.0115,9.1954,0.001,False,
+FD002,T50 sem portão - MEWMA com regime,um_regime,0.5,35,-16.092,-22.1264,-8.046,0.0002,False,
+FD002,T50 sem portão - T50 bruto,um_regime,0.5,35,69.5402,62.931,77.5862,0.0002,False,
+FD002,regime na MEWMA (com - sem),um_regime,1.0,35,0.2874,0.0,1.1494,0.779,False,
+FD002,T50 sem portão - MEWMA com regime,um_regime,1.0,35,-0.2874,-1.1494,0.0,0.957,False,
+FD002,T50 sem portão - T50 bruto,um_regime,1.0,35,91.6667,88.7931,94.5402,0.0002,False,
+FD002,regime na MEWMA (com - sem),variancia,0.5,35,-0.0,-8.3333,8.908,0.988,False,
+FD002,T50 sem portão - MEWMA com regime,variancia,0.5,35,2.0115,-6.0345,12.069,0.544,False,
+FD002,T50 sem portão - T50 bruto,variancia,0.5,35,27.5862,20.6897,35.9195,0.0002,False,
+FD002,regime na MEWMA (com - sem),variancia,1.0,35,-3.1609,-8.6207,1.1494,0.1555,False,
+FD002,T50 sem portão - MEWMA com regime,variancia,1.0,35,7.1839,3.7356,12.069,0.0002,True,0.004
+FD002,T50 sem portão - T50 bruto,variancia,1.0,35,86.7816,82.7586,90.5172,0.0002,False,
+FD002,regime na MEWMA (com - sem),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - MEWMA com regime,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - T50 bruto,variancia,2.0,35,87.931,84.1954,91.3793,0.0002,False,
+FD002,regime na MEWMA (com - sem),vies_sensor,1.0,35,-13.2184,-19.5402,-7.7586,0.0002,False,
+FD002,T50 sem portão - MEWMA com regime,vies_sensor,1.0,35,13.7931,8.3333,20.4023,0.0002,True,0.004
+FD002,T50 sem portão - T50 bruto,vies_sensor,1.0,35,81.0345,76.7241,85.3448,0.0002,True,0.002
+FD002,regime na MEWMA (com - sem),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - MEWMA com regime,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - T50 bruto,vies_sensor,2.0,35,87.069,83.3333,90.8046,0.0002,False,
+FD002,regime na MEWMA (com - sem),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - MEWMA com regime,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD002,T50 sem portão - T50 bruto,vies_sensor,4.0,35,82.4713,78.1609,86.4943,0.0002,False,
+FD003,regime na MEWMA (com - sem),degrau,0.05,35,-19.5833,-27.8056,-10.1111,0.0002,True,0.003
+FD003,T50 sem portão - MEWMA com regime,degrau,0.05,35,-53.5556,-62.3333,-37.8889,0.0002,False,
+FD003,T50 sem portão - T50 bruto,degrau,0.05,35,-7.6389,-16.9722,4.6667,0.264,False,
+FD003,regime na MEWMA (com - sem),degrau,0.1,35,0.0,0.0,0.0,1.0,True,1.0
+FD003,T50 sem portão - MEWMA com regime,degrau,0.1,35,-66.2778,-71.6674,-46.3521,0.0002,False,
+FD003,T50 sem portão - T50 bruto,degrau,0.1,35,-8.1944,-19.75,9.7792,0.5465,False,
+FD003,regime na MEWMA (com - sem),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,degrau,0.25,35,0.0,0.0,0.0,1.0,True,1.0
+FD003,T50 sem portão - T50 bruto,degrau,0.25,35,0.0,0.0,0.0,1.0,True,1.0
+FD003,regime na MEWMA (com - sem),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - T50 bruto,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,regime na MEWMA (com - sem),rampa,0.05,35,-23.0,-32.3333,-14.3882,0.0002,False,
+FD003,T50 sem portão - MEWMA com regime,rampa,0.05,35,-45.3889,-54.0563,-30.4444,0.0002,False,
+FD003,T50 sem portão - T50 bruto,rampa,0.05,35,-4.8889,-14.9451,5.9729,0.393,False,
+FD003,regime na MEWMA (com - sem),rampa,0.1,35,0.0,0.0,0.0,1.0,True,1.0
+FD003,T50 sem portão - MEWMA com regime,rampa,0.1,35,-72.3889,-77.1389,-55.3882,0.0002,False,
+FD003,T50 sem portão - T50 bruto,rampa,0.1,35,-11.6389,-21.2785,5.4729,0.2485,False,
+FD003,regime na MEWMA (com - sem),rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,rampa,0.25,35,-2.0556,-4.0278,0.0,0.6585,True,1.0
+FD003,T50 sem portão - T50 bruto,rampa,0.25,35,-2.0556,-4.0278,0.0,0.6585,False,
+FD003,regime na MEWMA (com - sem),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - T50 bruto,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,regime na MEWMA (com - sem),variancia,0.5,35,-12.1111,-20.4451,-0.6944,0.0345,False,
+FD003,T50 sem portão - MEWMA com regime,variancia,0.5,35,-12.4722,-26.3333,8.3132,0.298,False,
+FD003,T50 sem portão - T50 bruto,variancia,0.5,35,-8.9167,-23.0007,5.3896,0.2465,False,
+FD003,regime na MEWMA (com - sem),variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,variancia,1.0,35,0.0,0.0,0.0,1.0,True,1.0
+FD003,T50 sem portão - T50 bruto,variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD003,regime na MEWMA (com - sem),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - T50 bruto,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,regime na MEWMA (com - sem),vies_sensor,1.0,35,-0.6944,-3.3333,0.7097,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,vies_sensor,1.0,35,0.6944,0.0,4.0,0.6935,True,1.0
+FD003,T50 sem portão - T50 bruto,vies_sensor,1.0,35,0.0,0.0,0.0,1.0,True,1.0
+FD003,regime na MEWMA (com - sem),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - T50 bruto,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,regime na MEWMA (com - sem),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - MEWMA com regime,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD003,T50 sem portão - T50 bruto,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD004,regime na MEWMA (com - sem),degrau,0.05,35,18.9266,10.7345,25.1412,0.0002,True,0.003
+FD004,T50 sem portão - MEWMA com regime,degrau,0.05,35,-24.5763,-30.226,-16.3842,0.0002,False,
+FD004,T50 sem portão - T50 bruto,degrau,0.05,35,3.1073,-1.9774,10.1695,0.2465,False,
+FD004,regime na MEWMA (com - sem),degrau,0.1,35,39.8305,31.3559,46.6102,0.0002,True,0.003
+FD004,T50 sem portão - MEWMA com regime,degrau,0.1,35,-55.6497,-62.1469,-46.8927,0.0002,False,
+FD004,T50 sem portão - T50 bruto,degrau,0.1,35,18.6441,12.4294,26.2712,0.0002,False,
+FD004,regime na MEWMA (com - sem),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - MEWMA com regime,degrau,0.25,35,-5.0847,-7.6271,-2.5424,0.0002,True,0.004
+FD004,T50 sem portão - T50 bruto,degrau,0.25,35,80.791,76.2712,85.5932,0.0002,True,0.002
+FD004,regime na MEWMA (com - sem),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - MEWMA com regime,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - T50 bruto,degrau,0.5,35,84.4633,80.5085,88.7006,0.0002,False,
+FD004,regime na MEWMA (com - sem),rampa,0.05,35,18.6441,9.887,24.5763,0.0002,False,
+FD004,T50 sem portão - MEWMA com regime,rampa,0.05,35,-22.0339,-27.4011,-13.5593,0.0002,False,
+FD004,T50 sem portão - T50 bruto,rampa,0.05,35,2.8249,-2.2599,9.6045,0.27,False,
+FD004,regime na MEWMA (com - sem),rampa,0.1,35,41.8079,32.7684,48.3051,0.0002,True,0.003
+FD004,T50 sem portão - MEWMA com regime,rampa,0.1,35,-53.9548,-60.452,-45.1977,0.0002,False,
+FD004,T50 sem portão - T50 bruto,rampa,0.1,35,13.8418,7.9096,20.904,0.0002,False,
+FD004,regime na MEWMA (com - sem),rampa,0.25,35,0.565,0.0,1.4124,0.387,False,
+FD004,T50 sem portão - MEWMA com regime,rampa,0.25,35,-9.6045,-13.2768,-5.9322,0.0002,True,0.004
+FD004,T50 sem portão - T50 bruto,rampa,0.25,35,75.9887,71.1864,81.3559,0.0002,False,
+FD004,regime na MEWMA (com - sem),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - MEWMA com regime,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - T50 bruto,rampa,0.5,35,84.1808,80.226,88.4251,0.0002,False,
+FD004,regime na MEWMA (com - sem),um_regime,0.1,35,8.4746,1.4124,14.1243,0.0135,False,
+FD004,T50 sem portão - MEWMA com regime,um_regime,0.1,35,-7.9096,-14.1243,0.0,0.0585,False,
+FD004,T50 sem portão - T50 bruto,um_regime,0.1,35,4.5198,-0.8475,11.5819,0.1005,False,
+FD004,regime na MEWMA (com - sem),um_regime,0.25,35,28.2486,19.4915,34.4633,0.0002,False,
+FD004,T50 sem portão - MEWMA com regime,um_regime,0.25,35,-26.5537,-33.0508,-17.2316,0.0002,False,
+FD004,T50 sem portão - T50 bruto,um_regime,0.25,35,22.5989,16.6667,29.6681,0.0002,False,
+FD004,regime na MEWMA (com - sem),um_regime,0.5,35,13.8418,9.6045,18.9266,0.0002,False,
+FD004,T50 sem portão - MEWMA com regime,um_regime,0.5,35,-10.7345,-14.6893,-6.7797,0.0002,False,
+FD004,T50 sem portão - T50 bruto,um_regime,0.5,35,75.9887,70.904,81.9209,0.0002,False,
+FD004,regime na MEWMA (com - sem),um_regime,1.0,35,0.565,0.0,1.4124,0.276,False,
+FD004,T50 sem portão - MEWMA com regime,um_regime,1.0,35,-0.565,-1.4124,0.0,0.2905,False,
+FD004,T50 sem portão - T50 bruto,um_regime,1.0,35,90.678,87.5706,94.0678,0.0002,False,
+FD004,regime na MEWMA (com - sem),variancia,0.5,35,-7.0621,-16.3842,1.6949,0.111,False,
+FD004,T50 sem portão - MEWMA com regime,variancia,0.5,35,9.322,0.565,18.9266,0.0375,False,
+FD004,T50 sem portão - T50 bruto,variancia,0.5,35,36.7232,29.9435,44.3503,0.0002,False,
+FD004,regime na MEWMA (com - sem),variancia,1.0,35,-0.2825,-1.6949,0.8475,0.6495,False,
+FD004,T50 sem portão - MEWMA com regime,variancia,1.0,35,0.0,-0.565,1.4124,0.954,True,1.0
+FD004,T50 sem portão - T50 bruto,variancia,1.0,35,86.4407,83.0508,90.3955,0.0002,False,
+FD004,regime na MEWMA (com - sem),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - MEWMA com regime,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - T50 bruto,variancia,2.0,35,87.2881,83.8983,91.2429,0.0002,False,
+FD004,regime na MEWMA (com - sem),vies_sensor,1.0,35,-5.9322,-9.0395,-2.2599,0.0002,False,
+FD004,T50 sem portão - MEWMA com regime,vies_sensor,1.0,35,5.3672,1.6949,8.7571,0.0005,True,0.005
+FD004,T50 sem portão - T50 bruto,vies_sensor,1.0,35,84.7458,80.5085,88.9831,0.0002,True,0.002
+FD004,regime na MEWMA (com - sem),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - MEWMA com regime,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - T50 bruto,vies_sensor,2.0,35,84.4633,80.5085,88.7006,0.0002,False,
+FD004,regime na MEWMA (com - sem),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - MEWMA com regime,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD004,T50 sem portão - T50 bruto,vies_sensor,4.0,35,80.791,76.5537,85.3107,0.0002,False,

@@ -3,7 +3,6 @@
 
 import numpy as np
 import pandas as pd
-from pdm_cmaps.detection.health_index import HealthIndexFuser
 from pdm_cmaps.detection.regime import RegimeDecoupler
 from pdm_cmaps.detection.spc import EnvelopeAnomalyDetector, StatisticalAnomalyDetector
 from pdm_cmaps.detection.virtual_sensor import VirtualSensor
@@ -160,27 +159,6 @@ def test_todo3_geometric_envelope_decoupled_multiregime():
     assert summary["first_alarm_cycle"] >= 74
     assert summary["lead_time_cycles"] > 0
     assert summary["decoupled_mode"] == "residual"
-
-
-def test_todo5_health_index_fuser():
-    """TODO-5 & F7: HealthIndexFuser synthesizes multi-sensor degradation into monotonic [1.0 -> 0.0] HI."""
-    df = make_synthetic_cmapss(n_engines=8, seed=42)
-    decoupler = RegimeDecoupler(n_clusters=6, random_state=42).fit(df)
-    df_trans = decoupler.transform(df)
-    decoupler.fit_sensor_scaler(df_trans, ["T50", "P30", "T24"])
-    df_norm = decoupler.standardize_sensors(df_trans, ["T50", "P30", "T24"])
-
-    fuser = HealthIndexFuser(healthy_cycle_limit=30, ewma_alpha=0.10, random_state=42)
-    scored, per_engine, summary = fuser.evaluate(df_norm, df_norm)
-
-    assert "health_index" in scored.columns
-    assert (scored["health_index"] >= 0.0).all() and (scored["health_index"] <= 1.0).all()
-
-    # Verify healthy phase has high HI and end-of-life has lower HI
-    for _, eng in scored.groupby("unit_id"):
-        healthy_hi = eng.loc[eng["cycle"] <= 30, "health_index"].mean()
-        eol_hi = eng.tail(5)["health_index"].mean()
-        assert healthy_hi > eol_hi
 
 
 def test_multivariate_monitor_alarms_on_drift_not_on_healthy_engines():

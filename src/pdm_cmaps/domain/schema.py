@@ -19,7 +19,7 @@ COLUMNS = [*ID_COLUMNS, *SETTING_COLUMNS, *SENSOR_COLUMNS]
 
 # Sensor metadata. [ASSUMPTION] The drift-direction tuples below are descriptive only: they are
 # NOT used to orient the health index (that is done empirically from the data, see
-# HealthIndexFuser.fit) because drift directions vary between subsets and fault modes.
+# the removed health index) because drift directions vary between subsets and fault modes.
 POSITIVE_DRIFT_SENSORS: tuple[str, ...] = (
     "T24", "T30", "T50", "Nf", "Nc", "NRf", "BPR", "htBleed",
 )

@@ -1,0 +1,5 @@
+Subset,detection_rate_pct_mean,detection_rate_pct_std,mean_lead_time_cycles_mean,mean_lead_time_cycles_std,mean_healthy_false_alarm_pct_mean,mean_healthy_false_alarm_pct_std,premature_alarm_pct_mean,premature_alarm_pct_std,Runs
+FD001,100.0,0.0,115.49333333333334,3.4984186903990366,0.0,0.0,0.0,0.0,3
+FD002,100.0,0.0,103.2121212121212,1.7251448881806446,0.0,0.0,0.0,0.0,3
+FD003,100.0,0.0,138.79999999999998,6.319620241755045,0.0,0.0,0.0,0.0,3
+FD004,100.0,0.0,125.61827956989247,2.7085891311737074,0.0,0.0,0.0,0.0,3

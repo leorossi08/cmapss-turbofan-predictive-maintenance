@@ -1,0 +1,127 @@
+Mode,Estimator,Chart,family,shape,power_pct,n
+cross_sensor,Extra Trees (padrão),MEWMA,processo,degrau,79.27677329624478,1438
+cross_sensor,Extra Trees (padrão),MEWMA,processo,intermitente,67.49163879598662,1495
+cross_sensor,Extra Trees (padrão),MEWMA,processo,rampa,74.78991596638656,1428
+cross_sensor,Extra Trees (padrão),MEWMA,processo,saturante,74.49118046132972,1474
+cross_sensor,Extra Trees (padrão),MEWMA,sensor,degrau,91.08832807570978,1268
+cross_sensor,Extra Trees (padrão),MEWMA,sensor,intermitente,81.66089965397923,1156
+cross_sensor,Extra Trees (padrão),MEWMA,sensor,rampa,89.78685612788632,1126
+cross_sensor,Extra Trees (padrão),MEWMA,sensor,saturante,89.06510851419031,1198
+cross_sensor,Extra Trees (padrão),MEWMA,sensor,variancia,60.36636136552873,1201
+cross_sensor,Extra Trees (padrão),sensor afetado,sensor,degrau,94.71608832807571,1268
+cross_sensor,Extra Trees (padrão),sensor afetado,sensor,intermitente,89.61937716262976,1156
+cross_sensor,Extra Trees (padrão),sensor afetado,sensor,rampa,93.51687388987567,1126
+cross_sensor,Extra Trees (padrão),sensor afetado,sensor,saturante,92.07011686143572,1198
+cross_sensor,Extra Trees (padrão),sensor afetado,sensor,variancia,95.75353871773522,1201
+cross_sensor,LightGBM,MEWMA,processo,degrau,76.35605006954103,1438
+cross_sensor,LightGBM,MEWMA,processo,intermitente,65.88628762541806,1495
+cross_sensor,LightGBM,MEWMA,processo,rampa,71.77871148459384,1428
+cross_sensor,LightGBM,MEWMA,processo,saturante,73.54138398914517,1474
+cross_sensor,LightGBM,MEWMA,sensor,degrau,89.98422712933754,1268
+cross_sensor,LightGBM,MEWMA,sensor,intermitente,79.32525951557093,1156
+cross_sensor,LightGBM,MEWMA,sensor,rampa,89.34280639431617,1126
+cross_sensor,LightGBM,MEWMA,sensor,saturante,88.14691151919867,1198
+cross_sensor,LightGBM,MEWMA,sensor,variancia,58.2014987510408,1201
+cross_sensor,LightGBM,sensor afetado,sensor,degrau,94.4006309148265,1268
+cross_sensor,LightGBM,sensor afetado,sensor,intermitente,88.840830449827,1156
+cross_sensor,LightGBM,sensor afetado,sensor,rampa,92.00710479573712,1126
+cross_sensor,LightGBM,sensor afetado,sensor,saturante,91.65275459098497,1198
+cross_sensor,LightGBM,sensor afetado,sensor,variancia,95.00416319733556,1201
+cross_sensor,MLP,MEWMA,processo,degrau,73.78303198887343,1438
+cross_sensor,MLP,MEWMA,processo,intermitente,63.54515050167224,1495
+cross_sensor,MLP,MEWMA,processo,rampa,69.88795518207283,1428
+cross_sensor,MLP,MEWMA,processo,saturante,70.48846675712348,1474
+cross_sensor,MLP,MEWMA,sensor,degrau,90.85173501577287,1268
+cross_sensor,MLP,MEWMA,sensor,intermitente,80.70934256055364,1156
+cross_sensor,MLP,MEWMA,sensor,rampa,89.87566607460036,1126
+cross_sensor,MLP,MEWMA,sensor,saturante,88.73121869782972,1198
+cross_sensor,MLP,MEWMA,sensor,variancia,57.701915070774355,1201
+cross_sensor,MLP,sensor afetado,sensor,degrau,94.71608832807571,1268
+cross_sensor,MLP,sensor afetado,sensor,intermitente,89.70588235294117,1156
+cross_sensor,MLP,sensor afetado,sensor,rampa,92.89520426287744,1126
+cross_sensor,MLP,sensor afetado,sensor,saturante,92.23706176961602,1198
+cross_sensor,MLP,sensor afetado,sensor,variancia,95.8368026644463,1201
+cross_sensor,Ridge,MEWMA,processo,degrau,77.88595271210013,1438
+cross_sensor,Ridge,MEWMA,processo,intermitente,66.48829431438126,1495
+cross_sensor,Ridge,MEWMA,processo,rampa,74.29971988795518,1428
+cross_sensor,Ridge,MEWMA,processo,saturante,75.10176390773405,1474
+cross_sensor,Ridge,MEWMA,sensor,degrau,90.93059936908517,1268
+cross_sensor,Ridge,MEWMA,sensor,intermitente,82.00692041522491,1156
+cross_sensor,Ridge,MEWMA,sensor,rampa,89.78685612788632,1126
+cross_sensor,Ridge,MEWMA,sensor,saturante,89.31552587646077,1198
+cross_sensor,Ridge,MEWMA,sensor,variancia,58.78434637801831,1201
+cross_sensor,Ridge,sensor afetado,sensor,degrau,94.95268138801262,1268
+cross_sensor,Ridge,sensor afetado,sensor,intermitente,89.87889273356402,1156
+cross_sensor,Ridge,sensor afetado,sensor,rampa,93.25044404973357,1126
+cross_sensor,Ridge,sensor afetado,sensor,saturante,92.07011686143572,1198
+cross_sensor,Ridge,sensor afetado,sensor,variancia,95.8368026644463,1201
+exogenous,Extra Trees (padrão),MEWMA,processo,degrau,70.72322670375522,1438
+exogenous,Extra Trees (padrão),MEWMA,processo,intermitente,59.93311036789297,1495
+exogenous,Extra Trees (padrão),MEWMA,processo,rampa,66.94677871148458,1428
+exogenous,Extra Trees (padrão),MEWMA,processo,saturante,68.45318860244234,1474
+exogenous,Extra Trees (padrão),MEWMA,sensor,degrau,85.8832807570978,1268
+exogenous,Extra Trees (padrão),MEWMA,sensor,intermitente,73.1833910034602,1156
+exogenous,Extra Trees (padrão),MEWMA,sensor,rampa,85.16873889875666,1126
+exogenous,Extra Trees (padrão),MEWMA,sensor,saturante,84.8914858096828,1198
+exogenous,Extra Trees (padrão),MEWMA,sensor,variancia,54.28809325562032,1201
+exogenous,Extra Trees (padrão),sensor afetado,sensor,degrau,91.7981072555205,1268
+exogenous,Extra Trees (padrão),sensor afetado,sensor,intermitente,86.24567474048442,1156
+exogenous,Extra Trees (padrão),sensor afetado,sensor,rampa,91.03019538188278,1126
+exogenous,Extra Trees (padrão),sensor afetado,sensor,saturante,89.39899833055091,1198
+exogenous,Extra Trees (padrão),sensor afetado,sensor,variancia,93.33888426311407,1201
+exogenous,LightGBM,MEWMA,processo,degrau,70.44506258692628,1438
+exogenous,LightGBM,MEWMA,processo,intermitente,59.66555183946488,1495
+exogenous,LightGBM,MEWMA,processo,rampa,67.22689075630252,1428
+exogenous,LightGBM,MEWMA,processo,saturante,69.19945725915875,1474
+exogenous,LightGBM,MEWMA,sensor,degrau,86.35646687697161,1268
+exogenous,LightGBM,MEWMA,sensor,intermitente,74.13494809688581,1156
+exogenous,LightGBM,MEWMA,sensor,rampa,85.79040852575488,1126
+exogenous,LightGBM,MEWMA,sensor,saturante,84.0567612687813,1198
+exogenous,LightGBM,MEWMA,sensor,variancia,55.120732722731056,1201
+exogenous,LightGBM,sensor afetado,sensor,degrau,91.6403785488959,1268
+exogenous,LightGBM,sensor afetado,sensor,intermitente,87.88927335640139,1156
+exogenous,LightGBM,sensor afetado,sensor,rampa,91.1190053285968,1126
+exogenous,LightGBM,sensor afetado,sensor,saturante,90.06677796327212,1198
+exogenous,LightGBM,sensor afetado,sensor,variancia,94.25478767693589,1201
+exogenous,MLP,MEWMA,processo,degrau,71.3490959666203,1438
+exogenous,MLP,MEWMA,processo,intermitente,60.26755852842809,1495
+exogenous,MLP,MEWMA,processo,rampa,66.66666666666666,1428
+exogenous,MLP,MEWMA,processo,saturante,68.52103120759837,1474
+exogenous,MLP,MEWMA,sensor,degrau,86.1198738170347,1268
+exogenous,MLP,MEWMA,sensor,intermitente,74.30795847750865,1156
+exogenous,MLP,MEWMA,sensor,rampa,85.34635879218473,1126
+exogenous,MLP,MEWMA,sensor,saturante,84.14023372287144,1198
+exogenous,MLP,MEWMA,sensor,variancia,54.371357202331396,1201
+exogenous,MLP,sensor afetado,sensor,degrau,93.29652996845425,1268
+exogenous,MLP,sensor afetado,sensor,intermitente,87.71626297577855,1156
+exogenous,MLP,sensor afetado,sensor,rampa,91.74067495559503,1126
+exogenous,MLP,sensor afetado,sensor,saturante,90.06677796327212,1198
+exogenous,MLP,sensor afetado,sensor,variancia,94.75437135720233,1201
+exogenous,Média do regime (sem ML),MEWMA,processo,degrau,69.47148817802503,1438
+exogenous,Média do regime (sem ML),MEWMA,processo,intermitente,60.40133779264214,1495
+exogenous,Média do regime (sem ML),MEWMA,processo,rampa,66.03641456582633,1428
+exogenous,Média do regime (sem ML),MEWMA,processo,saturante,68.58887381275441,1474
+exogenous,Média do regime (sem ML),MEWMA,sensor,degrau,86.04100946372239,1268
+exogenous,Média do regime (sem ML),MEWMA,sensor,intermitente,75.0,1156
+exogenous,Média do regime (sem ML),MEWMA,sensor,rampa,83.21492007104796,1126
+exogenous,Média do regime (sem ML),MEWMA,sensor,saturante,83.47245409015025,1198
+exogenous,Média do regime (sem ML),MEWMA,sensor,variancia,53.62198168193172,1201
+exogenous,Média do regime (sem ML),sensor afetado,sensor,degrau,93.76971608832808,1268
+exogenous,Média do regime (sem ML),sensor afetado,sensor,intermitente,88.32179930795849,1156
+exogenous,Média do regime (sem ML),sensor afetado,sensor,rampa,91.3854351687389,1126
+exogenous,Média do regime (sem ML),sensor afetado,sensor,saturante,90.40066777963273,1198
+exogenous,Média do regime (sem ML),sensor afetado,sensor,variancia,95.08742714404663,1201
+exogenous,Ridge,MEWMA,processo,degrau,73.57440890125174,1438
+exogenous,Ridge,MEWMA,processo,intermitente,62.94314381270903,1495
+exogenous,Ridge,MEWMA,processo,rampa,68.62745098039215,1428
+exogenous,Ridge,MEWMA,processo,saturante,70.75983717774763,1474
+exogenous,Ridge,MEWMA,sensor,degrau,87.61829652996845,1268
+exogenous,Ridge,MEWMA,sensor,intermitente,77.16262975778547,1156
+exogenous,Ridge,MEWMA,sensor,rampa,85.87921847246892,1126
+exogenous,Ridge,MEWMA,sensor,saturante,85.47579298831386,1198
+exogenous,Ridge,MEWMA,sensor,variancia,56.203164029975014,1201
+exogenous,Ridge,sensor afetado,sensor,degrau,93.76971608832808,1268
+exogenous,Ridge,sensor afetado,sensor,intermitente,88.75432525951558,1156
+exogenous,Ridge,sensor afetado,sensor,rampa,92.27353463587922,1126
+exogenous,Ridge,sensor afetado,sensor,saturante,90.31719532554257,1198
+exogenous,Ridge,sensor afetado,sensor,variancia,95.00416319733556,1201

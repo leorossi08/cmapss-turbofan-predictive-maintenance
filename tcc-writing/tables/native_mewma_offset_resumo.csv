@@ -1,0 +1,9 @@
+Subset,engine_offset,detection_rate_pct,mean_lead_time_detected_cycles,mean_healthy_false_alarm_pct,premature_alarm_pct
+FD001,False,100.0,78.51,0.83,8.0
+FD001,True,100.0,135.19,0.08,4.0
+FD002,False,100.0,70.68,0.24,2.02
+FD002,True,100.0,136.82,0.29,8.08
+FD003,False,100.0,90.6,1.23,4.0
+FD003,True,100.0,158.09,0.11,2.67
+FD004,False,100.0,80.34,0.34,1.61
+FD004,True,100.0,171.39,0.3,9.14

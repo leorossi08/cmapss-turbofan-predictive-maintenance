@@ -1,0 +1,193 @@
+Subset,Contraste,kind,magnitude,t0,diferenca_pp,ic_lo,ic_hi,p_boot,familia,p_holm
+FD001,MEWMA com regime - EWMA clássica com sinal,degrau,0.05,35,38.5579,27.6178,52.2592,0.0002,True,0.003
+FD001,MEWMA com regime - Isolation Forest,degrau,0.05,35,47.6253,37.4075,61.4845,0.0002,True,0.003
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.05,35,16.8596,6.1986,27.3825,0.003,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,degrau,0.1,35,28.206,20.6177,37.3817,0.0002,True,0.003
+FD001,MEWMA com regime - Isolation Forest,degrau,0.1,35,34.7905,27.2414,47.5156,0.0002,True,0.003
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.1,35,35.0665,24.556,44.0712,0.0002,True,0.004
+FD001,MEWMA com regime - EWMA clássica com sinal,degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest,degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.25,35,0.0,0.0,1.4493,1.0,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,rampa,0.05,35,27.1786,17.1002,43.1364,0.0002,False,
+FD001,MEWMA com regime - Isolation Forest,rampa,0.05,35,36.0719,26.0995,51.536,0.0002,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.05,35,15.2001,3.8269,25.8674,0.008,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,rampa,0.1,35,33.4494,26.4108,43.1693,0.0002,True,0.003
+FD001,MEWMA com regime - Isolation Forest,rampa,0.1,35,45.4483,37.1712,57.6588,0.0002,True,0.003
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.1,35,35.0634,25.1318,43.3081,0.0002,True,0.004
+FD001,MEWMA com regime - EWMA clássica com sinal,rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest,rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.25,35,2.2429,0.0,5.2795,0.0785,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,variancia,0.5,35,17.8681,8.3528,34.1194,0.0025,False,
+FD001,MEWMA com regime - Isolation Forest,variancia,0.5,35,-41.7827,-49.4079,-24.8133,0.0002,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,0.5,35,-22.4951,-35.9679,-12.8019,0.0002,True,0.004
+FD001,MEWMA com regime - EWMA clássica com sinal,variancia,1.0,35,22.8669,15.829,33.5483,0.0002,False,
+FD001,MEWMA com regime - Isolation Forest,variancia,1.0,35,-1.5152,-3.7879,0.0,0.4495,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,1.0,35,-24.382,-34.8666,-17.2406,0.0002,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,vies_sensor,1.0,35,-3.1385,-6.2771,-0.7576,0.04,False,
+FD001,MEWMA com regime - Isolation Forest,vies_sensor,1.0,35,65.8291,58.3787,76.6218,0.0002,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,1.0,35,0.0,0.0,1.4493,1.0,True,1.0
+FD001,MEWMA com regime - EWMA clássica com sinal,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest,vies_sensor,2.0,35,40.586,29.5805,54.5126,0.0002,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - EWMA clássica com sinal,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD001,MEWMA com regime - Isolation Forest,vies_sensor,4.0,35,23.7531,15.5185,36.1407,0.0002,False,
+FD001,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,degrau,0.05,35,10.9195,1.1494,16.3793,0.029,True,0.058
+FD002,MEWMA com regime - Isolation Forest,degrau,0.05,35,17.2414,10.0575,23.2759,0.0002,True,0.003
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.05,35,6.8966,2.5862,15.5172,0.0045,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,degrau,0.1,35,24.7126,16.092,31.3218,0.0002,True,0.003
+FD002,MEWMA com regime - Isolation Forest,degrau,0.1,35,54.8851,45.6897,60.3448,0.0002,True,0.003
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.1,35,23.8506,18.3908,32.4713,0.0002,True,0.004
+FD002,MEWMA com regime - EWMA clássica com sinal,degrau,0.25,35,0.8621,0.0,2.0115,0.131,False,
+FD002,MEWMA com regime - Isolation Forest,degrau,0.25,35,8.046,3.4483,11.4943,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.25,35,10.9195,6.0345,13.7931,0.0002,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,rampa,0.05,35,8.908,0.2874,14.3678,0.043,False,
+FD002,MEWMA com regime - Isolation Forest,rampa,0.05,35,13.7931,6.3218,19.8276,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.05,35,6.6092,1.7241,14.3678,0.0175,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,rampa,0.1,35,26.1494,17.2414,32.4713,0.0002,True,0.003
+FD002,MEWMA com regime - Isolation Forest,rampa,0.1,35,50.0,40.5172,54.8851,0.0002,True,0.003
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.1,35,20.977,15.2299,27.8736,0.0002,True,0.004
+FD002,MEWMA com regime - EWMA clássica com sinal,rampa,0.25,35,2.0115,0.2874,3.4483,0.013,False,
+FD002,MEWMA com regime - Isolation Forest,rampa,0.25,35,13.7931,8.046,18.9727,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.25,35,16.092,10.0575,20.1149,0.0002,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,um_regime,0.1,35,5.7471,-2.0115,10.3448,0.2265,False,
+FD002,MEWMA com regime - Isolation Forest,um_regime,0.1,35,7.1839,-1.7241,11.4943,0.1465,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),um_regime,0.1,35,3.1609,-3.1609,9.1954,0.3085,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,um_regime,0.25,35,23.5632,13.5057,28.7356,0.0002,False,
+FD002,MEWMA com regime - Isolation Forest,um_regime,0.25,35,21.5517,9.4828,27.0115,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),um_regime,0.25,35,1.7241,-4.023,10.6322,0.4495,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,um_regime,0.5,35,25.0,17.2414,29.023,0.0002,False,
+FD002,MEWMA com regime - Isolation Forest,um_regime,0.5,35,4.023,-0.0,8.046,0.0695,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),um_regime,0.5,35,-8.908,-15.5172,-0.0,0.05,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,um_regime,1.0,35,2.8736,1.1494,4.5977,0.0002,False,
+FD002,MEWMA com regime - Isolation Forest,um_regime,1.0,35,3.4483,1.1494,5.7471,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),um_regime,1.0,35,-2.5862,-4.3103,-0.8621,0.004,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,variancia,0.5,35,13.5057,4.023,19.5402,0.003,False,
+FD002,MEWMA com regime - Isolation Forest,variancia,0.5,35,-9.7701,-20.6897,-1.7241,0.0195,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,0.5,35,-15.5172,-22.4138,-6.8966,0.0002,True,0.004
+FD002,MEWMA com regime - EWMA clássica com sinal,variancia,1.0,35,39.6552,29.023,43.9655,0.0002,False,
+FD002,MEWMA com regime - Isolation Forest,variancia,1.0,35,-9.7701,-14.9425,-6.6092,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,1.0,35,-46.8391,-50.8621,-37.6437,0.0002,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,variancia,2.0,35,6.6092,2.8736,9.1954,0.0002,False,
+FD002,MEWMA com regime - Isolation Forest,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,2.0,35,-6.6092,-9.1954,-2.8736,0.0002,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,vies_sensor,1.0,35,-20.4023,-26.4368,-14.9425,0.0002,False,
+FD002,MEWMA com regime - Isolation Forest,vies_sensor,1.0,35,58.046,50.0,64.0805,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,1.0,35,6.6092,3.7356,9.1954,0.0002,True,0.004
+FD002,MEWMA com regime - EWMA clássica com sinal,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest,vies_sensor,2.0,35,67.2414,59.1954,72.4138,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - EWMA clássica com sinal,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD002,MEWMA com regime - Isolation Forest,vies_sensor,4.0,35,55.1724,45.6897,60.6322,0.0002,False,
+FD002,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,degrau,0.05,35,34.4444,23.0833,45.0833,0.0002,True,0.003
+FD003,MEWMA com regime - Isolation Forest,degrau,0.05,35,38.5278,28.5826,51.3889,0.0002,True,0.003
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.05,35,19.1111,4.8882,26.584,0.001,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,degrau,0.1,35,20.9722,12.0833,30.4174,0.0002,True,0.003
+FD003,MEWMA com regime - Isolation Forest,degrau,0.1,35,47.7778,33.7764,58.1111,0.0002,True,0.003
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.1,35,45.3056,24.5257,51.2507,0.0002,True,0.004
+FD003,MEWMA com regime - EWMA clássica com sinal,degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest,degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,rampa,0.05,35,28.3611,18.1382,39.2792,0.0002,False,
+FD003,MEWMA com regime - Isolation Forest,rampa,0.05,35,34.4444,22.8875,44.1125,0.0002,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.05,35,17.0278,3.916,23.0278,0.0075,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,rampa,0.1,35,33.8056,21.6944,42.0,0.0002,True,0.003
+FD003,MEWMA com regime - Isolation Forest,rampa,0.1,35,56.6944,45.4972,64.0833,0.0002,True,0.003
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.1,35,38.5833,21.5556,47.834,0.0002,True,0.004
+FD003,MEWMA com regime - EWMA clássica com sinal,rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest,rampa,0.25,35,0.0,0.0,0.0,1.0,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.25,35,2.0556,0.0,4.0278,0.6585,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,variancia,0.5,35,37.3889,25.3049,52.0285,0.0002,False,
+FD003,MEWMA com regime - Isolation Forest,variancia,0.5,35,-13.4722,-27.6389,4.2826,0.1605,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,0.5,35,-24.9167,-43.8611,-15.416,0.0002,True,0.004
+FD003,MEWMA com regime - EWMA clássica com sinal,variancia,1.0,35,27.7222,20.9722,37.6389,0.0002,False,
+FD003,MEWMA com regime - Isolation Forest,variancia,1.0,35,0.0,0.0,0.0,1.0,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,1.0,35,-27.7222,-37.341,-20.9722,0.0002,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,variancia,2.0,35,0.0,0.0,0.6667,1.0,False,
+FD003,MEWMA com regime - Isolation Forest,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,2.0,35,0.0,-0.6667,0.0,1.0,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,vies_sensor,1.0,35,-0.6944,-4.0,0.0,0.6925,False,
+FD003,MEWMA com regime - Isolation Forest,vies_sensor,1.0,35,65.5,60.0833,73.6944,0.0002,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,1.0,35,0.0,0.0,0.0,1.0,True,1.0
+FD003,MEWMA com regime - EWMA clássica com sinal,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest,vies_sensor,2.0,35,58.6389,50.7208,64.8333,0.0002,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - EWMA clássica com sinal,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD003,MEWMA com regime - Isolation Forest,vies_sensor,4.0,35,54.5833,44.5278,61.4722,0.0002,False,
+FD003,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,degrau,0.05,35,9.887,-0.2825,14.6893,0.0595,True,0.0595
+FD004,MEWMA com regime - Isolation Forest,degrau,0.05,35,21.1864,11.8644,25.7062,0.0002,True,0.003
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.05,35,14.6893,10.452,22.5989,0.0002,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,degrau,0.1,35,27.9661,19.209,32.4859,0.0002,True,0.003
+FD004,MEWMA com regime - Isolation Forest,degrau,0.1,35,55.6497,45.4802,59.0395,0.0002,True,0.003
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.1,35,27.6836,22.3164,35.5932,0.0002,True,0.004
+FD004,MEWMA com regime - EWMA clássica com sinal,degrau,0.25,35,0.2825,0.0,0.8475,0.949,False,
+FD004,MEWMA com regime - Isolation Forest,degrau,0.25,35,1.1299,0.0,3.3969,0.118,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.25,35,4.8023,2.2599,7.3446,0.0002,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest,degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),degrau,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,rampa,0.05,35,7.9096,-1.4124,12.7119,0.1205,False,
+FD004,MEWMA com regime - Isolation Forest,rampa,0.05,35,19.4915,9.6045,23.4463,0.0002,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.05,35,14.1243,9.6045,20.904,0.0002,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,rampa,0.1,35,28.2486,18.3616,33.0508,0.0002,True,0.003
+FD004,MEWMA com regime - Isolation Forest,rampa,0.1,35,53.9548,42.9308,57.3446,0.0002,True,0.003
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.1,35,25.7062,20.904,34.1879,0.0002,True,0.004
+FD004,MEWMA com regime - EWMA clássica com sinal,rampa,0.25,35,0.2825,0.0,0.8475,0.7215,False,
+FD004,MEWMA com regime - Isolation Forest,rampa,0.25,35,3.6723,0.8475,7.0621,0.0002,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.25,35,9.322,5.6497,12.9944,0.0002,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest,rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),rampa,0.5,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,um_regime,0.1,35,4.8023,-4.2373,9.0395,0.4595,False,
+FD004,MEWMA com regime - Isolation Forest,um_regime,0.1,35,5.9322,-3.3898,10.1695,0.3575,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),um_regime,0.1,35,3.1073,-1.4124,11.2994,0.1445,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,um_regime,0.25,35,21.7514,12.1469,26.8362,0.0002,False,
+FD004,MEWMA com regime - Isolation Forest,um_regime,0.25,35,13.8418,0.8475,17.7966,0.0375,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),um_regime,0.25,35,4.8023,-0.8475,11.8644,0.0955,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,um_regime,0.5,35,17.7966,12.7119,21.4689,0.0002,False,
+FD004,MEWMA com regime - Isolation Forest,um_regime,0.5,35,1.6949,-0.565,4.2373,0.196,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),um_regime,0.5,35,-7.0621,-11.5819,-1.6949,0.015,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,um_regime,1.0,35,1.1299,0.0,1.9774,0.0995,False,
+FD004,MEWMA com regime - Isolation Forest,um_regime,1.0,35,2.2599,0.8475,3.9548,0.0002,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),um_regime,1.0,35,-0.565,-1.6949,0.8475,0.7515,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,variancia,0.5,35,13.8418,2.8249,19.4915,0.0085,False,
+FD004,MEWMA com regime - Isolation Forest,variancia,0.5,35,-7.0621,-24.0113,-2.8249,0.0125,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,0.5,35,-23.1638,-28.8136,-13.5593,0.0002,True,0.004
+FD004,MEWMA com regime - EWMA clássica com sinal,variancia,1.0,35,38.4181,29.3785,42.6554,0.0002,False,
+FD004,MEWMA com regime - Isolation Forest,variancia,1.0,35,-0.2825,-1.6949,0.0,0.432,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,1.0,35,-38.4181,-42.9379,-29.3785,0.0002,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,variancia,2.0,35,2.2599,0.2825,3.6723,0.009,False,
+FD004,MEWMA com regime - Isolation Forest,variancia,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),variancia,2.0,35,-2.2599,-3.6723,-0.2825,0.009,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,vies_sensor,1.0,35,-5.9322,-9.0395,-2.2599,0.0002,False,
+FD004,MEWMA com regime - Isolation Forest,vies_sensor,1.0,35,72.8814,63.8418,75.9887,0.0002,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,1.0,35,0.565,0.0,1.4124,0.2525,True,0.7575
+FD004,MEWMA com regime - EWMA clássica com sinal,vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest,vies_sensor,2.0,35,68.0791,56.4972,71.1864,0.0002,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,2.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - EWMA clássica com sinal,vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,
+FD004,MEWMA com regime - Isolation Forest,vies_sensor,4.0,35,59.322,47.4506,62.7119,0.0002,False,
+FD004,EWMA clássica com sinal - EWMA do módulo (T50 sem portão),vies_sensor,4.0,35,0.0,0.0,0.0,1.0,False,

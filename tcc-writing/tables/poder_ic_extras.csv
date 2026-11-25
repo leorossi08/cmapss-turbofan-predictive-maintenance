@@ -1,0 +1,449 @@
+Subset,Detector,kind,magnitude,t0,poder_pct,ic_lo,ic_hi,n_seeds
+FD001,T50 bruto (sem regime),degrau,0.05,35,21.659,14.864,32.17,3
+FD001,T50 EWMA (com regime),degrau,0.05,35,2.243,0.0,5.141,3
+FD001,"T50 EWMA (com regime, sem portão)",degrau,0.05,35,19.416,12.894,26.353,3
+FD001,MEWMA bruto (sem regime),degrau,0.05,35,89.276,83.793,96.173,3
+FD001,"MEWMA (13 resíduos, com regime)",degrau,0.05,35,74.834,66.108,85.488,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",degrau,0.05,35,36.276,27.372,45.071,3
+FD001,"Isolation Forest (13 resíduos, com regime)",degrau,0.05,35,27.208,19.481,33.417,3
+FD001,T50 bruto (sem regime),degrau,0.1,35,48.176,36.753,56.894,3
+FD001,T50 EWMA (com regime),degrau,0.1,35,3.037,0.725,6.142,3
+FD001,"T50 EWMA (com regime, sem portão)",degrau,0.1,35,36.728,28.382,45.392,3
+FD001,MEWMA bruto (sem regime),degrau,0.1,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",degrau,0.1,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",degrau,0.1,35,71.794,62.618,79.382,3
+FD001,"Isolation Forest (13 resíduos, com regime)",degrau,0.1,35,65.21,52.484,72.759,3
+FD001,T50 bruto (sem regime),degrau,0.25,35,100.0,100.0,100.0,3
+FD001,T50 EWMA (com regime),degrau,0.25,35,26.241,18.78,34.376,3
+FD001,"T50 EWMA (com regime, sem portão)",degrau,0.25,35,100.0,98.551,100.0,3
+FD001,MEWMA bruto (sem regime),degrau,0.25,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",degrau,0.25,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",degrau,0.25,35,100.0,100.0,100.0,3
+FD001,"Isolation Forest (13 resíduos, com regime)",degrau,0.25,35,100.0,100.0,100.0,3
+FD001,T50 bruto (sem regime),degrau,0.5,35,100.0,100.0,100.0,3
+FD001,T50 EWMA (com regime),degrau,0.5,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA (com regime, sem portão)",degrau,0.5,35,100.0,100.0,100.0,3
+FD001,MEWMA bruto (sem regime),degrau,0.5,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD001,"Isolation Forest (13 resíduos, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD001,T50 bruto (sem regime),rampa,0.05,35,21.695,12.48,31.105,3
+FD001,T50 EWMA (com regime),rampa,0.05,35,1.518,0.0,3.83,3
+FD001,"T50 EWMA (com regime, sem portão)",rampa,0.05,35,16.419,10.385,24.389,3
+FD001,MEWMA bruto (sem regime),rampa,0.05,35,76.346,70.036,87.175,3
+FD001,"MEWMA (13 resíduos, com regime)",rampa,0.05,35,58.798,51.967,71.515,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",rampa,0.05,35,31.619,22.479,40.805,3
+FD001,"Isolation Forest (13 resíduos, com regime)",rampa,0.05,35,22.726,14.557,30.957,3
+FD001,T50 bruto (sem regime),rampa,0.1,35,43.66,31.206,52.79,3
+FD001,T50 EWMA (com regime),rampa,0.1,35,2.312,0.0,5.28,3
+FD001,"T50 EWMA (com regime, sem portão)",rampa,0.1,35,31.487,23.371,38.454,3
+FD001,MEWMA bruto (sem regime),rampa,0.1,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",rampa,0.1,35,100.0,98.551,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",rampa,0.1,35,66.551,56.755,73.543,3
+FD001,"Isolation Forest (13 resíduos, com regime)",rampa,0.1,35,54.552,42.237,62.555,3
+FD001,T50 bruto (sem regime),rampa,0.25,35,99.275,95.445,100.0,3
+FD001,T50 EWMA (com regime),rampa,0.25,35,18.655,12.136,25.965,3
+FD001,"T50 EWMA (com regime, sem portão)",rampa,0.25,35,97.757,94.72,100.0,3
+FD001,MEWMA bruto (sem regime),rampa,0.25,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",rampa,0.25,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",rampa,0.25,35,100.0,100.0,100.0,3
+FD001,"Isolation Forest (13 resíduos, com regime)",rampa,0.25,35,100.0,100.0,100.0,3
+FD001,T50 bruto (sem regime),rampa,0.5,35,100.0,100.0,100.0,3
+FD001,T50 EWMA (com regime),rampa,0.5,35,97.688,95.238,100.0,3
+FD001,"T50 EWMA (com regime, sem portão)",rampa,0.5,35,100.0,100.0,100.0,3
+FD001,MEWMA bruto (sem regime),rampa,0.5,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD001,"Isolation Forest (13 resíduos, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD001,T50 bruto (sem regime),variancia,0.5,35,74.01,61.001,79.495,3
+FD001,T50 EWMA (com regime),variancia,0.5,35,3.07,0.725,6.176,3
+FD001,"T50 EWMA (com regime, sem portão)",variancia,0.5,35,57.358,48.32,68.771,3
+FD001,MEWMA bruto (sem regime),variancia,0.5,35,56.696,48.563,68.879,3
+FD001,"MEWMA (13 resíduos, com regime)",variancia,0.5,35,52.731,45.182,64.97,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",variancia,0.5,35,34.863,25.513,43.068,3
+FD001,"Isolation Forest (13 resíduos, com regime)",variancia,0.5,35,94.513,83.796,99.275,3
+FD001,T50 bruto (sem regime),variancia,1.0,35,100.0,100.0,100.0,3
+FD001,T50 EWMA (com regime),variancia,1.0,35,39.866,32.751,47.32,3
+FD001,"T50 EWMA (com regime, sem portão)",variancia,1.0,35,100.0,100.0,100.0,3
+FD001,MEWMA bruto (sem regime),variancia,1.0,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",variancia,1.0,35,98.485,96.212,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",variancia,1.0,35,75.618,65.072,82.759,3
+FD001,"Isolation Forest (13 resíduos, com regime)",variancia,1.0,35,100.0,100.0,100.0,3
+FD001,T50 bruto (sem regime),variancia,2.0,35,100.0,100.0,100.0,3
+FD001,T50 EWMA (com regime),variancia,2.0,35,99.242,97.727,100.0,3
+FD001,"T50 EWMA (com regime, sem portão)",variancia,2.0,35,100.0,100.0,100.0,3
+FD001,MEWMA bruto (sem regime),variancia,2.0,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD001,"Isolation Forest (13 resíduos, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD001,T50 bruto (sem regime),vies_sensor,1.0,35,100.0,100.0,100.0,3
+FD001,T50 EWMA (com regime),vies_sensor,1.0,35,23.21,16.416,30.523,3
+FD001,"T50 EWMA (com regime, sem portão)",vies_sensor,1.0,35,100.0,98.551,100.0,3
+FD001,MEWMA bruto (sem regime),vies_sensor,1.0,35,98.449,96.068,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",vies_sensor,1.0,35,96.861,93.723,99.242,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,1.0,35,100.0,100.0,100.0,3
+FD001,"Isolation Forest (13 resíduos, com regime)",vies_sensor,1.0,35,31.032,21.036,37.933,3
+FD001,T50 bruto (sem regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD001,T50 EWMA (com regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA (com regime, sem portão)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD001,MEWMA bruto (sem regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD001,"Isolation Forest (13 resíduos, com regime)",vies_sensor,2.0,35,59.414,45.487,70.42,3
+FD001,T50 bruto (sem regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD001,T50 EWMA (com regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA (com regime, sem portão)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD001,MEWMA bruto (sem regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD001,"MEWMA (13 resíduos, com regime)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD001,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD001,"Isolation Forest (13 resíduos, com regime)",vies_sensor,4.0,35,76.247,63.859,84.481,3
+FD002,T50 bruto (sem regime),degrau,0.05,35,10.632,7.184,14.368,3
+FD002,T50 EWMA (com regime),degrau,0.05,35,3.448,1.724,5.46,3
+FD002,"T50 EWMA (com regime, sem portão)",degrau,0.05,35,19.253,14.655,24.425,3
+FD002,MEWMA bruto (sem regime),degrau,0.05,35,30.46,24.138,36.494,3
+FD002,"MEWMA (13 resíduos, com regime)",degrau,0.05,35,37.069,31.322,42.816,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",degrau,0.05,35,26.149,22.989,33.908,3
+FD002,"Isolation Forest (13 resíduos, com regime)",degrau,0.05,35,19.828,15.805,25.287,3
+FD002,T50 bruto (sem regime),degrau,0.1,35,11.207,7.759,14.943,3
+FD002,T50 EWMA (com regime),degrau,0.1,35,6.322,4.023,8.908,3
+FD002,"T50 EWMA (com regime, sem portão)",degrau,0.1,35,31.322,25.287,37.356,3
+FD002,MEWMA bruto (sem regime),degrau,0.1,35,73.276,66.954,78.736,3
+FD002,"MEWMA (13 resíduos, com regime)",degrau,0.1,35,79.885,75.0,84.77,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",degrau,0.1,35,55.172,50.0,62.356,3
+FD002,"Isolation Forest (13 resíduos, com regime)",degrau,0.1,35,25.0,21.264,32.759,3
+FD002,T50 bruto (sem regime),degrau,0.25,35,11.782,8.333,15.517,3
+FD002,T50 EWMA (com regime),degrau,0.25,35,30.46,25.287,35.632,3
+FD002,"T50 EWMA (com regime, sem portão)",degrau,0.25,35,88.218,85.057,93.103,3
+FD002,MEWMA bruto (sem regime),degrau,0.25,35,100.0,100.0,100.0,3
+FD002,"MEWMA (13 resíduos, com regime)",degrau,0.25,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",degrau,0.25,35,99.138,97.989,100.0,3
+FD002,"Isolation Forest (13 resíduos, com regime)",degrau,0.25,35,91.954,88.506,96.552,3
+FD002,T50 bruto (sem regime),degrau,0.5,35,12.644,9.195,16.379,3
+FD002,T50 EWMA (com regime),degrau,0.5,35,99.138,97.989,100.0,3
+FD002,"T50 EWMA (com regime, sem portão)",degrau,0.5,35,100.0,100.0,100.0,3
+FD002,MEWMA bruto (sem regime),degrau,0.5,35,100.0,100.0,100.0,3
+FD002,"MEWMA (13 resíduos, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD002,"Isolation Forest (13 resíduos, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD002,T50 bruto (sem regime),rampa,0.05,35,10.345,6.897,14.08,3
+FD002,T50 EWMA (com regime),rampa,0.05,35,2.586,1.149,4.31,3
+FD002,"T50 EWMA (com regime, sem portão)",rampa,0.05,35,18.103,13.506,23.563,3
+FD002,MEWMA bruto (sem regime),rampa,0.05,35,27.586,20.402,33.621,3
+FD002,"MEWMA (13 resíduos, com regime)",rampa,0.05,35,33.621,28.161,39.08,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",rampa,0.05,35,24.713,21.264,31.322,3
+FD002,"Isolation Forest (13 resíduos, com regime)",rampa,0.05,35,19.828,16.092,25.582,3
+FD002,T50 bruto (sem regime),rampa,0.1,35,10.92,7.471,14.655,3
+FD002,T50 EWMA (com regime),rampa,0.1,35,4.598,2.586,6.897,3
+FD002,"T50 EWMA (com regime, sem portão)",rampa,0.1,35,27.586,22.701,33.333,3
+FD002,MEWMA bruto (sem regime),rampa,0.1,35,64.943,58.621,70.402,3
+FD002,"MEWMA (13 resíduos, com regime)",rampa,0.1,35,74.713,68.103,79.598,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",rampa,0.1,35,48.563,43.391,55.172,3
+FD002,"Isolation Forest (13 resíduos, com regime)",rampa,0.1,35,24.713,20.69,31.897,3
+FD002,T50 bruto (sem regime),rampa,0.25,35,11.782,8.333,15.517,3
+FD002,T50 EWMA (com regime),rampa,0.25,35,22.989,18.678,27.586,3
+FD002,"T50 EWMA (com regime, sem portão)",rampa,0.25,35,81.897,77.874,88.506,3
+FD002,MEWMA bruto (sem regime),rampa,0.25,35,100.0,100.0,100.0,3
+FD002,"MEWMA (13 resíduos, com regime)",rampa,0.25,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",rampa,0.25,35,97.989,96.552,99.713,3
+FD002,"Isolation Forest (13 resíduos, com regime)",rampa,0.25,35,86.207,81.027,91.954,3
+FD002,T50 bruto (sem regime),rampa,0.5,35,12.644,9.195,16.379,3
+FD002,T50 EWMA (com regime),rampa,0.5,35,96.264,94.253,97.989,3
+FD002,"T50 EWMA (com regime, sem portão)",rampa,0.5,35,100.0,100.0,100.0,3
+FD002,MEWMA bruto (sem regime),rampa,0.5,35,100.0,100.0,100.0,3
+FD002,"MEWMA (13 resíduos, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD002,"Isolation Forest (13 resíduos, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD002,T50 bruto (sem regime),um_regime,0.1,35,9.77,6.609,13.218,3
+FD002,T50 EWMA (com regime),um_regime,0.1,35,3.448,1.724,5.46,3
+FD002,"T50 EWMA (com regime, sem portão)",um_regime,0.1,35,16.379,12.356,22.701,3
+FD002,MEWMA bruto (sem regime),um_regime,0.1,35,19.253,14.08,24.425,3
+FD002,"MEWMA (13 resíduos, com regime)",um_regime,0.1,35,25.287,19.828,29.318,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",um_regime,0.1,35,19.54,16.092,25.0,3
+FD002,"Isolation Forest (13 resíduos, com regime)",um_regime,0.1,35,18.103,14.943,25.007,3
+FD002,T50 bruto (sem regime),um_regime,0.25,35,9.483,6.322,12.931,3
+FD002,T50 EWMA (com regime),um_regime,0.25,35,5.172,2.874,7.759,3
+FD002,"T50 EWMA (com regime, sem portão)",um_regime,0.25,35,31.322,25.0,37.644,3
+FD002,MEWMA bruto (sem regime),um_regime,0.25,35,48.851,40.805,54.885,3
+FD002,"MEWMA (13 resíduos, com regime)",um_regime,0.25,35,56.609,49.713,61.494,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",um_regime,0.25,35,33.046,29.023,40.805,3
+FD002,"Isolation Forest (13 resíduos, com regime)",um_regime,0.25,35,35.057,30.172,45.409,3
+FD002,T50 bruto (sem regime),um_regime,0.5,35,8.908,5.747,12.069,3
+FD002,T50 EWMA (com regime),um_regime,0.5,35,30.172,25.575,35.057,3
+FD002,"T50 EWMA (com regime, sem portão)",um_regime,0.5,35,78.448,72.414,85.92,3
+FD002,MEWMA bruto (sem regime),um_regime,0.5,35,88.793,85.057,92.529,3
+FD002,"MEWMA (13 resíduos, com regime)",um_regime,0.5,35,94.54,91.667,96.839,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",um_regime,0.5,35,69.54,65.23,77.011,3
+FD002,"Isolation Forest (13 resíduos, com regime)",um_regime,0.5,35,90.517,86.782,93.966,3
+FD002,T50 bruto (sem regime),um_regime,1.0,35,8.046,5.172,10.92,3
+FD002,T50 EWMA (com regime),um_regime,1.0,35,87.356,83.333,91.092,3
+FD002,"T50 EWMA (com regime, sem portão)",um_regime,1.0,35,99.713,98.851,100.0,3
+FD002,MEWMA bruto (sem regime),um_regime,1.0,35,99.713,98.851,100.0,3
+FD002,"MEWMA (13 resíduos, com regime)",um_regime,1.0,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",um_regime,1.0,35,97.126,95.402,98.851,3
+FD002,"Isolation Forest (13 resíduos, com regime)",um_regime,1.0,35,96.552,94.253,98.851,3
+FD002,T50 bruto (sem regime),variancia,0.5,35,11.207,7.759,14.943,3
+FD002,T50 EWMA (com regime),variancia,0.5,35,7.759,5.172,10.632,3
+FD002,"T50 EWMA (com regime, sem portão)",variancia,0.5,35,38.793,33.046,46.839,3
+FD002,MEWMA bruto (sem regime),variancia,0.5,35,36.782,28.736,43.391,3
+FD002,"MEWMA (13 resíduos, com regime)",variancia,0.5,35,36.782,30.453,42.816,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",variancia,0.5,35,23.276,19.54,30.46,3
+FD002,"Isolation Forest (13 resíduos, com regime)",variancia,0.5,35,46.552,40.23,55.747,3
+FD002,T50 bruto (sem regime),variancia,1.0,35,10.632,7.471,14.08,3
+FD002,T50 EWMA (com regime),variancia,1.0,35,34.195,29.023,39.655,3
+FD002,"T50 EWMA (com regime, sem portão)",variancia,1.0,35,97.414,95.115,98.851,3
+FD002,MEWMA bruto (sem regime),variancia,1.0,35,93.391,89.655,96.264,3
+FD002,"MEWMA (13 resíduos, com regime)",variancia,1.0,35,90.23,85.057,93.391,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",variancia,1.0,35,50.575,46.264,59.77,3
+FD002,"Isolation Forest (13 resíduos, com regime)",variancia,1.0,35,100.0,100.0,100.0,3
+FD002,T50 bruto (sem regime),variancia,2.0,35,12.069,8.621,15.805,3
+FD002,T50 EWMA (com regime),variancia,2.0,35,99.425,98.563,100.0,3
+FD002,"T50 EWMA (com regime, sem portão)",variancia,2.0,35,100.0,100.0,100.0,3
+FD002,MEWMA bruto (sem regime),variancia,2.0,35,100.0,100.0,100.0,3
+FD002,"MEWMA (13 resíduos, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",variancia,2.0,35,93.391,90.805,97.126,3
+FD002,"Isolation Forest (13 resíduos, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD002,T50 bruto (sem regime),vies_sensor,1.0,35,11.782,8.333,15.517,3
+FD002,T50 EWMA (com regime),vies_sensor,1.0,35,32.759,27.586,38.218,3
+FD002,"T50 EWMA (com regime, sem portão)",vies_sensor,1.0,35,92.816,90.23,95.69,3
+FD002,MEWMA bruto (sem regime),vies_sensor,1.0,35,92.241,89.08,95.402,3
+FD002,"MEWMA (13 resíduos, com regime)",vies_sensor,1.0,35,79.023,72.989,84.483,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,1.0,35,99.425,98.563,100.0,3
+FD002,"Isolation Forest (13 resíduos, com regime)",vies_sensor,1.0,35,20.977,17.529,26.724,3
+FD002,T50 bruto (sem regime),vies_sensor,2.0,35,12.931,9.195,16.667,3
+FD002,T50 EWMA (com regime),vies_sensor,2.0,35,99.713,99.138,100.0,3
+FD002,"T50 EWMA (com regime, sem portão)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD002,MEWMA bruto (sem regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD002,"MEWMA (13 resíduos, com regime)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD002,"Isolation Forest (13 resíduos, com regime)",vies_sensor,2.0,35,32.759,27.586,40.805,3
+FD002,T50 bruto (sem regime),vies_sensor,4.0,35,17.529,13.506,21.839,3
+FD002,T50 EWMA (com regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA (com regime, sem portão)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD002,MEWMA bruto (sem regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD002,"MEWMA (13 resíduos, com regime)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD002,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD002,"Isolation Forest (13 resíduos, com regime)",vies_sensor,4.0,35,44.828,39.368,54.31,3
+FD003,T50 bruto (sem regime),degrau,0.05,35,23.722,16.083,33.751,3
+FD003,T50 EWMA (com regime),degrau,0.05,35,1.389,0.0,3.472,3
+FD003,"T50 EWMA (com regime, sem portão)",degrau,0.05,35,16.083,11.389,27.168,3
+FD003,MEWMA bruto (sem regime),degrau,0.05,35,89.222,80.972,93.944,3
+FD003,"MEWMA (13 resíduos, com regime)",degrau,0.05,35,69.639,59.472,78.306,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",degrau,0.05,35,35.194,27.631,43.306,3
+FD003,"Isolation Forest (13 resíduos, com regime)",degrau,0.05,35,31.111,22.715,35.139,3
+FD003,T50 bruto (sem regime),degrau,0.1,35,41.917,32.389,61.611,3
+FD003,T50 EWMA (com regime),degrau,0.1,35,2.056,0.0,4.75,3
+FD003,"T50 EWMA (com regime, sem portão)",degrau,0.1,35,33.722,28.306,53.648,3
+FD003,MEWMA bruto (sem regime),degrau,0.1,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",degrau,0.1,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",degrau,0.1,35,79.028,69.583,87.917,3
+FD003,"Isolation Forest (13 resíduos, com regime)",degrau,0.1,35,52.222,41.888,66.224,3
+FD003,T50 bruto (sem regime),degrau,0.25,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),degrau,0.25,35,34.417,26.361,42.528,3
+FD003,"T50 EWMA (com regime, sem portão)",degrau,0.25,35,100.0,100.0,100.0,3
+FD003,MEWMA bruto (sem regime),degrau,0.25,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",degrau,0.25,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",degrau,0.25,35,100.0,100.0,100.0,3
+FD003,"Isolation Forest (13 resíduos, com regime)",degrau,0.25,35,100.0,100.0,100.0,3
+FD003,T50 bruto (sem regime),degrau,0.5,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),degrau,0.5,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA (com regime, sem portão)",degrau,0.5,35,100.0,100.0,100.0,3
+FD003,MEWMA bruto (sem regime),degrau,0.5,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD003,"Isolation Forest (13 resíduos, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD003,T50 bruto (sem regime),rampa,0.05,35,21.0,14.111,31.944,3
+FD003,T50 EWMA (com regime),rampa,0.05,35,1.389,0.0,3.472,3
+FD003,"T50 EWMA (com regime, sem portão)",rampa,0.05,35,16.111,11.554,26.195,3
+FD003,MEWMA bruto (sem regime),rampa,0.05,35,84.5,75.666,90.528,3
+FD003,"MEWMA (13 resíduos, com regime)",rampa,0.05,35,61.5,51.387,69.583,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",rampa,0.05,35,33.139,24.361,39.861,3
+FD003,"Isolation Forest (13 resíduos, com regime)",rampa,0.05,35,27.056,20.917,32.501,3
+FD003,T50 bruto (sem regime),rampa,0.1,35,39.25,28.333,53.556,3
+FD003,T50 EWMA (com regime),rampa,0.1,35,1.389,0.0,3.472,3
+FD003,"T50 EWMA (com regime, sem portão)",rampa,0.1,35,27.611,22.833,44.557,3
+FD003,MEWMA bruto (sem regime),rampa,0.1,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",rampa,0.1,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",rampa,0.1,35,66.194,57.999,78.278,3
+FD003,"Isolation Forest (13 resíduos, com regime)",rampa,0.1,35,43.306,35.889,54.308,3
+FD003,T50 bruto (sem regime),rampa,0.25,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),rampa,0.25,35,26.389,19.556,33.722,3
+FD003,"T50 EWMA (com regime, sem portão)",rampa,0.25,35,97.944,95.972,100.0,3
+FD003,MEWMA bruto (sem regime),rampa,0.25,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",rampa,0.25,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",rampa,0.25,35,100.0,100.0,100.0,3
+FD003,"Isolation Forest (13 resíduos, com regime)",rampa,0.25,35,100.0,100.0,100.0,3
+FD003,T50 bruto (sem regime),rampa,0.5,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),rampa,0.5,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA (com regime, sem portão)",rampa,0.5,35,100.0,100.0,100.0,3
+FD003,MEWMA bruto (sem regime),rampa,0.5,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD003,"Isolation Forest (13 resíduos, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD003,T50 bruto (sem regime),variancia,0.5,35,63.528,54.75,81.139,3
+FD003,T50 EWMA (com regime),variancia,0.5,35,4.75,2.0,8.194,3
+FD003,"T50 EWMA (com regime, sem portão)",variancia,0.5,35,54.611,46.0,72.194,3
+FD003,MEWMA bruto (sem regime),variancia,0.5,35,79.194,70.389,86.556,3
+FD003,"MEWMA (13 resíduos, com regime)",variancia,0.5,35,67.083,55.277,80.556,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",variancia,0.5,35,29.694,20.278,39.722,3
+FD003,"Isolation Forest (13 resíduos, com regime)",variancia,0.5,35,80.556,62.22,95.945,3
+FD003,T50 bruto (sem regime),variancia,1.0,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),variancia,1.0,35,43.25,34.527,52.028,3
+FD003,"T50 EWMA (com regime, sem portão)",variancia,1.0,35,100.0,100.0,100.0,3
+FD003,MEWMA bruto (sem regime),variancia,1.0,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",variancia,1.0,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",variancia,1.0,35,72.278,62.361,79.028,3
+FD003,"Isolation Forest (13 resíduos, com regime)",variancia,1.0,35,100.0,100.0,100.0,3
+FD003,T50 bruto (sem regime),variancia,2.0,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),variancia,2.0,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA (com regime, sem portão)",variancia,2.0,35,100.0,100.0,100.0,3
+FD003,MEWMA bruto (sem regime),variancia,2.0,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",variancia,2.0,35,100.0,99.333,100.0,3
+FD003,"Isolation Forest (13 resíduos, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD003,T50 bruto (sem regime),vies_sensor,1.0,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),vies_sensor,1.0,35,33.722,25.666,41.833,3
+FD003,"T50 EWMA (com regime, sem portão)",vies_sensor,1.0,35,100.0,100.0,100.0,3
+FD003,MEWMA bruto (sem regime),vies_sensor,1.0,35,100.0,97.917,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",vies_sensor,1.0,35,99.306,96.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,1.0,35,100.0,100.0,100.0,3
+FD003,"Isolation Forest (13 resíduos, com regime)",vies_sensor,1.0,35,33.806,25.694,37.917,3
+FD003,T50 bruto (sem regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA (com regime, sem portão)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD003,MEWMA bruto (sem regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD003,"Isolation Forest (13 resíduos, com regime)",vies_sensor,2.0,35,41.361,35.167,49.279,3
+FD003,T50 bruto (sem regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD003,T50 EWMA (com regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA (com regime, sem portão)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD003,MEWMA bruto (sem regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD003,"MEWMA (13 resíduos, com regime)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD003,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD003,"Isolation Forest (13 resíduos, com regime)",vies_sensor,4.0,35,45.417,38.528,55.472,3
+FD004,T50 bruto (sem regime),degrau,0.05,35,13.559,9.322,16.949,3
+FD004,T50 EWMA (com regime),degrau,0.05,35,5.367,3.107,7.91,3
+FD004,"T50 EWMA (com regime, sem portão)",degrau,0.05,35,16.667,12.712,21.751,3
+FD004,MEWMA bruto (sem regime),degrau,0.05,35,22.316,17.797,27.119,3
+FD004,"MEWMA (13 resíduos, com regime)",degrau,0.05,35,41.243,34.463,46.328,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",degrau,0.05,35,31.356,27.684,38.983,3
+FD004,"Isolation Forest (13 resíduos, com regime)",degrau,0.05,35,20.056,17.514,25.989,3
+FD004,T50 bruto (sem regime),degrau,0.1,35,13.842,9.322,17.232,3
+FD004,T50 EWMA (com regime),degrau,0.1,35,9.605,6.497,12.994,3
+FD004,"T50 EWMA (com regime, sem portão)",degrau,0.1,35,32.486,26.554,38.701,3
+FD004,MEWMA bruto (sem regime),degrau,0.1,35,48.305,41.808,54.802,3
+FD004,"MEWMA (13 resíduos, com regime)",degrau,0.1,35,88.136,82.486,91.525,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",degrau,0.1,35,60.169,55.65,67.232,3
+FD004,"Isolation Forest (13 resíduos, com regime)",degrau,0.1,35,32.486,29.379,40.96,3
+FD004,T50 bruto (sem regime),degrau,0.25,35,14.124,10.169,17.797,3
+FD004,T50 EWMA (com regime),degrau,0.25,35,39.266,33.898,44.633,3
+FD004,"T50 EWMA (com regime, sem portão)",degrau,0.25,35,94.915,92.373,97.458,3
+FD004,MEWMA bruto (sem regime),degrau,0.25,35,100.0,100.0,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",degrau,0.25,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",degrau,0.25,35,99.718,99.153,100.0,3
+FD004,"Isolation Forest (13 resíduos, com regime)",degrau,0.25,35,98.87,96.603,100.0,3
+FD004,T50 bruto (sem regime),degrau,0.5,35,15.537,11.299,19.492,3
+FD004,T50 EWMA (com regime),degrau,0.5,35,99.718,99.153,100.0,3
+FD004,"T50 EWMA (com regime, sem portão)",degrau,0.5,35,100.0,100.0,100.0,3
+FD004,MEWMA bruto (sem regime),degrau,0.5,35,100.0,100.0,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD004,"Isolation Forest (13 resíduos, com regime)",degrau,0.5,35,100.0,100.0,100.0,3
+FD004,T50 bruto (sem regime),rampa,0.05,35,13.559,9.322,16.949,3
+FD004,T50 EWMA (com regime),rampa,0.05,35,5.085,2.825,7.627,3
+FD004,"T50 EWMA (com regime, sem portão)",rampa,0.05,35,16.384,12.429,21.186,3
+FD004,MEWMA bruto (sem regime),rampa,0.05,35,19.774,15.254,25.141,3
+FD004,"MEWMA (13 resíduos, com regime)",rampa,0.05,35,38.418,31.356,43.22,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",rampa,0.05,35,30.508,26.554,37.006,3
+FD004,"Isolation Forest (13 resíduos, com regime)",rampa,0.05,35,18.927,16.384,25.141,3
+FD004,T50 bruto (sem regime),rampa,0.1,35,13.842,9.605,17.514,3
+FD004,T50 EWMA (com regime),rampa,0.1,35,8.757,5.932,11.864,3
+FD004,"T50 EWMA (com regime, sem portão)",rampa,0.1,35,27.684,22.599,33.333,3
+FD004,MEWMA bruto (sem regime),rampa,0.1,35,39.831,34.181,46.61,3
+FD004,"MEWMA (13 resíduos, com regime)",rampa,0.1,35,81.638,75.417,86.158,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",rampa,0.1,35,53.39,49.153,61.299,3
+FD004,"Isolation Forest (13 resíduos, com regime)",rampa,0.1,35,27.684,25.141,36.723,3
+FD004,T50 bruto (sem regime),rampa,0.25,35,14.407,10.169,18.079,3
+FD004,T50 EWMA (com regime),rampa,0.25,35,30.791,25.982,35.876,3
+FD004,"T50 EWMA (com regime, sem portão)",rampa,0.25,35,90.395,86.723,94.068,3
+FD004,MEWMA bruto (sem regime),rampa,0.25,35,99.435,98.588,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",rampa,0.25,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",rampa,0.25,35,99.718,99.153,100.0,3
+FD004,"Isolation Forest (13 resíduos, com regime)",rampa,0.25,35,96.328,92.938,99.153,3
+FD004,T50 bruto (sem regime),rampa,0.5,35,15.819,11.575,19.774,3
+FD004,T50 EWMA (com regime),rampa,0.5,35,97.458,95.763,98.87,3
+FD004,"T50 EWMA (com regime, sem portão)",rampa,0.5,35,100.0,100.0,100.0,3
+FD004,MEWMA bruto (sem regime),rampa,0.5,35,100.0,100.0,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD004,"Isolation Forest (13 resíduos, com regime)",rampa,0.5,35,100.0,100.0,100.0,3
+FD004,T50 bruto (sem regime),um_regime,0.1,35,12.147,7.91,15.537,3
+FD004,T50 EWMA (com regime),um_regime,0.1,35,5.367,3.107,8.192,3
+FD004,"T50 EWMA (com regime, sem portão)",um_regime,0.1,35,16.667,12.429,22.034,3
+FD004,MEWMA bruto (sem regime),um_regime,0.1,35,16.102,12.429,20.904,3
+FD004,"MEWMA (13 resíduos, com regime)",um_regime,0.1,35,24.576,18.919,29.661,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",um_regime,0.1,35,19.774,16.667,27.119,3
+FD004,"Isolation Forest (13 resíduos, com regime)",um_regime,0.1,35,18.644,16.102,25.989,3
+FD004,T50 bruto (sem regime),um_regime,0.25,35,11.582,7.627,14.972,3
+FD004,T50 EWMA (com regime),um_regime,0.25,35,10.169,7.062,13.559,3
+FD004,"T50 EWMA (com regime, sem portão)",um_regime,0.25,35,34.181,29.379,39.831,3
+FD004,MEWMA bruto (sem regime),um_regime,0.25,35,32.486,26.836,38.418,3
+FD004,"MEWMA (13 resíduos, com regime)",um_regime,0.25,35,60.734,53.39,65.819,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",um_regime,0.25,35,38.983,34.463,45.48,3
+FD004,"Isolation Forest (13 resíduos, com regime)",um_regime,0.25,35,46.893,42.655,58.475,3
+FD004,T50 bruto (sem regime),um_regime,0.5,35,10.452,6.78,13.559,3
+FD004,T50 EWMA (com regime),um_regime,0.5,35,40.395,35.028,45.763,3
+FD004,"T50 EWMA (com regime, sem portão)",um_regime,0.5,35,86.441,82.768,90.678,3
+FD004,MEWMA bruto (sem regime),um_regime,0.5,35,83.333,78.249,87.571,3
+FD004,"MEWMA (13 resíduos, com regime)",um_regime,0.5,35,97.175,95.198,98.87,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",um_regime,0.5,35,79.379,75.424,84.463,3
+FD004,"Isolation Forest (13 resíduos, com regime)",um_regime,0.5,35,95.48,93.22,97.74,3
+FD004,T50 bruto (sem regime),um_regime,1.0,35,8.757,5.367,11.864,3
+FD004,T50 EWMA (com regime),um_regime,1.0,35,93.785,91.243,96.045,3
+FD004,"T50 EWMA (com regime, sem portão)",um_regime,1.0,35,99.435,98.588,100.0,3
+FD004,MEWMA bruto (sem regime),um_regime,1.0,35,99.435,98.588,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",um_regime,1.0,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",um_regime,1.0,35,98.87,98.023,100.0,3
+FD004,"Isolation Forest (13 resíduos, com regime)",um_regime,1.0,35,97.74,96.045,99.153,3
+FD004,T50 bruto (sem regime),variancia,0.5,35,12.147,8.192,15.537,3
+FD004,T50 EWMA (com regime),variancia,0.5,35,9.322,6.215,12.712,3
+FD004,"T50 EWMA (com regime, sem portão)",variancia,0.5,35,48.87,42.938,55.367,3
+FD004,MEWMA bruto (sem regime),variancia,0.5,35,46.61,39.548,53.672,3
+FD004,"MEWMA (13 resíduos, com regime)",variancia,0.5,35,39.548,32.768,45.48,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",variancia,0.5,35,25.706,22.316,33.898,3
+FD004,"Isolation Forest (13 resíduos, com regime)",variancia,0.5,35,46.61,43.22,61.864,3
+FD004,T50 bruto (sem regime),variancia,1.0,35,13.277,9.322,16.667,3
+FD004,T50 EWMA (com regime),variancia,1.0,35,63.842,58.757,68.927,3
+FD004,"T50 EWMA (com regime, sem portão)",variancia,1.0,35,99.718,99.153,100.0,3
+FD004,MEWMA bruto (sem regime),variancia,1.0,35,100.0,98.87,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",variancia,1.0,35,99.718,98.305,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",variancia,1.0,35,61.299,56.78,70.339,3
+FD004,"Isolation Forest (13 resíduos, com regime)",variancia,1.0,35,100.0,100.0,100.0,3
+FD004,T50 bruto (sem regime),variancia,2.0,35,12.712,8.757,16.102,3
+FD004,T50 EWMA (com regime),variancia,2.0,35,99.718,99.153,100.0,3
+FD004,"T50 EWMA (com regime, sem portão)",variancia,2.0,35,100.0,100.0,100.0,3
+FD004,MEWMA bruto (sem regime),variancia,2.0,35,100.0,100.0,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",variancia,2.0,35,97.74,96.328,99.718,3
+FD004,"Isolation Forest (13 resíduos, com regime)",variancia,2.0,35,100.0,100.0,100.0,3
+FD004,T50 bruto (sem regime),vies_sensor,1.0,35,14.689,10.452,18.644,3
+FD004,T50 EWMA (com regime),vies_sensor,1.0,35,53.672,48.023,59.322,3
+FD004,"T50 EWMA (com regime, sem portão)",vies_sensor,1.0,35,99.435,98.588,100.0,3
+FD004,MEWMA bruto (sem regime),vies_sensor,1.0,35,100.0,99.718,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",vies_sensor,1.0,35,94.068,90.96,97.74,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,1.0,35,100.0,100.0,100.0,3
+FD004,"Isolation Forest (13 resíduos, com regime)",vies_sensor,1.0,35,21.186,19.209,29.944,3
+FD004,T50 bruto (sem regime),vies_sensor,2.0,35,15.537,11.299,19.492,3
+FD004,T50 EWMA (com regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA (com regime, sem portão)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD004,MEWMA bruto (sem regime),vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,2.0,35,100.0,100.0,100.0,3
+FD004,"Isolation Forest (13 resíduos, com regime)",vies_sensor,2.0,35,31.921,28.814,43.503,3
+FD004,T50 bruto (sem regime),vies_sensor,4.0,35,19.209,14.689,23.446,3
+FD004,T50 EWMA (com regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA (com regime, sem portão)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD004,MEWMA bruto (sem regime),vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD004,"MEWMA (13 resíduos, com regime)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD004,"T50 EWMA clássica (com sinal, com regime)",vies_sensor,4.0,35,100.0,100.0,100.0,3
+FD004,"Isolation Forest (13 resíduos, com regime)",vies_sensor,4.0,35,40.678,37.288,52.549,3
