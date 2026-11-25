@@ -46,6 +46,7 @@ Sempre da raiz do repositório, com o ambiente virtual ativo.
 | Rodar o pipeline nos 4 subconjuntos | `python -m pdm_cmaps --subset ALL --only-pipeline` | `results/maintenance_guide_fd00x/` |
 | Rodar **tudo** (pipeline + todos os estudos + tabelas + gráficos) | `python scripts/rodar.py rodar tudo` (retomável) ou `python -m pdm_cmaps --all` | `results/` e `tcc-writing/tables/` (várias horas) |
 | Só reexecutar os estudos e sincronizar as tabelas | `python -m pdm_cmaps.cli.update_all` (`--so-sincronizar` pula os estudos) | `results/`, `tcc-writing/tables/` |
+| Montar as tabelas derivadas da monografia (RUL oficial e ajustado, hiperparâmetros, largura do conformal, F1 dos alertas, métricas dos sensores virtuais) e tirar o MiniRocket delas | `python scripts/montar_tabelas.py` (exige `results/` da rodada completa) | `tcc-writing/tables/` |
 | Camada de monitoramento (conformal, criticidade, custo) | `python -m pdm_cmaps.monitoring.layer --jobs 3` | `results/monitoring_repeated/` |
 | Teste oficial de RUL com redes por regime e boosting | `python scripts/rodar.py rodar rul_oficial` | `results/benchmark_oficial/` (horas) |
 | Reproduzir a busca e o teste ajustado com um comando (retomável, paralelo) | `pip install -e ".[workflow,tuning]"`; `snakemake --cores 8` (`-n` só mostra o plano; `--config usar_hiperparametros_prontos=1` pula a busca) | `results/hiperparametros/`, `results/benchmark_oficial_tuned/resumo_oficial.csv` |
@@ -131,3 +132,4 @@ results/                  # gerado ao rodar; não versionado (a cópia dos resul
 - [`tests/README.md`](tests/README.md): o que cada arquivo de teste cobre.
 - [`scripts/README.md`](scripts/README.md): scripts de rodada longa e histórico de reexecuções.
 - [`data/README.md`](data/README.md): proveniência e colunas do C-MAPSS.
+- [`docs/protocolo-primario.md`](docs/protocolo-primario.md): protocolo congelado (parâmetros, perguntas P1 a P3) e o rótulo de cada tabela de `tcc-writing/tables/`.
