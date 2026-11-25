@@ -26,10 +26,10 @@ Cada linha é uma figura do PDF da monografia (numeração do PDF). `python figu
 | 5.18 | Trajetórias de previsão e intervalo conformal nos motor | `F07_trajetorias_intervalo_conformal.png` | `figuras/consistencia.py`  | tcc-writing/tables/ (várias), results/maintenance_guide_fd004/tables/{thesis_bootstrap_ci,alert_timeline}.csv, results/estudos_complementares/exp_a_trajetorias_seed42.csv |
 | 5.19 | Comparação entre intervalos de Mondrian por 3 tercis e  | `F27_conformal_ajustado_cqr.png` | `figuras/consistencia.py`  | tcc-writing/tables/ (várias), results/maintenance_guide_fd004/tables/{thesis_bootstrap_ci,alert_timeline}.csv, results/estudos_complementares/exp_a_trajetorias_seed42.csv |
 | 5.20 | Custo por ciclo relativo ao oráculo conforme o limiar c | `F26_custo_por_limiar.png` | `figuras/novas.py`  | results/maintenance_guide_fd004/tables/virtual_sensor_residuals_t50_h50.csv, tcc-writing/tables/margin_check_point_thresholds_raw.csv |
-| B.8 |  | `F18_ganho_ml_vs_media_regime.png` | `figuras/consistencia.py`  | tcc-writing/tables/ (várias), results/maintenance_guide_fd004/tables/{thesis_bootstrap_ci,alert_timeline}.csv, results/estudos_complementares/exp_a_trajetorias_seed42.csv |
-| B.11 |  | `F08_criticidade_tradeoff.png` | `figuras/consistencia.py`  | tcc-writing/tables/ (várias), results/maintenance_guide_fd004/tables/{thesis_bootstrap_ci,alert_timeline}.csv, results/estudos_complementares/exp_a_trajetorias_seed42.csv |
+| B.1 | Ganho de poder (pontos percentuais) de cada modelo sob | `F18_ganho_ml_vs_media_regime.png` | `figuras/consistencia.py`  | tcc-writing/tables/ (várias), results/maintenance_guide_fd004/tables/{thesis_bootstrap_ci,alert_timeline}.csv, results/estudos_complementares/exp_a_trajetorias_seed42.csv |
+| B.2 | Compromisso entre estados críticos perdidos e falsos al | `F08_criticidade_tradeoff.png` | `figuras/consistencia.py`  | tcc-writing/tables/ (várias), results/maintenance_guide_fd004/tables/{thesis_bootstrap_ci,alert_timeline}.csv, results/estudos_complementares/exp_a_trajetorias_seed42.csv |
 
 ## Fora deste repositório
 
 - **Figura A.1** (`F16_apendice_transplante_rul_fd004.png`): saída de `python -m pdm_cmaps.experiments.fault_injection --subset FD004 --stage score` (`fig_rul_transplante.png`); exige a rodada de injeção completa.
-- **Fotos e diagramas** (Figuras 2.1 a 2.4, 2.6 a 2.11, 4.1, 4.2, 4.4, 5.14, 5.15): ficam no repositório do texto, em `diagrams/` (fonte SVG e PNG); as fotos têm créditos em `figures/CREDITOS-imagens.md`.
+- **Fotos e diagramas** (Figuras 2.1 a 2.10, 4.1, 4.2, 4.4, 5.14, 5.15): ficam no repositório do texto, em `diagrams/` (fonte SVG e PNG); as fotos têm créditos em `figures/CREDITOS-imagens.md`.
