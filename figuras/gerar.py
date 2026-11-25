@@ -42,8 +42,8 @@ FIGURAS: dict[str, tuple[str, str, tuple[str, ...]]] = {
     "5.18": ("F07_trajetorias_intervalo_conformal.png", "consistencia.py", ()),
     "5.19": ("F27_conformal_ajustado_cqr.png", "consistencia.py", ()),
     "5.20": ("F26_custo_por_limiar.png", "novas.py", ()),
-    "B.8": ("F18_ganho_ml_vs_media_regime.png", "consistencia.py", ()),
-    "B.11": ("F08_criticidade_tradeoff.png", "consistencia.py", ()),
+    "B.1": ("F18_ganho_ml_vs_media_regime.png", "consistencia.py", ()),
+    "B.2": ("F08_criticidade_tradeoff.png", "consistencia.py", ()),
 }
 
 

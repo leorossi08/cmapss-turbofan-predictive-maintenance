@@ -32,6 +32,10 @@ python figuras/gerar.py --todas     # todas que têm script (saída em figuras/s
 
 Para rodar em máquina remota (Google Colab, CPU High-RAM): `bash scripts/colab_figuras.sh` (testes + figuras; o roteiro grava `FIM` ou `ERRO` no log). O texto da monografia fica em [`cmapss-turbofan-monografia`](https://github.com/leorossi08/cmapss-turbofan-monografia), que recebe os PNGs daqui.
 
+### Tabelas da monografia
+
+[`TABELAS.md`](TABELAS.md) faz o mesmo para as tabelas: para cada tabela do PDF, o CSV de `tcc-writing/tables/` que tem os números e o estudo que o regenera.
+
 ### MiniRocket
 
 O MiniRocket (`modeling/minirocket.py`) continua no código, mas **fica desligado por padrão**: não entra no benchmark de RUL, na busca de hiperparâmetros nem no pipeline. `python -m pdm_cmaps --include-minirocket` o liga no pipeline.
