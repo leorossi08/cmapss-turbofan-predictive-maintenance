@@ -1,9 +1,9 @@
 """Figuras da injeção cega e da criticidade, feitas das tabelas de `tcc-writing/tables/` e de `results/`, sem rodar estudos.
 
 F06/F07  Figuras 5.2 e 5.18  comparação de modelos com IC e trajetórias de RUL com intervalo (rótulos no vocabulário do texto)
-F18      Figura B.8          ganho de poder de cada modelo sobre a média do regime
+F18      Figura B.1          ganho de poder de cada modelo sobre a média do regime
 F23      Figura 5.13         decomposição do ganho no degrau de 0,10, com o deslocamento do motor em todos os detectores
-F08      Figura B.11         compromisso de criticidade com as quatro estratégias do texto
+F08      Figura B.2          compromisso de criticidade com as quatro estratégias do texto
 F27      Figura 5.19         conformal do modelo ajustado (CQR)
 Uso: python figuras/gerar.py N   (N = número da figura no PDF; ver MANIFESTO.md)
 """
