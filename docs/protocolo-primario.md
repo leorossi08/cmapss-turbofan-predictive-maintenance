@@ -1,6 +1,6 @@
 # Protocolo primário (congelado em 2026-11-18)
 
-**O que é.** Uma foto do protocolo que gera os números principais da monografia, com as perguntas e as métricas primárias declaradas. **É um congelamento *post hoc*, feito depois de ver os resultados, e não um pré-registro**: várias decisões (o deslocamento do motor em todos os detectores, H = 25 nas injeções, as magnitudes destacadas) foram tomadas olhando os dados, e estão registradas no `continue.md` do repositório antigo [`PdM-CMaps`](https://github.com/leorossi08/PdM-CMaps). O que o congelamento garante é que, daqui em diante, nenhum padrão muda sem que um teste falhe e sem que o autor decida.
+**O que é.** Uma foto do protocolo que gera os números principais da monografia, com as perguntas e as métricas primárias declaradas. **É um congelamento *post hoc*, feito depois de ver os resultados, e não um pré-registro**: várias decisões (o deslocamento do motor em todos os detectores, H = 25 nas injeções, as magnitudes destacadas) foram tomadas olhando os dados. O que o congelamento garante é que, daqui em diante, nenhum padrão muda sem que um teste falhe e sem que o autor decida.
 
 **Onde está.** Os valores estão em `src/pdm_cmaps/protocol.py`. O `tests/test_protocolo.py` confere esses valores contra os padrões das classes e dos `argparse` do código e contra a tabela de contrastes (famílias do Holm). Mudar um valor é uma decisão do autor que invalida as tabelas do capítulo 5 e exige reexecutar os estudos afetados.
 
@@ -36,7 +36,7 @@
 | `rul_oficial_metricas_por_semente.csv` | confirmatório | P3: as mesmas métricas por semente |
 | `rul_oficial_testes_por_motor.csv` | confirmatório | P3: Wilcoxon pareado por motor, XGBoost (+temporal) contra as redes em cada configuração |
 | `conformal_largura_zona_critica.csv` | exploratório | largura média do intervalo conformal (Mondrian padrão) no total e na zona crítica (RUL real < 50 ciclos), média e desvio de três sementes, agregada de `results/monitoring_repeated/runs/*/uncertainty_variants.csv` |
-| `rul_oficial_boosting_regime.csv` | confirmatório | P3: XGBoost e LightGBM (+temporal) com atributos sobre sensores padronizados por regime, janelas 5/10 e 5/10/30 (Colab, determinístico): RMSE truncado e sem truncar e pontuação da NASA; a comparação pareada com a LSTM por regime e janela 30 está em `docs/notas-defesa.md` do repositório antigo `PdM-CMaps` |
+| `rul_oficial_boosting_regime.csv` | confirmatório | P3: XGBoost e LightGBM (+temporal) com atributos sobre sensores padronizados por regime, janelas 5/10 e 5/10/30 (Colab, determinístico): RMSE truncado e sem truncar e pontuação da NASA |
 | `rul_ajustado_resumo.csv` | exploratório (decidido antes de ver o teste: hiperparâmetros e janela saem só da validação cruzada nos motores de treino) | P3: teste oficial ajustado, 11 modelos x 4 subconjuntos x 3 sementes (média e desvio), com as métricas estendidas; Tabela 5.3 e Apêndice B |
 | `rul_ajustado_metricas_por_semente.csv` | exploratório | O mesmo, por semente |
 | `rul_ajustado_vs_padrao.csv` | exploratório | RMSE (truncado e sem truncar) e NASA médio do ajustado contra a referência (janela 15, global) e contra a melhor configuração anterior (escolhida com o teste à vista); Tabela 5.3 e B.16/B.17 |
@@ -79,7 +79,7 @@
 | `monitoring_repeated_uncertainty_summary.csv` | confirmatório | P2: incerteza conformal e custo da decisão (camada de monitoramento) |
 | `monitoring_repeated_uncertainty_variants_summary.csv` | confirmatório | P2: incerteza conformal e custo da decisão (camada de monitoramento) |
 | `native_mewma_offset_resumo.csv` | exploratório | análise de apoio dos motores nativos (deslocamento fora da janela, MEWMA) |
-| `diagnostico_fd003_ruido_estimacao.csv` | exploratório | diagnóstico do ganho negativo do Extra Trees no FD003: ET padrão, misturas com a média (25% e 50%) e regularizado, H=25 e H=50, FD003 e FD001 (Colab, `scripts/colab_diagnostico_fd003_ml.sh` (repositório antigo `PdM-CMaps`)) |
+| `diagnostico_fd003_ruido_estimacao.csv` | exploratório | diagnóstico do ganho negativo do Extra Trees no FD003: ET padrão, misturas com a média (25% e 50%) e regularizado, H=25 e H=50, FD003 e FD001 (`python scripts/rodar.py rodar diagnostico_fd003`) |
 | `native_offset_fora_janela_resumo.csv` | exploratório | análise de apoio dos motores nativos (deslocamento fora da janela, MEWMA) |
 | `pareado_far_resumo.csv` | confirmatório | P1: poder da injeção cega a falso alarme igualado |
 | `pareado_far_resumo_offset_so_t50.csv` | comparação | protocolo anterior (deslocamento só no T50) ou sem deslocamento; serve de contraste, não de resultado |
