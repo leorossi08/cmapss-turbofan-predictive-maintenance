@@ -1,21 +1,28 @@
-# Dependências de execução (espelham `dependencies` do pyproject.toml). Requer Python 3.10+.
+# Dependências de execução (espelham `dependencies` do pyproject.toml). Requer Python 3.12+ (resultados gerados com 3.13).
+# Versões FIXAS: são as que geraram os números da monografia (ver "Reprodutibilidade" no README).
 # Instalação: pip install -r requirements.txt   (o pacote em si: pip install -e .)
-numpy
-pandas
-scipy
-scikit-learn
-matplotlib
-catboost
-xgboost
-lightgbm
-plotly>=6.0
-torch
+
+# torch 2.15.0 só de CPU: com este índice o pip prefere o pacote "+cpu", o que foi conferido na reprodução
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+numpy==2.5.4
+pandas==3.1.1
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+catboost==1.2.10
+xgboost==3.4.1
+lightgbm==4.7.0
+plotly==7.1.0
+joblib==1.6.0
+threadpoolctl==3.8.0
+torch==2.15.0
 
 # Testes
-pytest
+pytest==9.2.0
 
 # Busca de hiperparâmetros (extra "tuning")
-optuna
+optuna==5.1.0
 
-# Fluxo reprodutível (extra "workflow", ver o Snakefile)
+# Fluxo reprodutível (extra "workflow", ver o Snakefile); só orquestra, não altera números
 snakemake

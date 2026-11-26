@@ -6,17 +6,20 @@ build-backend = "setuptools.build_meta"
 name = "pdm-cmaps"
 version = "0.1.0"
 description = "Manutenção preditiva em turbofans NASA C-MAPSS: detecção de anomalias, RUL e camada de monitoramento"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
+# Versões FIXAS: são as que geraram os números da monografia. Com outras versões os resultados mudam
+# (medido: scikit-learn altera a detecção nos subconjuntos de 6 regimes). Ver "Reprodutibilidade" no README.
 dependencies = [
-    "numpy", "pandas", "scipy", "scikit-learn", "matplotlib",
-    "catboost", "xgboost", "lightgbm", "plotly>=6.0",
-    "torch",  # importado incondicionalmente por modeling/ e analysis/, portanto obrigatório
+    "numpy==2.5.4", "pandas==3.1.1", "scipy==1.18.1", "scikit-learn==1.9.1", "matplotlib==3.11.2",
+    "catboost==1.2.10", "xgboost==3.4.1", "lightgbm==4.7.0", "plotly==7.1.0",
+    "joblib==1.6.0", "threadpoolctl==3.8.0",
+    "torch==2.15.0",  # importado incondicionalmente por modeling/ e analysis/, portanto obrigatório
 ]
 
 [project.optional-dependencies]
-dev = ["pytest"]
-tuning = ["optuna"]      # busca de hiperparâmetros (pdm_cmaps.experiments.selecao_hiperparametros)
-workflow = ["snakemake"]  # fluxo reprodutível: ver o Snakefile
+dev = ["pytest==9.2.0"]
+tuning = ["optuna==5.1.0"]  # busca de hiperparâmetros (pdm_cmaps.experiments.selecao_hiperparametros)
+workflow = ["snakemake"]  # fluxo reprodutível: ver o Snakefile (só orquestra; versão livre, não altera números)
 
 [project.scripts]
 pdm-cmaps = "pdm_cmaps.cli.main:main"

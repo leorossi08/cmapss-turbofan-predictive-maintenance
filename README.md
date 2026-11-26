@@ -6,10 +6,11 @@ Manutenção preditiva em turbofans (**NASA C-MAPSS**): detecta anomalias sem us
 
 ## Começando
 
-Requer **Python 3.10+**.
+Requer **Python 3.12+** (os resultados da monografia foram gerados com 3.13).
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
+pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu   # antes do resto: evita o pacote com CUDA
 pip install -e ".[dev]"          # `make install` faz o mesmo
 
 make test                             # roda a suíte de testes
@@ -19,6 +20,15 @@ python -m pdm_cmaps --subset FD001    # primeira execução (um subconjunto)
 A primeira execução não é rápida: medimos **~28 min** para FD001 sem MiniRocket (com a máquina também ocupada com outras tarefas), e o progresso aparece fase a fase (ver "Acompanhar uma rodada longa"). Os resultados vão para `results/maintenance_guide_fd001/` (`figures/` em PNG e `tables/` em CSV). O diretório `results/` é gerado e regenerável; não é versionado.
 
 > **Atenção:** sem `--no-clean`, a pasta de saída é apagada no início da execução.
+
+### Reprodutibilidade
+
+As versões das bibliotecas são fixas em `pyproject.toml` e `requirements.txt`. O que foi medido (Google Colab):
+
+- **scikit-learn:** com a 1.6.1, os detectores que usam o sensor virtual mudam no FD002 (6 regimes); numpy, pandas e scipy revertidos um a um não mudaram a detecção.
+- **Processador:** detecção, árvores e boosting do teste oficial saíram iguais em AMD e Intel. CNN, LSTM e Transformer só repetiram os originais em **AMD EPYC** (conferir com `lscpu`).
+- **Ambiente virtual no Colab:** exporte `MPLBACKEND=Agg` (o backend de gráficos do notebook não existe no ambiente novo).
+- **Resultados já versionados:** o estudo de injeção reaproveita as rodadas existentes em `results/injecao_deteccao/runs/` (FD004, H = 25). Para recalculá-las, use outro `--output-dir`.
 
 ### Figuras da monografia
 
